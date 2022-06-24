@@ -1,0 +1,371 @@
+@font-face {
+  font-family: "Pacifico";
+  src: url("fonts/pacifico/Pacifico-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Satisfy";
+  src: url("fonts/satisfy/Satisfy-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Caveat";
+  src: url("fonts/caveat/static/Caveat-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("fonts/roboto/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "BebasNeue";
+  src: url("fonts/bebas-neue/BebasNeue-Regular.ttf") format("truetype");
+}
+
+html, body, input, textarea {
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.30), rgb(42, 38, 61, 0.40)), url("img/snow4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html,body{
+    width: 100%;
+    height: auto;
+}
+
+.navbar{
+    opacity: 0.85;
+    background-attachment: fixed;
+	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.40), rgb(42, 38, 61, 0.50)), url("img/snow4.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.margin-heading{
+    margin-top: 6.5rem;
+}
+
+.jumbotron{
+    background-attachment: fixed;
+	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.50), rgb(42, 38, 61, 0.60)), url("img/snow4.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.carousel-inner{
+    border-radius: 10px;
+}
+
+#carouselExampleFade{
+        
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+
+img.carousel-img{
+    padding-bottom: 20px;
+    border-radius: 10px;
+    width: 90%;
+    height: 600px;
+}
+
+div.jumbotron.bg-cover{
+    -webkit-text-stroke:  #f0f0f0;
+    color:  #f0f0f0
+}
+
+div.card{
+    background-attachment: fixed;
+	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.50), rgb(42, 38, 61, 0.60)), url("img/snow4.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+    margin: auto;
+    border: 2px;
+    border-radius: 10px;
+    width: 90%;
+    height: 40rem;
+}
+
+img#card-img-top{
+    opacity: 0.80;
+    border: 5px;
+    border-radius: 10px;
+    margin: 10px 0px 20px 0px;
+    width: 80%;
+    height: 250px;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    font-family: Satisfy;
+    font-size: 1.2rem;
+    font-weight: 20;
+    text-decoration: none;
+    color: white;
+}
+
+a.button:hover {
+    
+    font-size: 1.35rem;
+    font-weight: 20;
+    text-decoration: none;
+    text-shadow: 2px 2px 0.25rem #fff;
+    color: white;
+}
+
+.form-group{
+    width:100%;
+}
+
+.buttons {
+  display: inline-block;
+  font-family: Pacifico;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.50rem 0.90rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.50rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 1rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #f0f0f0;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+        .buttons {
+            transition: none;
+          }
+        
+        .form-control {
+            transition: none;
+          }
+        }
+        
+        .form-control::-ms-expand {
+          background-color: transparent;
+          border: 0;
+        }
+        
+        .form-control:focus {
+          color: #f0f0f0;
+          background-color: #fff;
+          border-color: #e0e9f5;
+          outline: 0;
+          box-shadow: 0 0 0 0.2rem rgba(224, 233, 245, 0.25);
+        }
+        
+        .form-control::-webkit-input-placeholder{
+          font-size: 13px;
+          font-weight: 400;
+          color: #f0f0f0;
+          opacity: 0.7;
+        }
+        
+        .form-control::-moz-placeholder {
+          font-size: 13px;
+          font-weight: 400;
+          color: #f0f0f0;
+          opacity: 0.7;
+        }
+        
+        .form-control:-ms-input-placeholder {
+          font-size: 13px;
+          font-weight: 400;
+          color: #f0f0f0;
+          opacity: 0.7;
+        }
+        
+        .form-control::-ms-input-placeholder {
+          font-size: 13px;
+          font-weight: 400;
+          color: #f0f0f0;
+          opacity: 0.7;
+        }
+        
+        .form-control::placeholder {
+          font-size: 13px;
+          font-weight: 400;
+          color: #f0f0f0;
+          opacity: 0.7;
+        }
+        
+        .form-control:disabled, .form-control[readonly] {
+          font-size: 13px;
+          font-weight: 400;
+          background-color: #e9ecef;
+          opacity: 0.7;
+        }
+}
+
+.buttons:hover {
+  color: #212529;
+  button-shadow: 2px 2px 0.25rem #fff;
+  text-decoration: none;
+}
+
+/* .buttons:focus, .buttons.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem  #fff;
+} */
+
+.buttons-dark {
+  color: #fff;
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.70), rgb(42, 38, 61, 0.80)), url("img/snow4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-color: #f0f0f0;
+}
+
+.buttons-dark:hover {
+  color: #fff;
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.70), rgb(42, 38, 61, 0.80)), url("img/snow4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  border-color: #f0f0f0;
+  box-shadow: 0 0 0.5rem  #f0f0f0;
+}
+
+/* .buttons-dark:focus, .buttons-dark.focus {
+  color: #fff;
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.70), rgb(42, 38, 61, 0.80)), url("img/snow4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  border-color: #f0f0f0;
+  box-shadow: 0 0 0.5rem  #f0f0f0;
+} */
+
+.navbar.footer{
+    opacity: 0.70; 
+    background-position: center;
+    background-attachment: fixed;
+	background: linear-gradient(to bottom, rgb(42, 38, 61, 0.40), rgb(42, 38, 61, 0.50)), url("img/snow4.jpg");
+	background-repeat: no-repeat;
+    padding-top: 2rem;
+}
+
+hr.solid {
+  width: 45%;
+  border-top: 1.5px solid #f0f0f0;
+}
+
+/* Navbar Hover Style */
+.navbar-dark .navbar-brand {
+    color: #FFFFFF;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+    color: #FFFFFF;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #FFFFFF;
+}
+
+/* Font Style */
+
+span.about-me{
+    font-style: italic;
+    font-weight: bold;
+}
+
+h5.subtitle{
+    font-family: Pacifico;
+}
+
+label{
+    font-weight: bold;
+    font-family: Satisfy;
+    font-size: 36px;
+}
+
+label,h5.lead.about-me,h5.lead.projects{
+    font-size: 18px;
+    text-shadow: none;
+    line-height: 30px;
+}
+
+h5#quotes{
+    font-size: 16px;
+    font-style: italic !important;
+    text-shadow: 2px 2px 2px rgb(0,0,0,0.8);
+}
+
+
+p,h4{
+   font-family: Caveat; 
+}
+
+p{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+a.navbar-brand{
+    font-family: Satisfy;
+    font-size: 32px;
+}
+
+a.nav-link, p.navbar-brand.text-white{
+    font-family: Satisfy;
+    font-size: 16px;
+}
+
+a.text-white{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.text-white:hover{
+    text-color: #cfdee5;
+}
+
+h1.h1.display-4{
+  font-family: Caveat;
+  font-weight: bolder;
+  font-size: 72px;
+}
+
+h2{
+    font-family: Caveat;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+h1,h2,h3,h4,h5,p,label,a.nav-link,a.navbar-brand,p.navbar-brand{
+    text-shadow: 2px 2px 2px rgb(0,0,0,0.8);
+}
