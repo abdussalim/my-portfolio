@@ -103,8 +103,8 @@ img#card-img-top{
     border: 5px dashed #f0f0f0;
     border-radius: 10px;
     margin: 10px 0px 20px 0px;
-    width: 250px;
-    height: 250px;
+    width: 15.625rem;
+    height: 15.625rem;
 }
 
 a.button {
@@ -191,42 +191,42 @@ a.button:hover {
         }
         
         .form-control::-webkit-input-placeholder{
-          font-size: 15px;
+          font-size: 0.938rem;
           font-weight: 400;
           color: #f0f0f0;
           opacity: 0.7;
         }
         
         .form-control::-moz-placeholder {
-          font-size: 15px;
+          font-size: 0.938rem;
           font-weight: 400;
           color: #f0f0f0;
           opacity: 0.7;
         }
         
         .form-control:-ms-input-placeholder {
-          font-size: 15px;
+          font-size: 0.938rem;
           font-weight: 400;
           color: #f0f0f0;
           opacity: 0.7;
         }
         
         .form-control::-ms-input-placeholder {
-          font-size: 15px;
+          font-size: 0.938rem;
           font-weight: 400;
           color: #f0f0f0;
           opacity: 0.7;
         }
         
         .form-control::placeholder {
-          font-size: 15px;
+          font-size: 0.938rem;
           font-weight: 400;
           color: #f0f0f0;
           opacity: 0.7;
         }
         
         .form-control:disabled, .form-control[readonly] {
-          font-size: 15px;
+          font-size: 0.938rem;
           font-weight: 400;
           background-color: #e9ecef;
           opacity: 0.7;
@@ -299,19 +299,19 @@ h5.subtitle{
 label{
     font-weight: bold;
     font-family: Satisfy;
-    font-size: 36px;
+    font-size: 2.25rem;
 }
 
 label,h5.lead.about-me,h5.lead.projects{
-    font-size: 18px;
+    font-size: 1.125rem;
     text-shadow: none;
-    line-height: 30px;
+    line-height: 1.875;
 }
 
 h5#quotes{
-    font-size: 16px;
+    font-size: 1rem;
     font-style: italic !important;
-    text-shadow: 2px 2px 2px rgb(0,0,0,0.8);
+    text-shadow: 0.125rem 0.125rem 0.125rem rgb(0,0,0,0.8);
 }
 
 
@@ -322,17 +322,17 @@ p,h4{
 p{
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 a.navbar-brand{
     font-family: Satisfy;
-    font-size: 32px;
+    font-size: 2rem;
 }
 
 a.nav-link, p.navbar-brand.text-white{
     font-family: Satisfy;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 a.text-white{
@@ -347,15 +347,15 @@ a.text-white:hover{
 h1.h1.display-4{
   font-family: Satisfy;
   font-weight: bolder;
-  font-size: 72px;
+  font-size: 4.5rem;
 }
 
 h2{
     font-family: Satisfy;
-    font-size: 50px;
+    font-size: 3.125rem;
     font-weight: bold;
 }
 
 h1,h2,h3,h4,h5,p,label,a.nav-link,a.navbar-brand,p.navbar-brand{
-    text-shadow: 2px 2px 2px rgb(0,0,0,0.8);
+    text-shadow: 0.125rem 0.125rem 0.125rem rgb(0,0,0,0.8);
 }
