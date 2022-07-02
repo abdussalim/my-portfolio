@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name = "viewport" content = "user-scalable=no, width=device-width">
     <meta name="apple-mobile-web-app-capable" content="yes">
     
 <!-- 	BOOTSTRAP     -->
@@ -34,9 +35,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#aboutme">About Me</a>
           </li>
-<!--           <li class="nav-item">
-            <a class="nav-link" href="#achievements">Achievements</a>
-          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="#projects">Projects</a>
           </li>
@@ -64,11 +62,10 @@
                         
                 	  <br>
                 
-                	  <h1 class="h1 display-4 pt-5 pb-3"> Abdus Salim</h1>
-                
+                	  <h1 class="h1 display-4 pt-5 pb-3"> <span >Abdus Salim</span>
                 	  <br><br>
     
-                      <h5 class="lead"><span style="font-weight: bold;">Tech Enthuasiast </span>|<span style="font-weight: bold;"> Fullstack Developer </span>|<span style="font-weight: bold;"> Digital Mapper</span></h5>
+                      <h5 class="lead" style="font-family: Noto-Sans-Mono; font-style:italic; font-size: 1.1em;"><span style="font-weight: bold;">Tech Enthuasiast </span>|<span style="font-weight: bold;"> Fullstack Developer </span>|<span style="font-weight: bold;"> Digital Mapper</span></h5>
                           
                 	  
 <!--                 	  <hr class="solid">
@@ -118,9 +115,9 @@
                           <div class="col-md mb-4">
                             <div class="shadow-lg card">
                               <div class="card-body text-center">
-                                <h5 class="card-title pt-5" style="font-family: Satisfy; font-weight: bold;">Bahinak Project</h5>
+                                <h5 class="card-title pt-5">Bahinak Project</h5>
                                 <img src="img/projects/1.jpg" id="card-img-top" class="rounded-circle rounded-lg mt-4" alt="Projects">                     
-                                <h5 class="lead projects">"Bahinak" means "Breathing" in english, originally from South Borneo local lenguage. This project aimed to monitoring air quality to inform the user their own gadget.</h5>
+                                <h5 class="lead projects">"Bahinak" means "Breathing" in english, originally from Banjarnese language. This project aimed to monitoring air quality to inform the user their own gadget.</h5>
                                                             
                               </div>
                               <div class="row text-center mb-4 ">
@@ -133,7 +130,7 @@
                           <div class="col-md mb-4">
                             <div class="shadow-lg card">
                               <div class="card-body text-center ">
-                                <h5 class="card-title pt-5" style="font-family: Satisfy; font-weight: bold;">Google's Motobike</h5>
+                                <h5 class="card-title pt-5">Google's Motobike</h5>
                                 <img src="img/projects/2.jpg" id="card-img-top" class="rounded-circle rounded-lg mt-4" alt="Projects">
                                 <h5 class="lead projects">We can activate our own motorcycle with just saying "Hello Google" and "Turn the engine on, please" and then the motorcycle engine will be turn on automatically</h5>
                               </div>
@@ -147,7 +144,7 @@
                           <div class="col-md mb-4">
                             <div class="shadow-lg card">
                               <div class="card-body text-center ">
-                                <h5 class="card-title pt-5" style="font-family: Satisfy; font-weight: bold;">QR Code Goods Scanner</h5>
+                                <h5 class="card-title pt-5">QR Code Goods Scanner</h5>
                                 <img src="img/projects/3.jpg" id="card-img-top" class="rounded-circle rounded-lg mt-4" alt="Projects">
                                 <h5 class="lead projects">With this QR code scanner we would know how the price of goods and more details about the goods just only scanning the goods's QR codes.</h5>
                               
@@ -162,7 +159,7 @@
                           <div class="col-md mb-4">
                             <div class="shadow-lg card">
                               <div class="card-body text-center">
-                                <h5 class="card-title pt-5" style="font-family: Satisfy; font-weight: bold;">BMI Real-time Monitoring</h5>
+                                <h5 class="card-title pt-5">BMI Real-time Monitoring</h5>
                                 <img src="img/projects/4.jpg" id="card-img-top" class="rounded-circle rounded-lg mt-4" alt="Projects">
                                 <h5 class="lead projects">It would be informing our healthy level especially in BMI real-time and easier just only standing up above digital scales which installed with this system.</h5>
                                                             
@@ -220,12 +217,20 @@
 <!--     AKHIR FORM CONTACT     -->
 
 <!--     FOOTER     -->
-    <nav class="shadow-lg navbar footer navbar-expand-lg navbar-dark justify-content-center align-content-center mt-5" style="background-color: #2A263D;" >
+    <nav class="shadow-lg navbar-footer footer navbar-expand-lg navbar-dark justify-content-center align-content-center" style="background-color: #2A263D;" >
       
-      <p class="navbar-brand text-white">Created with &nbsp&nbsp<i class="bi bi-heart-fill text-danger"></i> &nbsp&nbsp by &nbsp&nbsp <a class="text-white" href="https://www.instagram.com/karaage_sarimu/">Abdus Salim</a></p>
+      <p class="navbar-brand text-white">Created by @ <span id="tahun" class="navbar-brand text-white" style="font-size: 1rem;"></span> <a class="text-warning" href="https://www.instagram.com/karaage_sarimu/"> Abdus Salim</a> </p>
       
     </nav>
 <!--     AKHIR FOOTER     -->
+
+
+<!--    SCRIPT tahun    -->
+
+    <script>
+    const d = new Date();
+    document.getElementById("tahun").innerHTML = d.getFullYear();
+    </script>
 
 <!--     JQUERY     -->
     <script src="jquery-3.6.0/jquery-3.6.0.js"></script>

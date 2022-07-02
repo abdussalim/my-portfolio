@@ -23,7 +23,35 @@
   src: url("fonts/bebas-neue/BebasNeue-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Lato";
+  font-weight: 900;
+  src: url("fonts/lato/Lato-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Frank-Rule-Libre";
+  font-weight: 300;
+  src: url("fonts/frank-ruhl-libre/FrankRuhlLibre-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto-Sans-Mono";
+  font-weight: 200;
+  src: url("fonts/noto-sans-mono/static/NotoSansMono/NotoSansMono-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto-Serif-Display";
+  font-weight: 100;
+  src: url("fonts/noto-serif-display/static/NotoSerifDisplay/NotoSerifDisplay-Thin.ttf") format("truetype");
+}
+
+
+
+
 html, body, input, textarea {
+  background-position: center;
   background-attachment: fixed;
   background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.10), rgb(42, 38, 61, 0.20)), url("img/komp1.jpg");
   background-repeat: no-repeat;
@@ -37,6 +65,8 @@ html,body{
 
 .navbar{
     opacity: 0.85;
+    border-bottom: 5px dashed #f0f0f0;
+    background-position: center;
     background-attachment: fixed;
 	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.20), rgb(42, 38, 61, 0.30)), url("img/komp1.jpg");
 	background-repeat: no-repeat;
@@ -48,10 +78,12 @@ html,body{
 }
 
 .jumbotron{
+    background-position: center;
     background-attachment: fixed;
 	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.30), rgb(42, 38, 61, 0.40)), url("img/komp1.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
+    border: 5px dashed #f0f0f0;
     border-radius: 5rem;
     width: 100%;
     height: auto;
@@ -87,6 +119,7 @@ div.jumbotron.bg-cover{
 }
 
 div.card{
+    background-position: center;
     background-attachment: fixed;
 	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.30), rgb(42, 38, 61, 0.40)), url("img/komp1.jpg");
 	background-repeat: no-repeat;
@@ -95,7 +128,7 @@ div.card{
     border: 2px;
     border-radius: 7rem;
     width: 100%;
-    height: 40rem;
+    height: 48rem;
 }
 
 img#card-img-top{
@@ -111,7 +144,7 @@ a.button {
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
-    font-family: Satisfy;
+    font-family: ;
     font-size: 1.2rem;
     font-weight: 20;
     text-decoration: none;
@@ -133,8 +166,8 @@ a.button:hover {
 
 .buttons {
   display: inline-block;
-  font-family: Pacifico;
-  font-weight: 400;
+  font-family: Noto-Sans-Mono;
+  font-style: bold;
   color: #212529;
   text-align: center;
   vertical-align: middle;
@@ -183,6 +216,9 @@ a.button:hover {
         }
         
         .form-control:focus {
+          font-weight: bolder;
+        font-family: Noto-Sans-Mono;
+        font-size: 0.875rem;
           color: #f0f0f0;
           background-color: #fff;
           border-color: #e0e9f5;
@@ -191,42 +227,54 @@ a.button:hover {
         }
         
         .form-control::-webkit-input-placeholder{
-          font-size: 0.938rem;
+          font-weight: bold;
+        font-family: Noto-Sans-Mono;
+        font-size: 0.875rem;
           font-weight: 400;
           color: #f0f0f0;
           opacity: 0.7;
         }
         
         .form-control::-moz-placeholder {
-          font-size: 0.938rem;
+          font-weight: bold;
+        font-family: Noto-Sans-Mono;
+        font-size: 0.875rem;
           font-weight: 400;
           color: #f0f0f0;
           opacity: 0.7;
         }
         
         .form-control:-ms-input-placeholder {
-          font-size: 0.938rem;
+          font-weight: bold;
+        font-family: Noto-Sans-Mono;
+        font-size: 0.875rem;
           font-weight: 400;
           color: #f0f0f0;
           opacity: 0.7;
         }
         
         .form-control::-ms-input-placeholder {
-          font-size: 0.938rem;
+          font-weight: bold;
+        font-family: Noto-Sans-Mono;
+        font-size: 0.875rem;
           font-weight: 400;
           color: #f0f0f0;
           opacity: 0.7;
         }
         
         .form-control::placeholder {
-          font-size: 0.938rem;
+          font-weight: bold;
+        font-family: Noto-Sans-Mono;
+        font-size: 0.875rem;
           font-weight: 400;
           color: #f0f0f0;
           opacity: 0.7;
         }
         
         .form-control:disabled, .form-control[readonly] {
-          font-size: 0.938rem;
+          font-weight: bold;
+        font-family: Noto-Sans-Mono;
+        font-size: 0.875rem;
           font-weight: 400;
           background-color: #e9ecef;
           opacity: 0.7;
@@ -258,14 +306,28 @@ a.button:hover {
   box-shadow: 0 0 0.5rem  #f0f0f0;
 }
 
-.navbar.footer{
-    opacity: 0.70; 
-    background-position-y: end;
+.footer{
+    opacity: 0.60; 
+    border-top: 5px dashed #f0f0f0;
+    background-position: top;
     background-attachment: fixed;
-	background: linear-gradient(to bottom, rgb(42, 38, 61, 0.70), rgb(42, 38, 61, 0.90)), url("img/komp1.jpg");
+	background: linear-gradient(to bottom, rgb(42, 38, 61, 0.40), rgb(42, 38, 61, 0.50)), url("img/komp1.jpg");
 	background-repeat: no-repeat;
-    padding-top: 2rem;
 }
+
+.navbar-footer {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1rem 1rem 0rem 1rem;
+}
+
 
 hr.solid {
   width: 45%;
@@ -287,25 +349,36 @@ hr.solid {
 
 /* Font Style */
 
-span.about-me{
+h5.lead.about-me{
+    /*font-family: Noto-Serif-Display;*/
     font-style: italic;
+}
+
+span.about-me{
     font-weight: bold;
 }
 
-h5.subtitle{
-    font-family: Pacifico;
+h5.lead.projects{
+    /*font-family: Noto-Sans-Mono;*/
+    font-size: rem;
+    font-style: italic;
+    line-height: 2rem;
+    color: #fff;
+
 }
 
 label{
     font-weight: bold;
-    font-family: Satisfy;
-    font-size: 2.25rem;
+    font-family: Noto-Sans-Mono;
+    font-size: 0.875rem;
 }
 
-label,h5.lead.about-me,h5.lead.projects{
+h5.lead.about-me{
     font-size: 1.125rem;
+    line-height: 2.15rem;
+    letter-spacing: 0.005rem;
     text-shadow: none;
-    line-height: 1.875;
+    
 }
 
 h5#quotes{
@@ -315,8 +388,10 @@ h5#quotes{
 }
 
 
-p,h4{
-   font-family: Caveat; 
+p,h4,h5.card-title.pt-5{
+   font-family: monospace; 
+   font-style: italic;
+   font-weight: ;
 }
 
 p{
@@ -326,12 +401,14 @@ p{
 }
 
 a.navbar-brand{
-    font-family: Satisfy;
+    font-family: monospace;
+  font-style: italic;
     font-size: 2rem;
 }
 
 a.nav-link, p.navbar-brand.text-white{
-    font-family: Satisfy;
+    font-family: monospace;
+  font-style: italic;
     font-size: 1rem;
 }
 
@@ -344,16 +421,34 @@ a.text-white:hover{
     text-color: #cfdee5;
 }
 
+a.text-warning{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.text-warning:hover{
+    -webkit-text-stroke: 0.1px yellow;
+}
+
 h1.h1.display-4{
-  font-family: Satisfy;
+  font-family: monospace;
+  font-style: italic;
   font-weight: bolder;
-  font-size: 4.5rem;
+  font-size: 5rem;
 }
 
 h2{
-    font-family: Satisfy;
+    font-family: monospace;
+    font-style: italic;
     font-size: 3.125rem;
     font-weight: bold;
+}
+
+a.nav-link{
+    font-family: Noto-Sans-Mono;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 0.875rem;
 }
 
 h1,h2,h3,h4,h5,p,label,a.nav-link,a.navbar-brand,p.navbar-brand{
