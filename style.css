@@ -65,10 +65,10 @@ html,body{
 
 .navbar{
     opacity: 0.85;
-    border-bottom: 5px dashed #f0f0f0;
+    /*border-bottom: 5px dashed #f0f0f0;*/
     background-position: center;
     background-attachment: fixed;
-	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.20), rgb(42, 38, 61, 0.30)), url("img/komp1.jpg");
+	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.40), rgb(42, 38, 61, 0.50)), url("img/komp1.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -80,7 +80,7 @@ html,body{
 .jumbotron{
     background-position: center;
     background-attachment: fixed;
-	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.30), rgb(42, 38, 61, 0.40)), url("img/komp1.jpg");
+	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.40), rgb(42, 38, 61, 0.50)), url("img/komp1.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
     border: 5px dashed #f0f0f0;
@@ -121,7 +121,7 @@ div.jumbotron.bg-cover{
 div.card{
     background-position: center;
     background-attachment: fixed;
-	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.30), rgb(42, 38, 61, 0.40)), url("img/komp1.jpg");
+	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.40), rgb(42, 38, 61, 0.50)), url("img/komp1.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
     margin: auto;
@@ -308,7 +308,7 @@ a.button:hover {
 
 .footer{
     opacity: 0.60; 
-    border-top: 5px dashed #f0f0f0;
+    /*border-top: 5px dashed #f0f0f0;*/
     background-position: top;
     background-attachment: fixed;
 	background: linear-gradient(to bottom, rgb(42, 38, 61, 0.40), rgb(42, 38, 61, 0.50)), url("img/komp1.jpg");
