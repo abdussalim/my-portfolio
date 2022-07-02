@@ -50,10 +50,10 @@
 
 
 
-html, body, input, textarea {
+html, body{
   background-position: center;
   background-attachment: fixed;
-  background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.10), rgb(42, 38, 61, 0.20)), url("img/komp1.jpg");
+  background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.30), rgb(42, 38, 61, 0.40)), url("img/komp1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -61,6 +61,14 @@ html, body, input, textarea {
 html,body{
     width: 100%;
     height: auto;
+}
+
+input, textarea {
+  background-position: center;
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.10), rgb(42, 38, 61, 0.20)), url("img/komp1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .navbar{
@@ -77,10 +85,10 @@ html,body{
     margin-top: 6.5rem;
 }
 
-.jumbotron{
+div.jumbotron{
     background-position: center;
     background-attachment: fixed;
-	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.40), rgb(42, 38, 61, 0.50)), url("img/komp1.jpg");
+	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.50), rgb(42, 38, 61, 0.55)), url("img/komp1.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
     border: 5px dashed #f0f0f0;
@@ -121,11 +129,11 @@ div.jumbotron.bg-cover{
 div.card{
     background-position: center;
     background-attachment: fixed;
-	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.40), rgb(42, 38, 61, 0.50)), url("img/komp1.jpg");
+	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.15), rgb(42, 38, 61, 0.25)), url("img/komp1.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
     margin: auto;
-    border: 2px;
+    border: 1px solid #f0f0f0;
     border-radius: 7rem;
     width: 100%;
     height: 48rem;
@@ -144,19 +152,19 @@ a.button {
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
-    font-family: ;
-    font-size: 1.2rem;
-    font-weight: 20;
+    font-family: Noto-Serif-Display ;
+    font-size: 0.875rem;
+    font-weight: bolder;
+    font-style: italic;
     text-decoration: none;
     color: white;
 }
 
 a.button:hover {
     
-    font-size: 1.35rem;
-    font-weight: 20;
+    font-size: 1rem;
     text-decoration: none;
-    text-shadow: 2px 2px 0.25rem #fff;
+    text-shadow: 2px 2px 0.35rem #fff;
     color: white;
 }
 
@@ -168,7 +176,7 @@ a.button:hover {
   display: inline-block;
   font-family: Noto-Sans-Mono;
   font-style: bold;
-  color: #212529;
+  color: #fff;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
