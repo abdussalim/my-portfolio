@@ -12,9 +12,9 @@
 }
 
 
-
-
 html, body{
+  margin: 0;
+  padding: 0;
   background-position: center;
   background-attachment: fixed;
   background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.30), rgb(42, 38, 61, 0.40)), url("img/komp1.jpg");
@@ -58,7 +58,7 @@ div.jumbotron.jumbotron-hero,div.jumbotron.jumbotron-about-me,div.jumbotron.jumb
     background-repeat: no-repeat;
     background-size: cover;
     border: 5px dashed #f0f0f0;
-    border-radius: 5rem;
+    border-radius: 4rem;
     width: 100%;
     height: auto;
 
@@ -85,9 +85,9 @@ div.card{
 	background-size: cover;
     box-sizing: border-box;
     border: 1px solid #f0f0f0;
-    border-radius: 7rem;
+    border-radius: 3rem;
     width: 100%;
-    height: 48rem;
+    height: 34rem;
 }
 
 img#card-img-top{
@@ -290,8 +290,9 @@ a.button:hover {
 
 
 hr.solid {
-  width: 30%;
-  border-top: 6px solid #f0f0f0;
+  width: 50%;
+  border-top: 1px solid #f0f0f0;
+  transition: width .5s;
 }
 
 /* Navbar Hover Style */
@@ -309,22 +310,15 @@ hr.solid {
 
 /* Font Style */
 
-h5.lead.about-me{
-    /*font-family: Noto-Serif-Display;*/
+h5.lead.about-me.paragraph{
+    font-size: 0.875rem;
     font-style: italic;
+    letter-spacing: 0.005rem;
+    line-height: 1.5rem;
 }
 
 span.about-me{
     font-weight: bold;
-}
-
-h5.lead.projects{
-    /*font-family: Noto-Sans-Mono;*/
-    font-size: rem;
-    font-style: italic;
-    line-height: 2rem;
-    color: #fff;
-
 }
 
 label{
@@ -333,18 +327,32 @@ label{
     font-size: 0.875rem;
 }
 
-h5.lead.about-me{
+h5#quotes{
+    font-size: 0.9rem;
+    font-style: italic !important;
+    text-shadow: 0.125rem 0.125rem 0.125rem rgb(0,0,0,0.8);
+}
+
+h5.lead.profession{
+    font-family: Noto-Sans-Mono;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/*h5.lead.about-me{
     font-size: 1.125rem;
     line-height: 2.15rem;
     letter-spacing: 0.005rem;
     text-shadow: none;
     
-}
+}*/
 
-h5#quotes{
+h5.lead.projects{
     font-size: 1rem;
-    font-style: italic !important;
-    text-shadow: 0.125rem 0.125rem 0.125rem rgb(0,0,0,0.8);
+    font-style: italic;
+    line-height: 2rem;
+    color: #fff;
+
 }
 
 
@@ -426,18 +434,45 @@ h1,h2,h3,h4,h5,p,label,a.nav-link,a.navbar-brand,p.navbar-brand{
       font-style: italic;
       font-weight: bolder;
       font-size: 5rem;
+
+      transition: all 1.5s ease;
+      -webkit-transition: all 1.5s ease;
+      -moz-transition: all 1.5s ease;     
     }
 
-
-    h2.text-center{
-        text-align: center;
+    h1.h1.display-4:hover{
+        color: transparent;
+        -webkit-text-stroke: .2px #fff;
+        text-shadow: 2px 2px 0.5rem #fff;
     }
-    h2.text-center.prependicular {
 
-      transform: rotate(-90deg);
-      transform: scale(1.5);
+    h2.text-center,h2.text-center.prependicular,h5#quotes,div.jumbotron.jumbotron-hero,div.jumbotron.jumbotron-about-me,div.jumbotron.jumbotron-projects,div.jumbotron.jumbotron-form-contacts{
 
       /* Legacy vendor prefixes that you probably don't need... */
+
+      transition: all 1.5s ease;
+
+      /* Safari */
+      -webkit-transition: all 1.5s ease;
+
+      /* Firefox */
+      -moz-transition: all 1.5s ease;
+    }
+
+    h2.text-center:hover {
+        color: #fff;
+        font-weight: bold;
+        -webkit-text-stroke: 0.2px #fff;
+        text-shadow: 2px 2px 0.3rem #fff;  
+    }
+
+
+    h2.text-center.prependicular{
+
+      transform: rotate(-90deg);
+    
+      /* Legacy vendor prefixes that you probably don't need... */
+
 
       /* Safari */
       -webkit-transform: rotate(-90deg);
@@ -454,22 +489,102 @@ h1,h2,h3,h4,h5,p,label,a.nav-link,a.navbar-brand,p.navbar-brand{
       /* Internet Explorer */
       filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
+    }
+
+h5.lead.profession{
+    font-family: Noto-Sans-Mono;
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 2rem;
+    transition: all 1s ease;
 }
 
+h5.lead.profession:hover{
+    color: #fff;
+    font-weight: bold;
+    transform: scale(1.2);
+    -webkit-text-stroke: 0.2px #fff;
+    text-shadow: 2px 2px 0.3rem #fff;
+}
+
+
+h5.lead.about-me.paragraph{
+    font-size: 1rem;
+    line-height: 2rem;
+    font-style: italic;
+}
+
+h5.lead.about-me.paragraph:hover{
+    -webkit-text-stroke: 0.2px #fff;
+}
+
+h5.card-title.pt-5:hover{
+    font-weight: bold;
+    -webkit-text-stroke: 0.2px #fff;
+}
+
+h5.lead.projects{
+    font-size: 1rem;
+    line-height: 2rem;
+    font-style: italic;
+    color: #fff;
+
+}
+
+h5.lead.projects:hover{
+    color: #fff;
+    text-shadow: 2px 2px 0.3rem #fff;
+}
+
+hr.solid {
+ margin-top: 2rem;
+  width: 3%;
+  border-top: 1px solid #f0f0f0;
+  transition: width 1s;
+}
+
+hr.solid:hover {
+  width: 85%;
+  border-top: 1px solid #fff;
+}
+
+h5#quotes{
+    font-size: 0.9rem;
+}
+
+h5#quotes:hover{
+    font-size: 1rem;
+    font-style: italic !important;
+    -webkit-text-stroke: 0.2px #fff;
+}
+
+img.rounded-circle.rounded-lg{
+    transition: all 1s ease;
+}
+
+img.rounded-circle.rounded-lg:hover{
+    border: 1px solid; #fff;
+    transform: scale(1.1); 
+    opacity: 1;
+}
 
 img#card-img-top{
     display: inline;
     opacity: 0.80;
-    border: 5px dashed #f0f0f0;
+    border: 1px solid #f0f0f0;
     border-radius: 10px;
-    width: 20.625rem;
-    height: 20.625rem;
+    width: 16.625rem;
+    height: 16.625rem;
+    transition: transform 1.5s;
+}
+
+img#card-img-top:hover{
+    transform: scale(1.06);
 }
 
 div.card{
 
     text-align: center;
-    /*display: flex;*/
     justify-content: center;
     align-items: center;
 
@@ -479,14 +594,28 @@ div.card{
     background-repeat: no-repeat;
     background-size: cover;
     margin: auto;
-    border: 1px solid #f0f0f0;
+    border: 1px solid #fff;
     border-radius: 7rem;
     width: 100%;
-    height: 48rem;
+    height: 38rem;
 }
 
+div.card:hover{
+background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.50), rgb(42, 38, 61, 0.60)), url("img/komp1.jpg");
+border: 2px solid #fff;
+-webkit-text-stroke: 0.2px #fff;
+}
 
-div.jumbotron-hero,div.jumbotron-about-me,div.jumbotron-projects{
+div.jumbotron.jumbotron-hero{
+    margin-top: 60rem;
+    padding-top: 3rem;
+}
+
+div.jumbotron.jumbotron-about-me,div.jumbotron.jumbotron-projects{
+    padding-right:10%;
+}
+
+div.jumbotron.jumbotron-hero,div.jumbotron.jumbotron-about-me,div.jumbotron.jumbotron-projects{
 
     text-align: center;
     display: flex;
@@ -498,10 +627,46 @@ div.jumbotron-hero,div.jumbotron-about-me,div.jumbotron-projects{
     background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.50), rgb(42, 38, 61, 0.55)), url("img/komp1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    border: 5px dashed #f0f0f0;
+    border: 5px dashed #fff;
     border-radius: 5rem;
     width: 100%;
     height: auto;
+    margin: 2rem auto;
 }
+
+div.jumbotron.jumbotron-form-contacts{
+
+    background-position: center;
+    background-attachment: fixed;
+    background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.50), rgb(42, 38, 61, 0.55)), url("img/komp1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 5px dashed #fff;
+    border-radius: 5rem;
+    width: 100%;
+    height: auto;
+    margin: 2rem auto;
+
+}
+
+    div.jumbotron.jumbotron-hero:hover{
+        border: 5px solid #fff;
+        background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.70), rgb(42, 38, 61, 0.80)), url("img/komp1.jpg");
+    }
+
+    div.jumbotron.jumbotron-about-me:hover{
+        border: 5px solid #fff;
+        background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.70), rgb(42, 38, 61, 0.80)), url("img/komp1.jpg");
+    }
+
+    div.jumbotron.jumbotron-projects:hover{
+        border: 5px solid #fff;
+        background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.70), rgb(42, 38, 61, 0.80)), url("img/komp1.jpg");
+    }
+
+    div.jumbotron.jumbotron-form-contacts:hover{
+        border: 5px solid #fff;
+        background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.70), rgb(42, 38, 61, 0.80)), url("img/komp1.jpg");
+    }
 
 }
