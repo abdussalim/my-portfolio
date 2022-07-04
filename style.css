@@ -122,11 +122,16 @@ img.carousel-img{
 }
 
 div.jumbotron.bg-cover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-text-stroke:  #f0f0f0;
     color:  #f0f0f0
 }
 
 div.card{
+    display: flex;
+    justify-content: center;
     background-position: center;
     background-attachment: fixed;
 	background-image: linear-gradient(to bottom, rgb(42, 38, 61, 0.15), rgb(42, 38, 61, 0.25)), url("img/komp1.jpg");
