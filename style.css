@@ -87,7 +87,7 @@ div.card{
     border: 1px solid #f0f0f0;
     border-radius: 3rem;
     width: 100%;
-    height: 34rem;
+    height: 36rem;
 }
 
 img#card-img-top{
@@ -560,26 +560,32 @@ h5#quotes:hover{
 
 img.rounded-circle.rounded-lg{
     transition: all 1s ease;
+    filter: saturate(30%);
 }
 
 img.rounded-circle.rounded-lg:hover{
     border: 1px solid; #fff;
     transform: scale(1.1); 
+    filter: saturate(100%);
     opacity: 1;
 }
 
 img#card-img-top{
     display: inline;
-    opacity: 0.80;
+    opacity: 1;
     border: 1px solid #f0f0f0;
     border-radius: 10px;
-    width: 16.625rem;
-    height: 16.625rem;
-    transition: transform 1.5s;
+    width: 11.625rem;
+    height: 11.625rem;
+    transition: transform 1s;
+    filter: saturate(30%);
+    
 }
 
 img#card-img-top:hover{
-    transform: scale(1.06);
+    opacity: 1;
+    filter: saturate(100%);
+    transform: scale(1.16);
 }
 
 div.card{
