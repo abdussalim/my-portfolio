@@ -204,6 +204,7 @@ ul {
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: auto-phrase;
+  letter-spacing: 0;
 }
 
 .japanese-lens {
