@@ -91,7 +91,7 @@ ul {
 .section-title {
   max-width: 880px;
   margin: 0;
-  font-size: clamp(2.6rem, 7vw, 6.6rem);
+  font-size: clamp(2.45rem, 5.8vw, 5.45rem);
   font-weight: 800;
   line-height: 0.96;
   letter-spacing: 0;
@@ -189,6 +189,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
 }
 
 .nav-logo {
@@ -200,6 +201,37 @@ ul {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang-toggle {
+  min-width: 42px;
+  height: 34px;
+  border: 1px solid rgba(17, 17, 20, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.54);
+  color: inherit;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 180ms var(--ease), border-color 180ms var(--ease), transform 180ms var(--ease);
+}
+
+.lang-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(17, 17, 20, 0.18);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.navbar-dark .lang-toggle {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .nav-link {
@@ -278,7 +310,7 @@ ul {
 .hero-grid {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.72fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.78fr);
   align-items: center;
   gap: clamp(36px, 7vw, 92px);
 }
@@ -291,11 +323,11 @@ ul {
 }
 
 .hero-title {
-  max-width: 800px;
+  max-width: 760px;
   margin: 0;
-  font-size: clamp(3.3rem, 9vw, 8.5rem);
+  font-size: clamp(3.15rem, 6.8vw, 6.85rem);
   font-weight: 800;
-  line-height: 0.92;
+  line-height: 0.94;
   letter-spacing: 0;
 }
 
@@ -318,7 +350,8 @@ ul {
   align-self: stretch;
   display: grid;
   align-items: end;
-  min-height: min(68vh, 680px);
+  min-height: min(70vh, 640px);
+  padding-top: clamp(34px, 7vh, 84px);
   border-radius: var(--radius);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.22)),
@@ -329,8 +362,8 @@ ul {
 }
 
 .hero-portrait img {
-  width: min(78%, 420px);
-  margin: 0 auto;
+  width: min(68%, 360px);
+  margin: auto auto 0;
   filter: saturate(0.94) contrast(1.03);
 }
 
@@ -759,10 +792,11 @@ ul {
 
   .hero-portrait {
     min-height: auto;
+    padding-top: 28px;
   }
 
   .hero-portrait img {
-    width: min(70%, 340px);
+    width: min(58%, 300px);
   }
 
   .story-stage,
@@ -799,6 +833,10 @@ ul {
     display: block;
   }
 
+  .nav-actions {
+    gap: 8px;
+  }
+
   .nav-menu {
     position: fixed;
     inset: var(--nav-height) 12px auto;
@@ -832,7 +870,14 @@ ul {
   }
 
   .hero-title {
-    font-size: clamp(3rem, 18vw, 5.4rem);
+    font-size: clamp(2.9rem, 13.5vw, 4.3rem);
+    line-height: 0.96;
+  }
+
+  .section-title,
+  .story-title,
+  .contact-title {
+    font-size: clamp(2.35rem, 11vw, 4rem);
   }
 
   .hero-actions {

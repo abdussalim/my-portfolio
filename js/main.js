@@ -9,6 +9,121 @@ const storySteps = document.querySelectorAll('.story-step');
 const projectCards = document.querySelectorAll('.project-card');
 const activeProjectImage = document.getElementById('active-project-image');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const langToggle = document.querySelector('[data-lang-toggle]');
+
+const translations = {
+  id: {
+    'nav.about': 'Tentang',
+    'nav.story': 'Cerita',
+    'nav.works': 'Karya',
+    'nav.contact': 'Kontak',
+    'hero.eyebrow': 'Fullstack Developer / IoT Builder / Mapping Specialist',
+    'hero.title': 'Saya masak produk digital, lalu saya sajikan rapi.',
+    'hero.lead': 'Web app, sensor, dan peta digital saya kemas jadi alat yang enak dipakai.',
+    'hero.primary': 'Lihat karya',
+    'hero.secondary': 'Ngobrol dulu',
+    'hero.captionA': 'Dari rasa penasaran',
+    'hero.captionB': 'jadi produk terkoneksi',
+    'about.kicker': 'Tentang saya',
+    'about.title': 'Saya mulai dari penasaran, lalu bikin sampai terasa gampang.',
+    'about.text': 'Fisika ngajarin saya membaca pola. Arduino bikin ide terasa nyata. Web app membantu semuanya sampai ke tangan pengguna.',
+    'story.kicker': 'Scrollytelling',
+    'story.title': 'Dari kabel kecil ke produk yang siap dipakai.',
+    'story.step1.title': 'Baca pola.',
+    'story.step1.text': 'Fisika bikin saya terbiasa mencari sebab, ukuran, dan feedback.',
+    'story.step2.title': 'Racik prototype.',
+    'story.step2.text': 'Sensor dan Arduino jadi dapur pertama untuk mencoba ide di dunia nyata.',
+    'story.step3.title': 'Bungkus jadi web.',
+    'story.step3.text': 'Data yang mentah saya rapikan jadi flow, dashboard, dan interface.',
+    'story.step4.title': 'Kirim ke pengguna.',
+    'story.step4.text': 'Produk yang sudah matang saya serve: jelas, ringan, dan siap dipakai.',
+    'projects.kicker': 'Karya pilihan',
+    'projects.title': 'Beberapa eksperimen yang pernah saya kirim.',
+    'projects.p1': 'Monitor kualitas udara, biar kondisi napas bisa dibaca dari gadget sendiri.',
+    'projects.p2': 'Prototype motor yang bisa dinyalakan lewat perintah suara.',
+    'projects.p3': 'Scan QR untuk membaca detail dan harga barang tanpa banyak klik.',
+    'projects.p4': 'Timbangan digital yang langsung mengolah tinggi, berat, dan BMI.',
+    'contact.kicker': 'Kontak',
+    'contact.title': 'Punya ide yang perlu dimasak bareng?',
+    'contact.text': 'Ceritakan versi mentahnya. Kita rapikan pelan-pelan sampai siap disajikan.',
+    'form.name': 'Nama lengkap',
+    'form.email': 'Alamat email',
+    'form.message': 'Pesan',
+    'form.placeholder': 'Ceritakan yang mau kamu bangun...',
+    'form.submit': 'Kirim pesan',
+    'footer.created': 'Dibuat dengan rapi oleh'
+  },
+  en: {
+    'nav.about': 'About',
+    'nav.story': 'Story',
+    'nav.works': 'Works',
+    'nav.contact': 'Contact',
+    'hero.eyebrow': 'Fullstack Developer / IoT Builder / Mapping Specialist',
+    'hero.title': 'I cook digital products, then serve them clean.',
+    'hero.lead': 'Web apps, sensors, and digital maps packed into tools people can enjoy using.',
+    'hero.primary': 'See works',
+    'hero.secondary': 'Talk first',
+    'hero.captionA': 'From curiosity',
+    'hero.captionB': 'to connected products',
+    'about.kicker': 'About me',
+    'about.title': 'I start with curiosity, then tune things until they feel easy.',
+    'about.text': 'Physics taught me patterns. Arduino made ideas tangible. Web apps help the whole thing reach users.',
+    'story.kicker': 'Scrollytelling',
+    'story.title': 'From tiny wires to ready-to-use products.',
+    'story.step1.title': 'Read the pattern.',
+    'story.step1.text': 'Physics trained me to look for cause, measurement, and feedback.',
+    'story.step2.title': 'Cook the prototype.',
+    'story.step2.text': 'Sensors and Arduino became the first kitchen for testing ideas in the real world.',
+    'story.step3.title': 'Pack it into web.',
+    'story.step3.text': 'Raw data gets shaped into flows, dashboards, and interfaces.',
+    'story.step4.title': 'Ship it to users.',
+    'story.step4.text': 'Once the product is cooked, I serve it clear, light, and ready to use.',
+    'projects.kicker': 'Selected works',
+    'projects.title': 'A few experiments I have shipped.',
+    'projects.p1': 'Air quality monitoring, so breathing conditions are readable from your own gadget.',
+    'projects.p2': 'A motorcycle prototype that starts through voice commands.',
+    'projects.p3': 'QR scanning for product details and prices without too many clicks.',
+    'projects.p4': 'A digital scale that processes height, weight, and BMI in real time.',
+    'contact.kicker': 'Contact',
+    'contact.title': 'Got an idea we should cook together?',
+    'contact.text': 'Send the raw version. We can shape it slowly until it is ready to serve.',
+    'form.name': 'Full name',
+    'form.email': 'Email address',
+    'form.message': 'Message',
+    'form.placeholder': 'Tell me what you want to build...',
+    'form.submit': 'Send message',
+    'footer.created': 'Created neatly by'
+  }
+};
+
+const setLanguage = (language) => {
+  const dictionary = translations[language] || translations.id;
+  document.documentElement.lang = language;
+  localStorage.setItem('portfolio-language', language);
+
+  document.querySelectorAll('[data-i18n]').forEach((element) => {
+    const key = element.dataset.i18n;
+    if (dictionary[key]) element.textContent = dictionary[key];
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+    const key = element.dataset.i18nPlaceholder;
+    if (dictionary[key]) element.setAttribute('placeholder', dictionary[key]);
+  });
+
+  if (langToggle) {
+    langToggle.textContent = language === 'id' ? 'EN' : 'ID';
+    langToggle.setAttribute('aria-label', language === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia');
+  }
+};
+
+const initialLanguage = localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'id';
+setLanguage(initialLanguage);
+
+langToggle?.addEventListener('click', () => {
+  const nextLanguage = document.documentElement.lang === 'id' ? 'en' : 'id';
+  setLanguage(nextLanguage);
+});
 
 const revealElements = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {

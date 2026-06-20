@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,16 +17,19 @@
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#home" class="nav-logo" aria-label="Abdus Salim home">Abdus Salim</a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#story" class="nav-link">Story</a></li>
-        <li><a href="#projects" class="nav-link">Works</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
+      <div class="nav-actions">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#about" class="nav-link" data-i18n="nav.about">Tentang</a></li>
+          <li><a href="#story" class="nav-link" data-i18n="nav.story">Cerita</a></li>
+          <li><a href="#projects" class="nav-link" data-i18n="nav.works">Karya</a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Kontak</a></li>
+        </ul>
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language">EN</button>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -35,22 +38,21 @@
       <div class="hero-backdrop" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow reveal">Fullstack Developer / IoT Builder / Mapping Specialist</p>
-          <h1 class="hero-title reveal reveal-delay-1">Designing calm software for real&#8209;world systems.</h1>
-          <p class="hero-lead reveal reveal-delay-2">
-            I am Abdus Salim, a STEM-minded builder who turns sensors, web apps, and digital maps into simple
-            experiences people can actually use.
+          <p class="eyebrow reveal" data-i18n="hero.eyebrow">Fullstack Developer / IoT Builder / Mapping Specialist</p>
+          <h1 class="hero-title reveal reveal-delay-1" data-i18n="hero.title">Saya masak produk digital, lalu saya sajikan rapi.</h1>
+          <p class="hero-lead reveal reveal-delay-2" data-i18n="hero.lead">
+            Web app, sensor, dan peta digital saya kemas jadi alat yang enak dipakai.
           </p>
           <div class="hero-actions reveal reveal-delay-3" aria-label="Primary actions">
-            <a class="button button-primary" href="#projects">See works</a>
-            <a class="button button-secondary" href="#contact">Start a conversation</a>
+            <a class="button button-primary" href="#projects" data-i18n="hero.primary">Lihat karya</a>
+            <a class="button button-secondary" href="#contact" data-i18n="hero.secondary">Ngobrol dulu</a>
           </div>
         </div>
         <div class="hero-portrait reveal reveal-delay-2">
           <img src="img/saya-ganteng.png" alt="Portrait of Abdus Salim">
           <div class="portrait-caption">
-            <span>From physics curiosity</span>
-            <strong>to connected products</strong>
+            <span data-i18n="hero.captionA">Dari rasa penasaran</span>
+            <strong data-i18n="hero.captionB">jadi produk terkoneksi</strong>
           </div>
         </div>
       </div>
@@ -61,13 +63,11 @@
 
     <section id="about" class="section intro-panel" data-theme="light">
       <div class="container intro-grid">
-        <p class="section-kicker reveal">A cleaner way to tell the story</p>
+        <p class="section-kicker reveal" data-i18n="about.kicker">Tentang saya</p>
         <div>
-          <h2 class="section-title reveal reveal-delay-1">I build from curiosity, then refine until the interface feels obvious.</h2>
-          <p class="intro-text reveal reveal-delay-2">
-            My path started with physics and Arduino, then grew into web applications, Internet of Things projects,
-            and practical dashboards. The common thread is simple: make technical things feel lighter for the people
-            who need them.
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="about.title">Saya mulai dari penasaran, lalu bikin sampai terasa gampang.</h2>
+          <p class="intro-text reveal reveal-delay-2" data-i18n="about.text">
+            Fisika ngajarin saya membaca pola. Arduino bikin ide terasa nyata. Web app membantu semuanya sampai ke tangan pengguna.
           </p>
         </div>
       </div>
@@ -77,8 +77,8 @@
       <div class="story-progress" aria-hidden="true"><span id="story-progress"></span></div>
       <div class="container story-layout">
         <div class="story-stage">
-          <p class="section-kicker reveal">Scrollytelling</p>
-          <h2 class="story-title reveal reveal-delay-1">A small journey from components to complete products.</h2>
+          <p class="section-kicker reveal" data-i18n="story.kicker">Scrollytelling</p>
+          <h2 class="story-title reveal reveal-delay-1" data-i18n="story.title">Dari kabel kecil ke produk yang siap dipakai.</h2>
           <div class="story-device reveal reveal-delay-2" aria-hidden="true">
             <div class="device-bar"></div>
             <div class="device-screen">
@@ -96,23 +96,23 @@
         <div class="story-steps">
           <article class="story-step" data-step="01">
             <span>01</span>
-            <h3>Physics trained the way I notice systems.</h3>
-            <p>Before web apps, I learned to think in cause, measurement, and feedback. That habit still shapes how I debug and design.</p>
+            <h3 data-i18n="story.step1.title">Baca pola.</h3>
+            <p data-i18n="story.step1.text">Fisika bikin saya terbiasa mencari sebab, ukuran, dan feedback.</p>
           </article>
           <article class="story-step" data-step="02">
             <span>02</span>
-            <h3>Microcontrollers made ideas tangible.</h3>
-            <p>Arduino and sensors gave me a direct bridge between code and the physical world, where small details matter quickly.</p>
+            <h3 data-i18n="story.step2.title">Racik prototype.</h3>
+            <p data-i18n="story.step2.text">Sensor dan Arduino jadi dapur pertama untuk mencoba ide di dunia nyata.</p>
           </article>
           <article class="story-step" data-step="03">
             <span>03</span>
-            <h3>Web apps turned prototypes into tools.</h3>
-            <p>When friends trusted me with their web-app ideas, I learned to ship interfaces, flows, data, and real user expectations.</p>
+            <h3 data-i18n="story.step3.title">Bungkus jadi web.</h3>
+            <p data-i18n="story.step3.text">Data yang mentah saya rapikan jadi flow, dashboard, dan interface.</p>
           </article>
           <article class="story-step" data-step="04">
             <span>04</span>
-            <h3>Now I connect the map, the sensor, and the screen.</h3>
-            <p>I enjoy building systems that are useful in the field: clear monitoring, readable data, and technology that gets out of the way.</p>
+            <h3 data-i18n="story.step4.title">Kirim ke pengguna.</h3>
+            <p data-i18n="story.step4.text">Produk yang sudah matang saya serve: jelas, ringan, dan siap dipakai.</p>
           </article>
         </div>
       </div>
@@ -121,8 +121,8 @@
     <section id="projects" class="projects section" data-theme="light">
       <div class="container">
         <div class="section-heading">
-          <p class="section-kicker reveal">Selected works</p>
-          <h2 class="section-title reveal reveal-delay-1">Four practical experiments, redesigned as a calm product showcase.</h2>
+          <p class="section-kicker reveal" data-i18n="projects.kicker">Karya pilihan</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="projects.title">Beberapa eksperimen yang pernah saya kirim.</h2>
         </div>
 
         <div class="project-showcase">
@@ -133,22 +133,22 @@
             <article class="project-card active reveal" data-image="img/projects/1.jpg" data-alt="Bahinak air quality monitoring project">
               <p class="project-index">01</p>
               <h3>Bahinak Project</h3>
-              <p>Air quality monitoring that helps users understand breathing conditions from their own device.</p>
+              <p data-i18n="projects.p1">Monitor kualitas udara, biar kondisi napas bisa dibaca dari gadget sendiri.</p>
             </article>
             <article class="project-card reveal" data-image="img/projects/2.jpg" data-alt="Voice activated motorcycle project">
               <p class="project-index">02</p>
               <h3>Google's Motobike</h3>
-              <p>A voice-triggered motorcycle prototype that explores hands-free ignition with simple assistant commands.</p>
+              <p data-i18n="projects.p2">Prototype motor yang bisa dinyalakan lewat perintah suara.</p>
             </article>
             <article class="project-card reveal" data-image="img/projects/3.jpg" data-alt="QR code goods scanner project">
               <p class="project-index">03</p>
               <h3>QR Code Goods Scanner</h3>
-              <p>A scanner flow for reading product details and prices quickly through QR-based identification.</p>
+              <p data-i18n="projects.p3">Scan QR untuk membaca detail dan harga barang tanpa banyak klik.</p>
             </article>
             <article class="project-card reveal" data-image="img/projects/4.jpg" data-alt="BMI real-time monitoring project">
               <p class="project-index">04</p>
               <h3>BMI Real-time Monitoring</h3>
-              <p>A digital-scale system that turns height and weight readings into immediate BMI insight.</p>
+              <p data-i18n="projects.p4">Timbangan digital yang langsung mengolah tinggi, berat, dan BMI.</p>
             </article>
           </div>
         </div>
@@ -158,11 +158,10 @@
     <section id="contact" class="contact section-dark" data-theme="dark">
       <div class="container contact-grid">
         <div class="contact-copy">
-          <p class="section-kicker reveal">Contact</p>
-          <h2 class="contact-title reveal reveal-delay-1">Have a project that needs a steady technical hand?</h2>
-          <p class="contact-text reveal reveal-delay-2">
-            Send a message, share the rough idea, or just say hello. I am happy to talk through web apps, IoT,
-            mapping, and the messy middle between prototype and product.
+          <p class="section-kicker reveal" data-i18n="contact.kicker">Kontak</p>
+          <h2 class="contact-title reveal reveal-delay-1" data-i18n="contact.title">Punya ide yang perlu dimasak bareng?</h2>
+          <p class="contact-text reveal reveal-delay-2" data-i18n="contact.text">
+            Ceritakan versi mentahnya. Kita rapikan pelan-pelan sampai siap disajikan.
           </p>
           <div class="contact-links reveal reveal-delay-3">
             <a href="https://www.instagram.com/karaage_sarimu/" target="_blank" rel="noopener">@karaage_sarimu</a>
@@ -174,18 +173,18 @@
           <input type="hidden" name="_next" value="?submitted=true">
           <input type="hidden" name="_captcha" value="true">
           <label>
-            <span>Full Name</span>
+            <span data-i18n="form.name">Nama lengkap</span>
             <input type="text" name="name" placeholder="Abdus Salim" required>
           </label>
           <label>
-            <span>Email Address</span>
+            <span data-i18n="form.email">Alamat email</span>
             <input type="email" name="email" placeholder="abdussalim@example.com" required>
           </label>
           <label>
-            <span>Message</span>
-            <textarea name="message" rows="5" placeholder="Tell me what you want to build..." required></textarea>
+            <span data-i18n="form.message">Pesan</span>
+            <textarea name="message" rows="5" placeholder="Ceritakan yang mau kamu bangun..." data-i18n-placeholder="form.placeholder" required></textarea>
           </label>
-          <button class="button button-primary button-wide" type="submit">Send message</button>
+          <button class="button button-primary button-wide" type="submit" data-i18n="form.submit">Kirim pesan</button>
         </form>
       </div>
     </section>
@@ -193,7 +192,7 @@
 
   <footer class="footer">
     <div class="container footer-container">
-      <p>Created with care by <a href="https://www.instagram.com/karaage_sarimu/" target="_blank" rel="noopener">Abdus Salim</a></p>
+      <p><span data-i18n="footer.created">Dibuat dengan rapi oleh</span> <a href="https://www.instagram.com/karaage_sarimu/" target="_blank" rel="noopener">Abdus Salim</a></p>
       <p>&copy; <span id="year"></span></p>
     </div>
   </footer>
