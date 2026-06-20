@@ -14,21 +14,32 @@ const langToggle = document.querySelector('[data-lang-toggle]');
 const translations = {
   id: {
     'nav.about': 'Tentang',
+    'nav.career': 'Karier',
     'nav.story': 'Cerita',
     'nav.works': 'Karya',
     'nav.contact': 'Kontak',
     'hero.eyebrow': 'Fullstack Developer / IoT Builder / Mapping Specialist',
-    'hero.title': 'Saya masak produk digital, lalu saya sajikan rapi.',
-    'hero.lead': 'Web app, sensor, dan peta digital saya kemas jadi alat yang enak dipakai.',
+    'hero.title': 'Saya masak sistem yang stabil, lalu saya sajikan rapi.',
+    'hero.lead': 'SRE, frontend, backend, dan IoT saya kemas jadi produk yang enak dipakai.',
     'hero.primary': 'Lihat karya',
     'hero.secondary': 'Ngobrol dulu',
     'hero.captionA': 'Dari rasa penasaran',
     'hero.captionB': 'jadi produk terkoneksi',
     'about.kicker': 'Tentang saya',
-    'about.title': 'Saya mulai dari penasaran, lalu bikin sampai terasa gampang.',
-    'about.text': 'Fisika ngajarin saya membaca pola. Arduino bikin ide terasa nyata. Web app membantu semuanya sampai ke tangan pengguna.',
+    'about.title': 'Saya menjaga sistem tetap hidup, sambil tetap bisa membangun produknya.',
+    'about.text': 'Saya bekerja di reliability, CI/CD, server Linux, dan aplikasi web. Kalau produk masih mentah, saya bisa ikut masak dari infrastruktur sampai UI.',
+    'career.kicker': 'Karier singkat',
+    'career.title': 'Reliability dulu. Produk tetap jalan.',
+    'career.note': '1.5 tahun sebagai SRE, 20+ pipeline CI/CD, dan pengalaman frontend sejak 2023.',
+    'career.metric1': 'pipeline CI/CD',
+    'career.metric2': 'rilis lebih cepat',
+    'career.metric3': 'biaya operasional turun',
+    'career.job1': 'Menjaga 7 aplikasi edukasi tetap stabil, aman, dan gampang dirilis.',
+    'career.job2': 'Membangun UI React dan membantu revamp tampilan agar lebih nyaman dipakai.',
+    'career.job3': 'Mengurus kebutuhan frontend harian dengan React dan JavaScript.',
+    'career.job4': 'Mengumpulkan data geolokasi untuk pemetaan perkebunan sawit.',
     'story.kicker': 'Scrollytelling',
-    'story.title': 'Dari kabel kecil ke produk yang siap dipakai.',
+    'story.title': 'Dari kabel kecil ke sistem yang siap dijaga.',
     'story.step1.title': 'Baca pola.',
     'story.step1.text': 'Fisika bikin saya terbiasa mencari sebab, ukuran, dan feedback.',
     'story.step2.title': 'Racik prototype.',
@@ -39,6 +50,7 @@ const translations = {
     'story.step4.text': 'Produk yang sudah matang saya serve: jelas, ringan, dan siap dipakai.',
     'projects.kicker': 'Karya pilihan',
     'projects.title': 'Beberapa eksperimen yang pernah saya kirim.',
+    'projects.note': 'Bukan sekadar demo. Ini potongan kecil dari cara saya meracik hardware, data, dan interface.',
     'projects.p1': 'Monitor kualitas udara, biar kondisi napas bisa dibaca dari gadget sendiri.',
     'projects.p2': 'Prototype motor yang bisa dinyalakan lewat perintah suara.',
     'projects.p3': 'Scan QR untuk membaca detail dan harga barang tanpa banyak klik.',
@@ -55,21 +67,32 @@ const translations = {
   },
   en: {
     'nav.about': 'About',
+    'nav.career': 'Career',
     'nav.story': 'Story',
     'nav.works': 'Works',
     'nav.contact': 'Contact',
     'hero.eyebrow': 'Fullstack Developer / IoT Builder / Mapping Specialist',
-    'hero.title': 'I cook digital products, then serve them clean.',
-    'hero.lead': 'Web apps, sensors, and digital maps packed into tools people can enjoy using.',
+    'hero.title': 'I cook stable systems, then serve them clean.',
+    'hero.lead': 'SRE, frontend, backend, and IoT packed into products people can enjoy using.',
     'hero.primary': 'See works',
     'hero.secondary': 'Talk first',
     'hero.captionA': 'From curiosity',
     'hero.captionB': 'to connected products',
     'about.kicker': 'About me',
-    'about.title': 'I start with curiosity, then tune things until they feel easy.',
-    'about.text': 'Physics taught me patterns. Arduino made ideas tangible. Web apps help the whole thing reach users.',
+    'about.title': 'I keep systems alive, while still being able to build the product.',
+    'about.text': 'I work with reliability, CI/CD, Linux servers, and web apps. If the product is still raw, I can help cook it from infrastructure to UI.',
+    'career.kicker': 'Short career',
+    'career.title': 'Reliability first. Product still moving.',
+    'career.note': '1.5 years as an SRE, 20+ CI/CD pipelines, and frontend experience since 2023.',
+    'career.metric1': 'CI/CD pipelines',
+    'career.metric2': 'faster releases',
+    'career.metric3': 'lower operational cost',
+    'career.job1': 'Keeping 7 education apps stable, secure, and easier to release.',
+    'career.job2': 'Building React UI and helping revamp screens so they feel easier to use.',
+    'career.job3': 'Handling daily frontend needs with React and JavaScript.',
+    'career.job4': 'Collecting geolocation data for oil palm mapping.',
     'story.kicker': 'Scrollytelling',
-    'story.title': 'From tiny wires to ready-to-use products.',
+    'story.title': 'From tiny wires to systems ready to be kept alive.',
     'story.step1.title': 'Read the pattern.',
     'story.step1.text': 'Physics trained me to look for cause, measurement, and feedback.',
     'story.step2.title': 'Cook the prototype.',
@@ -80,6 +103,7 @@ const translations = {
     'story.step4.text': 'Once the product is cooked, I serve it clear, light, and ready to use.',
     'projects.kicker': 'Selected works',
     'projects.title': 'A few experiments I have shipped.',
+    'projects.note': 'Not just demos. These are small slices of how I cook hardware, data, and interface together.',
     'projects.p1': 'Air quality monitoring, so breathing conditions are readable from your own gadget.',
     'projects.p2': 'A motorcycle prototype that starts through voice commands.',
     'projects.p3': 'QR scanning for product details and prices without too many clicks.',
@@ -94,6 +118,83 @@ const translations = {
     'form.submit': 'Send message',
     'footer.created': 'Created neatly by'
   }
+};
+
+const japaneseWords = [
+  '信頼性', '安定', '配信', '設計', '監視', '自動化', '速度', '安全', '基盤', '開発',
+  '運用', '品質', '地図', '計測', '試作', '構築', '改善', '接続', '画面', '製品'
+];
+
+const getJapaneseWord = (word) => {
+  let total = 0;
+  [...word].forEach((char) => {
+    total += char.codePointAt(0);
+  });
+  return japaneseWords[total % japaneseWords.length];
+};
+
+const wrapJapaneseHoverWords = () => {
+  if (!window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
+
+  document.querySelectorAll('.jp-hover').forEach((element) => {
+    const text = element.textContent;
+    const fragment = document.createDocumentFragment();
+    const parts = text.split(/(\s+)/);
+
+    parts.forEach((part) => {
+      if (!part.trim()) {
+        fragment.append(document.createTextNode(part));
+        return;
+      }
+
+      const match = part.match(/^([^\p{L}\p{N}]?)([\p{L}\p{N}/+.-]+)([^\p{L}\p{N}]?)$/u);
+      if (!match) {
+        fragment.append(document.createTextNode(part));
+        return;
+      }
+
+      const [, prefix, word, suffix] = match;
+      const span = document.createElement('span');
+      span.className = 'jp-word';
+      span.dataset.original = part;
+      span.dataset.jp = `${prefix}${getJapaneseWord(word)}${suffix}`;
+      span.textContent = part;
+      fragment.append(span);
+    });
+
+    element.replaceChildren(fragment);
+    element.querySelectorAll('.jp-word').forEach((word) => {
+      word.style.minWidth = `${word.getBoundingClientRect().width}px`;
+    });
+  });
+};
+
+let japaneseHoverReady = false;
+const setupJapaneseHover = () => {
+  if (japaneseHoverReady || !window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
+  japaneseHoverReady = true;
+
+  document.addEventListener('mousemove', (event) => {
+    const radius = 78;
+    document.querySelectorAll('.jp-word').forEach((word) => {
+      const rect = word.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      const distance = Math.hypot(event.clientX - x, event.clientY - y);
+      const active = distance < radius;
+
+      word.classList.toggle('jp-active', active);
+      word.textContent = active ? word.dataset.jp : word.dataset.original;
+    });
+  }, { passive: true });
+
+  window.addEventListener('mouseout', (event) => {
+    if (event.relatedTarget) return;
+    document.querySelectorAll('.jp-word').forEach((word) => {
+      word.classList.remove('jp-active');
+      word.textContent = word.dataset.original;
+    });
+  });
 };
 
 const setLanguage = (language) => {
@@ -115,10 +216,13 @@ const setLanguage = (language) => {
     langToggle.textContent = language === 'id' ? 'EN' : 'ID';
     langToggle.setAttribute('aria-label', language === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia');
   }
+
+  wrapJapaneseHoverWords();
 };
 
 const initialLanguage = localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'id';
 setLanguage(initialLanguage);
+setupJapaneseHover();
 
 langToggle?.addEventListener('click', () => {
   const nextLanguage = document.documentElement.lang === 'id' ? 'en' : 'id';

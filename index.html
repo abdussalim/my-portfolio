@@ -20,6 +20,7 @@
       <div class="nav-actions">
         <ul class="nav-menu" id="nav-menu">
           <li><a href="#about" class="nav-link" data-i18n="nav.about">Tentang</a></li>
+          <li><a href="#career" class="nav-link" data-i18n="nav.career">Karier</a></li>
           <li><a href="#story" class="nav-link" data-i18n="nav.story">Cerita</a></li>
           <li><a href="#projects" class="nav-link" data-i18n="nav.works">Karya</a></li>
           <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Kontak</a></li>
@@ -39,9 +40,9 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow reveal" data-i18n="hero.eyebrow">Fullstack Developer / IoT Builder / Mapping Specialist</p>
-          <h1 class="hero-title reveal reveal-delay-1" data-i18n="hero.title">Saya masak produk digital, lalu saya sajikan rapi.</h1>
-          <p class="hero-lead reveal reveal-delay-2" data-i18n="hero.lead">
-            Web app, sensor, dan peta digital saya kemas jadi alat yang enak dipakai.
+          <h1 class="hero-title reveal reveal-delay-1 jp-hover" data-i18n="hero.title">Saya masak sistem yang stabil, lalu saya sajikan rapi.</h1>
+          <p class="hero-lead reveal reveal-delay-2 jp-hover" data-i18n="hero.lead">
+            SRE, frontend, backend, dan IoT saya kemas jadi produk yang enak dipakai.
           </p>
           <div class="hero-actions reveal reveal-delay-3" aria-label="Primary actions">
             <a class="button button-primary" href="#projects" data-i18n="hero.primary">Lihat karya</a>
@@ -65,10 +66,77 @@
       <div class="container intro-grid">
         <p class="section-kicker reveal" data-i18n="about.kicker">Tentang saya</p>
         <div>
-          <h2 class="section-title reveal reveal-delay-1" data-i18n="about.title">Saya mulai dari penasaran, lalu bikin sampai terasa gampang.</h2>
-          <p class="intro-text reveal reveal-delay-2" data-i18n="about.text">
-            Fisika ngajarin saya membaca pola. Arduino bikin ide terasa nyata. Web app membantu semuanya sampai ke tangan pengguna.
+          <h2 class="section-title reveal reveal-delay-1 jp-hover" data-i18n="about.title">Saya menjaga sistem tetap hidup, sambil tetap bisa membangun produknya.</h2>
+          <p class="intro-text reveal reveal-delay-2 jp-hover" data-i18n="about.text">
+            Saya bekerja di reliability, CI/CD, server Linux, dan aplikasi web. Kalau produk masih mentah, saya bisa ikut masak dari infrastruktur sampai UI.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="career" class="career section" data-theme="light">
+      <div class="container">
+        <div class="section-heading compact-heading">
+          <p class="section-kicker reveal" data-i18n="career.kicker">Karier singkat</p>
+          <h2 class="section-title reveal reveal-delay-1 jp-hover" data-i18n="career.title">Reliability dulu. Produk tetap jalan.</h2>
+          <p class="section-note reveal reveal-delay-2 jp-hover" data-i18n="career.note">1.5 tahun sebagai SRE, 20+ pipeline CI/CD, dan pengalaman frontend sejak 2023.</p>
+        </div>
+
+        <div class="career-metrics reveal reveal-delay-2" aria-label="Career highlights">
+          <div>
+            <strong>20+</strong>
+            <span data-i18n="career.metric1">pipeline CI/CD</span>
+          </div>
+          <div>
+            <strong>40%</strong>
+            <span data-i18n="career.metric2">rilis lebih cepat</span>
+          </div>
+          <div>
+            <strong>20-30%</strong>
+            <span data-i18n="career.metric3">biaya operasional turun</span>
+          </div>
+        </div>
+
+        <div class="career-grid">
+          <article class="career-card reveal">
+            <p class="career-date">May 2025 - Present</p>
+            <h3>Site Reliability Engineer</h3>
+            <p>PT INSTRUMETA TEKNOLOGI NUSANTARA</p>
+            <span data-i18n="career.job1">Menjaga 7 aplikasi edukasi tetap stabil, aman, dan gampang dirilis.</span>
+          </article>
+          <article class="career-card reveal">
+            <p class="career-date">Feb 2023 - Feb 2026</p>
+            <h3>Frontend Web Developer</h3>
+            <p>NashTa Group</p>
+            <span data-i18n="career.job2">Membangun UI React dan membantu revamp tampilan agar lebih nyaman dipakai.</span>
+          </article>
+          <article class="career-card reveal">
+            <p class="career-date">Feb 2023 - Feb 2026</p>
+            <h3>Frontend Web Developer</h3>
+            <p>Kementerian Keuangan RI</p>
+            <span data-i18n="career.job3">Mengurus kebutuhan frontend harian dengan React dan JavaScript.</span>
+          </article>
+          <article class="career-card reveal">
+            <p class="career-date">Jan 2021 - Sep 2021</p>
+            <h3>Surveying Technician</h3>
+            <p>DINAS PERTANIAN KABUPATEN KAPUAS</p>
+            <span data-i18n="career.job4">Mengumpulkan data geolokasi untuk pemetaan perkebunan sawit.</span>
+          </article>
+        </div>
+
+        <div class="skill-cloud reveal" aria-label="Core skills">
+          <span>GitHub Actions</span>
+          <span>Docker</span>
+          <span>Linux VPS</span>
+          <span>Traefik</span>
+          <span>Vault</span>
+          <span>React</span>
+          <span>Next.js</span>
+          <span>Node.js</span>
+          <span>Express</span>
+          <span>Postgres</span>
+          <span>MySQL</span>
+          <span>Prisma</span>
         </div>
       </div>
     </section>
@@ -78,7 +146,7 @@
       <div class="container story-layout">
         <div class="story-stage">
           <p class="section-kicker reveal" data-i18n="story.kicker">Scrollytelling</p>
-          <h2 class="story-title reveal reveal-delay-1" data-i18n="story.title">Dari kabel kecil ke produk yang siap dipakai.</h2>
+          <h2 class="story-title reveal reveal-delay-1 jp-hover" data-i18n="story.title">Dari kabel kecil ke sistem yang siap dijaga.</h2>
           <div class="story-device reveal reveal-delay-2" aria-hidden="true">
             <div class="device-bar"></div>
             <div class="device-screen">
@@ -122,36 +190,73 @@
       <div class="container">
         <div class="section-heading">
           <p class="section-kicker reveal" data-i18n="projects.kicker">Karya pilihan</p>
-          <h2 class="section-title reveal reveal-delay-1" data-i18n="projects.title">Beberapa eksperimen yang pernah saya kirim.</h2>
+          <h2 class="section-title reveal reveal-delay-1 jp-hover" data-i18n="projects.title">Beberapa eksperimen yang pernah saya kirim.</h2>
+          <p class="section-note reveal reveal-delay-2 jp-hover" data-i18n="projects.note">Bukan sekadar demo. Ini potongan kecil dari cara saya meracik hardware, data, dan interface.</p>
         </div>
 
-        <div class="project-showcase">
-          <div class="project-visual" aria-live="polite">
-            <img id="active-project-image" src="img/projects/1.jpg" alt="Bahinak Project">
-          </div>
-          <div class="project-list">
-            <article class="project-card active reveal" data-image="img/projects/1.jpg" data-alt="Bahinak air quality monitoring project">
+        <div class="work-wall">
+            <article class="project-card work-card work-feature active reveal" data-image="img/projects/1.jpg" data-alt="Bahinak air quality monitoring project">
+              <figure class="work-media">
+                <img src="img/projects/1.jpg" alt="Bahinak air quality monitoring project">
+              </figure>
+              <div class="work-copy">
               <p class="project-index">01</p>
               <h3>Bahinak Project</h3>
               <p data-i18n="projects.p1">Monitor kualitas udara, biar kondisi napas bisa dibaca dari gadget sendiri.</p>
+              <div class="work-tags" aria-label="Project tags">
+                <span>IoT</span>
+                <span>Monitoring</span>
+                <span>Mobile-ready</span>
+              </div>
+              </div>
             </article>
-            <article class="project-card reveal" data-image="img/projects/2.jpg" data-alt="Voice activated motorcycle project">
+
+            <article class="project-card work-card reveal" data-image="img/projects/2.jpg" data-alt="Voice activated motorcycle project">
+              <figure class="work-media">
+                <img src="img/projects/2.jpg" alt="Voice activated motorcycle project">
+              </figure>
+              <div class="work-copy">
               <p class="project-index">02</p>
               <h3>Google's Motobike</h3>
               <p data-i18n="projects.p2">Prototype motor yang bisa dinyalakan lewat perintah suara.</p>
+              <div class="work-tags" aria-label="Project tags">
+                <span>Voice</span>
+                <span>Prototype</span>
+              </div>
+              </div>
             </article>
-            <article class="project-card reveal" data-image="img/projects/3.jpg" data-alt="QR code goods scanner project">
+
+            <article class="project-card work-card reveal" data-image="img/projects/3.jpg" data-alt="QR code goods scanner project">
+              <figure class="work-media">
+                <img src="img/projects/3.jpg" alt="QR code goods scanner project">
+              </figure>
+              <div class="work-copy">
               <p class="project-index">03</p>
               <h3>QR Code Goods Scanner</h3>
               <p data-i18n="projects.p3">Scan QR untuk membaca detail dan harga barang tanpa banyak klik.</p>
+              <div class="work-tags" aria-label="Project tags">
+                <span>Scanner</span>
+                <span>Inventory</span>
+              </div>
+              </div>
             </article>
-            <article class="project-card reveal" data-image="img/projects/4.jpg" data-alt="BMI real-time monitoring project">
+
+            <article class="project-card work-card work-wide reveal" data-image="img/projects/4.jpg" data-alt="BMI real-time monitoring project">
+              <figure class="work-media">
+                <img src="img/projects/4.jpg" alt="BMI real-time monitoring project">
+              </figure>
+              <div class="work-copy">
               <p class="project-index">04</p>
               <h3>BMI Real-time Monitoring</h3>
               <p data-i18n="projects.p4">Timbangan digital yang langsung mengolah tinggi, berat, dan BMI.</p>
+              <div class="work-tags" aria-label="Project tags">
+                <span>Health</span>
+                <span>Realtime</span>
+                <span>Dashboard</span>
+              </div>
+              </div>
             </article>
           </div>
-        </div>
       </div>
     </section>
 
@@ -159,8 +264,8 @@
       <div class="container contact-grid">
         <div class="contact-copy">
           <p class="section-kicker reveal" data-i18n="contact.kicker">Kontak</p>
-          <h2 class="contact-title reveal reveal-delay-1" data-i18n="contact.title">Punya ide yang perlu dimasak bareng?</h2>
-          <p class="contact-text reveal reveal-delay-2" data-i18n="contact.text">
+          <h2 class="contact-title reveal reveal-delay-1 jp-hover" data-i18n="contact.title">Punya ide yang perlu dimasak bareng?</h2>
+          <p class="contact-text reveal reveal-delay-2 jp-hover" data-i18n="contact.text">
             Ceritakan versi mentahnya. Kita rapikan pelan-pelan sampai siap disajikan.
           </p>
           <div class="contact-links reveal reveal-delay-3">
