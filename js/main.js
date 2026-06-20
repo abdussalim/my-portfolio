@@ -220,14 +220,10 @@ const staticJapaneseText = {
 };
 
 const japaneseOverlaySelectors = [
-  '[data-i18n]',
-  '.nav-logo',
-  '.career-card h3',
-  '.career-card p:not(.career-date)',
-  '.project-card h3',
-  '.work-tags span',
-  '.skill-cloud span',
-  '.contact-links a',
+  '.hero-title[data-i18n]',
+  '.section-title[data-i18n]',
+  '.story-title[data-i18n]',
+  '.contact-title[data-i18n]',
 ];
 
 const getJapaneseText = (element) => {
@@ -292,9 +288,16 @@ const setupJapaneseLens = () => {
   let x = 0;
   let y = 0;
   let frame = 0;
+  let ctrlPressed = false;
+
+  const hideLens = () => {
+    japanesePaper?.classList.remove('visible');
+    japaneseLens?.classList.remove('visible');
+  };
 
   const paint = () => {
     frame = 0;
+    if (!ctrlPressed) return;
     document.documentElement.style.setProperty('--lens-x', `${x}px`);
     document.documentElement.style.setProperty('--lens-y', `${y}px`);
     japanesePaper?.classList.add('visible');
@@ -304,13 +307,34 @@ const setupJapaneseLens = () => {
   document.addEventListener('mousemove', (event) => {
     x = event.clientX;
     y = event.clientY;
+    ctrlPressed = event.ctrlKey;
+    if (!ctrlPressed) {
+      hideLens();
+      return;
+    }
     if (!frame) frame = requestAnimationFrame(paint);
   }, { passive: true });
 
+  window.addEventListener('keydown', (event) => {
+    if (event.key !== 'Control') return;
+    ctrlPressed = true;
+    if (!frame) frame = requestAnimationFrame(paint);
+  });
+
+  window.addEventListener('keyup', (event) => {
+    if (event.key !== 'Control') return;
+    ctrlPressed = false;
+    hideLens();
+  });
+
+  window.addEventListener('blur', () => {
+    ctrlPressed = false;
+    hideLens();
+  });
+
   window.addEventListener('mouseout', (event) => {
     if (event.relatedTarget) return;
-    japanesePaper?.classList.remove('visible');
-    japaneseLens?.classList.remove('visible');
+    hideLens();
   });
 
   window.addEventListener('scroll', scheduleJapaneseOverlay, { passive: true });
