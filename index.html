@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="japanese-lens" id="japanese-lens" aria-hidden="true">かな</div>
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#home" class="nav-logo" aria-label="Abdus Salim home">Abdus Salim</a>
@@ -195,9 +196,10 @@
         </div>
 
         <div class="work-wall">
-            <article class="project-card work-card work-feature active reveal" data-image="img/projects/1.jpg" data-alt="Bahinak air quality monitoring project">
+            <article class="project-card work-card work-feature active reveal" data-image="img/projects/1.jpg" data-alt="Bahinak air quality monitoring project" data-project-url="" data-video-url="">
               <figure class="work-media">
                 <img src="img/projects/1.jpg" alt="Bahinak air quality monitoring project">
+                <button class="work-media-action" type="button" data-i18n="projects.open">Segera</button>
               </figure>
               <div class="work-copy">
               <p class="project-index">01</p>
@@ -208,12 +210,14 @@
                 <span>Monitoring</span>
                 <span>Mobile-ready</span>
               </div>
+              <button class="work-action" type="button" data-i18n="projects.open">Segera</button>
               </div>
             </article>
 
-            <article class="project-card work-card reveal" data-image="img/projects/2.jpg" data-alt="Voice activated motorcycle project">
+            <article class="project-card work-card reveal" data-image="img/projects/2.jpg" data-alt="Voice activated motorcycle project" data-project-url="" data-video-url="">
               <figure class="work-media">
                 <img src="img/projects/2.jpg" alt="Voice activated motorcycle project">
+                <button class="work-media-action" type="button" data-i18n="projects.open">Segera</button>
               </figure>
               <div class="work-copy">
               <p class="project-index">02</p>
@@ -223,12 +227,14 @@
                 <span>Voice</span>
                 <span>Prototype</span>
               </div>
+              <button class="work-action" type="button" data-i18n="projects.open">Segera</button>
               </div>
             </article>
 
-            <article class="project-card work-card reveal" data-image="img/projects/3.jpg" data-alt="QR code goods scanner project">
+            <article class="project-card work-card reveal" data-image="img/projects/3.jpg" data-alt="QR code goods scanner project" data-project-url="" data-video-url="">
               <figure class="work-media">
                 <img src="img/projects/3.jpg" alt="QR code goods scanner project">
+                <button class="work-media-action" type="button" data-i18n="projects.open">Segera</button>
               </figure>
               <div class="work-copy">
               <p class="project-index">03</p>
@@ -238,12 +244,14 @@
                 <span>Scanner</span>
                 <span>Inventory</span>
               </div>
+              <button class="work-action" type="button" data-i18n="projects.open">Segera</button>
               </div>
             </article>
 
-            <article class="project-card work-card work-wide reveal" data-image="img/projects/4.jpg" data-alt="BMI real-time monitoring project">
+            <article class="project-card work-card work-wide reveal" data-image="img/projects/4.jpg" data-alt="BMI real-time monitoring project" data-project-url="" data-video-url="">
               <figure class="work-media">
                 <img src="img/projects/4.jpg" alt="BMI real-time monitoring project">
+                <button class="work-media-action" type="button" data-i18n="projects.open">Segera</button>
               </figure>
               <div class="work-copy">
               <p class="project-index">04</p>
@@ -254,6 +262,7 @@
                 <span>Realtime</span>
                 <span>Dashboard</span>
               </div>
+              <button class="work-action" type="button" data-i18n="projects.open">Segera</button>
               </div>
             </article>
           </div>
@@ -301,6 +310,14 @@
       <p>&copy; <span id="year"></span></p>
     </div>
   </footer>
+
+  <div class="video-modal" id="video-modal" aria-hidden="true">
+    <div class="video-modal-backdrop" data-video-close></div>
+    <div class="video-dialog" role="dialog" aria-modal="true" aria-label="Project video">
+      <button class="video-close" type="button" data-video-close aria-label="Close video">Close</button>
+      <iframe id="project-video" title="Project video preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

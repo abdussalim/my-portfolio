@@ -10,6 +10,9 @@ const projectCards = document.querySelectorAll('.project-card');
 const activeProjectImage = document.getElementById('active-project-image');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const langToggle = document.querySelector('[data-lang-toggle]');
+const japaneseLens = document.getElementById('japanese-lens');
+const videoModal = document.getElementById('video-modal');
+const projectVideo = document.getElementById('project-video');
 
 const translations = {
   id: {
@@ -51,6 +54,7 @@ const translations = {
     'projects.kicker': 'Karya pilihan',
     'projects.title': 'Beberapa eksperimen yang pernah saya kirim.',
     'projects.note': 'Bukan sekadar demo. Ini potongan kecil dari cara saya meracik hardware, data, dan interface.',
+    'projects.open': 'Segera',
     'projects.p1': 'Monitor kualitas udara, biar kondisi napas bisa dibaca dari gadget sendiri.',
     'projects.p2': 'Prototype motor yang bisa dinyalakan lewat perintah suara.',
     'projects.p3': 'Scan QR untuk membaca detail dan harga barang tanpa banyak klik.',
@@ -104,6 +108,7 @@ const translations = {
     'projects.kicker': 'Selected works',
     'projects.title': 'A few experiments I have shipped.',
     'projects.note': 'Not just demos. These are small slices of how I cook hardware, data, and interface together.',
+    'projects.open': 'Soon',
     'projects.p1': 'Air quality monitoring, so breathing conditions are readable from your own gadget.',
     'projects.p2': 'A motorcycle prototype that starts through voice commands.',
     'projects.p3': 'QR scanning for product details and prices without too many clicks.',
@@ -121,8 +126,9 @@ const translations = {
 };
 
 const japaneseWords = [
-  '信頼性', '安定', '配信', '設計', '監視', '自動化', '速度', '安全', '基盤', '開発',
-  '運用', '品質', '地図', '計測', '試作', '構築', '改善', '接続', '画面', '製品'
+  'しんらい', 'あんてい', 'リリース', 'せっけい', 'かんし', 'じどうか', 'スピード', 'あんぜん',
+  'きばん', 'かいはつ', 'うんよう', 'ひんしつ', 'ちず', 'けいそく', 'しさく', 'こうちく',
+  'かいぜん', 'せつぞく', 'がめん', 'プロダクト', 'サーバー', 'データ', 'クラウド', 'アプリ'
 ];
 
 const getJapaneseWord = (word) => {
@@ -175,7 +181,12 @@ const setupJapaneseHover = () => {
   japaneseHoverReady = true;
 
   document.addEventListener('mousemove', (event) => {
-    const radius = 78;
+    const radius = 150;
+    if (japaneseLens) {
+      japaneseLens.classList.add('visible');
+      japaneseLens.style.transform = `translate(${event.clientX - radius}px, ${event.clientY - radius}px)`;
+    }
+
     document.querySelectorAll('.jp-word').forEach((word) => {
       const rect = word.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
@@ -190,11 +201,50 @@ const setupJapaneseHover = () => {
 
   window.addEventListener('mouseout', (event) => {
     if (event.relatedTarget) return;
+    japaneseLens?.classList.remove('visible');
     document.querySelectorAll('.jp-word').forEach((word) => {
       word.classList.remove('jp-active');
       word.textContent = word.dataset.original;
     });
   });
+};
+
+const getDrivePreviewUrl = (url) => {
+  if (!url) return '';
+  const directMatch = url.match(/\/d\/([^/]+)/);
+  const idMatch = url.match(/[?&]id=([^&]+)/);
+  const id = directMatch?.[1] || idMatch?.[1];
+  return id ? `https://drive.google.com/file/d/${id}/preview` : url;
+};
+
+const openVideoModal = (url) => {
+  if (!videoModal || !projectVideo) return;
+  projectVideo.src = getDrivePreviewUrl(url);
+  videoModal.classList.add('open');
+  videoModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+};
+
+const closeVideoModal = () => {
+  if (!videoModal || !projectVideo) return;
+  videoModal.classList.remove('open');
+  videoModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+  projectVideo.src = '';
+};
+
+const openWork = (card) => {
+  const projectUrl = card.dataset.projectUrl?.trim();
+  const videoUrl = card.dataset.videoUrl?.trim();
+
+  if (videoUrl) {
+    openVideoModal(videoUrl);
+    return;
+  }
+
+  if (projectUrl) {
+    window.open(projectUrl, '_blank', 'noopener,noreferrer');
+  }
 };
 
 const setLanguage = (language) => {
@@ -218,6 +268,7 @@ const setLanguage = (language) => {
   }
 
   wrapJapaneseHoverWords();
+  updateWorkActions();
 };
 
 const initialLanguage = localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'id';
@@ -311,6 +362,30 @@ projectCards.forEach((card) => {
   projectObserver.observe(card);
   card.addEventListener('mouseenter', () => setProject(card));
   card.addEventListener('focusin', () => setProject(card));
+  card.addEventListener('click', (event) => {
+    if (!event.target.closest('.work-media, .work-action, .work-media-action')) return;
+    openWork(card);
+  });
+});
+
+function updateWorkActions() {
+  const language = document.documentElement.lang === 'en' ? 'en' : 'id';
+  projectCards.forEach((card) => {
+    const hasTarget = Boolean(card.dataset.projectUrl?.trim() || card.dataset.videoUrl?.trim());
+    card.classList.toggle('has-target', hasTarget);
+    card.querySelectorAll('.work-action, .work-media-action').forEach((button) => {
+      button.disabled = !hasTarget;
+      button.textContent = hasTarget ? (language === 'en' ? 'Open' : 'Buka') : (language === 'en' ? 'Soon' : 'Segera');
+    });
+  });
+}
+
+document.querySelectorAll('[data-video-close]').forEach((button) => {
+  button.addEventListener('click', closeVideoModal);
+});
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeVideoModal();
 });
 
 const updateScrollState = () => {
@@ -340,3 +415,4 @@ window.addEventListener('resize', updateScrollState);
 updateScrollState();
 
 document.getElementById('year').textContent = new Date().getFullYear();
+updateWorkActions();

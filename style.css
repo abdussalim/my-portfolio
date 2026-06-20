@@ -45,6 +45,10 @@ body.menu-open {
   overflow: hidden;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -164,9 +168,37 @@ ul {
 }
 
 .jp-word.jp-active {
-  color: var(--accent);
-  background: rgba(0, 113, 227, 0.07);
+  color: #0f5fb7;
+  background: rgba(255, 255, 255, 0.72);
   transform: translateY(-1px);
+}
+
+.japanese-lens {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 90;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(17, 17, 20, 0.12);
+  border-radius: 44% 56% 52% 48%;
+  background:
+    radial-gradient(circle at 45% 42%, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.16) 58%, transparent 72%),
+    rgba(0, 113, 227, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.65), 0 18px 44px rgba(17, 17, 20, 0.08);
+  color: rgba(0, 113, 227, 0.18);
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  font-weight: 800;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  transition: opacity 180ms var(--ease);
+}
+
+.japanese-lens.visible {
+  opacity: 1;
 }
 
 .navbar {
@@ -729,6 +761,10 @@ ul {
   transition: border-color 260ms var(--ease), background 260ms var(--ease), transform 260ms var(--ease), box-shadow 260ms var(--ease);
 }
 
+.work-card.has-target {
+  cursor: pointer;
+}
+
 .work-card:hover {
   border-color: var(--line-strong);
   box-shadow: 0 28px 70px rgba(17, 17, 20, 0.13);
@@ -769,6 +805,62 @@ ul {
   inset: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
   pointer-events: none;
+}
+
+.work-media-action,
+.work-action {
+  border: 1px solid rgba(17, 17, 20, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.84);
+  color: rgba(17, 17, 20, 0.72);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: color 180ms var(--ease), background 180ms var(--ease), transform 180ms var(--ease), border-color 180ms var(--ease);
+}
+
+.work-media-action {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+  min-height: 38px;
+  padding: 8px 13px;
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.work-action {
+  justify-self: start;
+  min-height: 38px;
+  margin-top: 24px;
+  padding: 8px 14px;
+}
+
+.work-card:hover .work-media-action,
+.work-card.has-target .work-media-action:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.work-card.has-target .work-media-action,
+.work-card.has-target .work-action {
+  color: var(--accent);
+  border-color: rgba(0, 113, 227, 0.2);
+}
+
+.work-card.has-target .work-media-action:hover,
+.work-card.has-target .work-action:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.work-media-action:disabled,
+.work-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
 }
 
 .work-media img {
@@ -825,6 +917,65 @@ ul {
   color: rgba(17, 17, 20, 0.7);
   font-size: 0.78rem;
   font-weight: 800;
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms var(--ease);
+}
+
+.video-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 20, 0.62);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.video-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 980px);
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius);
+  background: #000;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.32);
+}
+
+.video-dialog iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+.video-close {
+  position: absolute;
+  right: 0;
+  top: -48px;
+  min-height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 8px 13px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
 }
 
 .contact {
@@ -1114,6 +1265,23 @@ ul {
   .work-feature .work-media,
   .work-wide .work-media {
     min-height: 220px;
+  }
+
+  .work-media-action {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .video-modal {
+    padding: 16px;
+  }
+
+  .video-dialog {
+    width: 100%;
+  }
+
+  .video-close {
+    top: -44px;
   }
 }
 
