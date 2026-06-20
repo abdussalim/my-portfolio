@@ -3,181 +3,198 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Abdus Salim — Tech Enthusiast, Fullstack Developer, Digital Mapping Specialist">
-  <meta name="theme-color" content="#0a0a1a">
+  <meta name="description" content="Abdus Salim — Fullstack Developer, IoT Builder, Digital Mapping Specialist">
+  <meta name="theme-color" content="#f5f5f7">
   <title>Abdus Salim — Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/saya-ganteng.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-logo">Portfolio</a>
+      <a href="#home" class="nav-logo" aria-label="Abdus Salim home">Abdus Salim</a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
       </button>
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#story" class="nav-link">Story</a></li>
+        <li><a href="#projects" class="nav-link">Works</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section id="home" class="section hero">
-    <div class="container hero-container">
-      <div class="hero-content">
-        <div class="hero-image-wrapper reveal">
-          <img src="img/saya-ganteng.png" alt="Abdus Salim" class="hero-image">
-          <div class="hero-image-glow"></div>
-        </div>
-        <div class="hero-text">
-          <p class="hero-greeting reveal reveal-delay-1">Hello, I'm</p>
-          <h1 class="hero-name reveal reveal-delay-2">Abdus Salim</h1>
-          <div class="hero-roles reveal reveal-delay-3">
-            <span class="role-tag">Tech Enthusiast</span>
-            <span class="role-tag">Fullstack Developer</span>
-            <span class="role-tag">Digital Mapping Specialist</span>
-          </div>
-          <hr class="hero-divider reveal reveal-delay-4">
-          <p class="hero-quote reveal reveal-delay-5">
-            "Whether you think you can or think you can't, those both are right. Just make a choice."
+  <main>
+    <section id="home" class="section hero" data-theme="light">
+      <div class="hero-backdrop" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">Fullstack Developer / IoT Builder / Mapping Specialist</p>
+          <h1 class="hero-title reveal reveal-delay-1">Designing calm software for real&#8209;world systems.</h1>
+          <p class="hero-lead reveal reveal-delay-2">
+            I am Abdus Salim, a STEM-minded builder who turns sensors, web apps, and digital maps into simple
+            experiences people can actually use.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="section about">
-    <div class="container">
-      <h2 class="section-title reveal">About Me</h2>
-      <div class="about-grid">
-        <div class="about-card glass-card reveal reveal-delay-1">
-          <p>
-            Hi guys, let me introduce myself. My full name is <strong>Abdus Salim</strong> but you can call me
-            <strong>Sarimu</strong>. Since I was in high school I've fallen in love with STEM (Science, Technology,
-            Engineering, and Mathematics), especially in Physics. When I was in college, I got interested in programming.
-            In the last year of my study, my friends introduced me to websites and asked me to help them build
-            <strong>Website Applications (Web-Apps)</strong>.
-          </p>
-        </div>
-        <div class="about-card glass-card reveal reveal-delay-2">
-          <p>
-            I hadn't learned about making a website before — I only understood how to program microcontrollers,
-            especially Arduino. But they believed in me, so I tried my best and successfully helped them. I'm very
-            grateful because I learned a new skill in <strong>Websites and the Internet of Things (IoT)</strong>.
-            Here I'm, a fresh graduate from Lambung Mangkurat University.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="section projects">
-    <div class="container">
-      <h2 class="section-title reveal">Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card glass-card reveal">
-          <img src="img/projects/1.jpg" alt="Bahinak Project" class="project-image">
-          <h3 class="project-title">Bahinak Project</h3>
-          <p class="project-desc">
-            "Bahinak" means "Breathing" in English, originally from Banjarnese language.
-            This project aims to monitor air quality and inform the user via their own gadget.
-          </p>
-        </div>
-        <div class="project-card glass-card reveal">
-          <img src="img/projects/2.jpg" alt="Google's Motobike" class="project-image">
-          <h3 class="project-title">Google's Motobike</h3>
-          <p class="project-desc">
-            Activate your own motorcycle by just saying "Hello Google" and "Turn the engine on, please" —
-            the motorcycle engine starts automatically.
-          </p>
-        </div>
-        <div class="project-card glass-card reveal">
-          <img src="img/projects/3.jpg" alt="QR Code Goods Scanner" class="project-image">
-          <h3 class="project-title">QR Code Goods Scanner</h3>
-          <p class="project-desc">
-            Know the price and details of goods just by scanning the QR code. A quick and
-            convenient way to get product information.
-          </p>
-        </div>
-        <div class="project-card glass-card reveal">
-          <img src="img/projects/4.jpg" alt="BMI Real-time Monitoring" class="project-image">
-          <h3 class="project-title">BMI Real-time Monitoring</h3>
-          <p class="project-desc">
-            Monitors your BMI level in real-time. Just stand up on the digital scale installed
-            with this system for instant health insights.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section contact">
-    <div class="container">
-      <h2 class="section-title reveal">Get in Touch</h2>
-      <div class="contact-grid">
-        <div class="contact-info glass-card reveal reveal-delay-1">
-          <p class="contact-text">
-            Have a project in mind or just want to say hello? Feel free to reach out!
-          </p>
-          <div class="contact-links">
-            <a href="https://www.instagram.com/karaage_sarimu/" target="_blank" rel="noopener" class="contact-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
-              @karaage_sarimu
-            </a>
-            <a href="https://github.com/abdussalim/my-portfolio" target="_blank" rel="noopener" class="contact-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-              </svg>
-              GitHub
-            </a>
+          <div class="hero-actions reveal reveal-delay-3" aria-label="Primary actions">
+            <a class="button button-primary" href="#projects">See works</a>
+            <a class="button button-secondary" href="#contact">Start a conversation</a>
           </div>
         </div>
-        <form class="contact-form glass-card reveal reveal-delay-2" action="https://formspree.io/f/xnjkaaky" method="POST">
+        <div class="hero-portrait reveal reveal-delay-2">
+          <img src="img/saya-ganteng.png" alt="Portrait of Abdus Salim">
+          <div class="portrait-caption">
+            <span>From physics curiosity</span>
+            <strong>to connected products</strong>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-cue" aria-label="Scroll to about">
+        <span></span>
+      </a>
+    </section>
+
+    <section id="about" class="section intro-panel" data-theme="light">
+      <div class="container intro-grid">
+        <p class="section-kicker reveal">A cleaner way to tell the story</p>
+        <div>
+          <h2 class="section-title reveal reveal-delay-1">I build from curiosity, then refine until the interface feels obvious.</h2>
+          <p class="intro-text reveal reveal-delay-2">
+            My path started with physics and Arduino, then grew into web applications, Internet of Things projects,
+            and practical dashboards. The common thread is simple: make technical things feel lighter for the people
+            who need them.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="story section-dark" data-theme="dark">
+      <div class="story-progress" aria-hidden="true"><span id="story-progress"></span></div>
+      <div class="container story-layout">
+        <div class="story-stage">
+          <p class="section-kicker reveal">Scrollytelling</p>
+          <h2 class="story-title reveal reveal-delay-1">A small journey from components to complete products.</h2>
+          <div class="story-device reveal reveal-delay-2" aria-hidden="true">
+            <div class="device-bar"></div>
+            <div class="device-screen">
+              <div class="screen-row wide"></div>
+              <div class="screen-row"></div>
+              <div class="screen-grid">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="story-steps">
+          <article class="story-step" data-step="01">
+            <span>01</span>
+            <h3>Physics trained the way I notice systems.</h3>
+            <p>Before web apps, I learned to think in cause, measurement, and feedback. That habit still shapes how I debug and design.</p>
+          </article>
+          <article class="story-step" data-step="02">
+            <span>02</span>
+            <h3>Microcontrollers made ideas tangible.</h3>
+            <p>Arduino and sensors gave me a direct bridge between code and the physical world, where small details matter quickly.</p>
+          </article>
+          <article class="story-step" data-step="03">
+            <span>03</span>
+            <h3>Web apps turned prototypes into tools.</h3>
+            <p>When friends trusted me with their web-app ideas, I learned to ship interfaces, flows, data, and real user expectations.</p>
+          </article>
+          <article class="story-step" data-step="04">
+            <span>04</span>
+            <h3>Now I connect the map, the sensor, and the screen.</h3>
+            <p>I enjoy building systems that are useful in the field: clear monitoring, readable data, and technology that gets out of the way.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects section" data-theme="light">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker reveal">Selected works</p>
+          <h2 class="section-title reveal reveal-delay-1">Four practical experiments, redesigned as a calm product showcase.</h2>
+        </div>
+
+        <div class="project-showcase">
+          <div class="project-visual" aria-live="polite">
+            <img id="active-project-image" src="img/projects/1.jpg" alt="Bahinak Project">
+          </div>
+          <div class="project-list">
+            <article class="project-card active reveal" data-image="img/projects/1.jpg" data-alt="Bahinak air quality monitoring project">
+              <p class="project-index">01</p>
+              <h3>Bahinak Project</h3>
+              <p>Air quality monitoring that helps users understand breathing conditions from their own device.</p>
+            </article>
+            <article class="project-card reveal" data-image="img/projects/2.jpg" data-alt="Voice activated motorcycle project">
+              <p class="project-index">02</p>
+              <h3>Google's Motobike</h3>
+              <p>A voice-triggered motorcycle prototype that explores hands-free ignition with simple assistant commands.</p>
+            </article>
+            <article class="project-card reveal" data-image="img/projects/3.jpg" data-alt="QR code goods scanner project">
+              <p class="project-index">03</p>
+              <h3>QR Code Goods Scanner</h3>
+              <p>A scanner flow for reading product details and prices quickly through QR-based identification.</p>
+            </article>
+            <article class="project-card reveal" data-image="img/projects/4.jpg" data-alt="BMI real-time monitoring project">
+              <p class="project-index">04</p>
+              <h3>BMI Real-time Monitoring</h3>
+              <p>A digital-scale system that turns height and weight readings into immediate BMI insight.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section-dark" data-theme="dark">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="section-kicker reveal">Contact</p>
+          <h2 class="contact-title reveal reveal-delay-1">Have a project that needs a steady technical hand?</h2>
+          <p class="contact-text reveal reveal-delay-2">
+            Send a message, share the rough idea, or just say hello. I am happy to talk through web apps, IoT,
+            mapping, and the messy middle between prototype and product.
+          </p>
+          <div class="contact-links reveal reveal-delay-3">
+            <a href="https://www.instagram.com/karaage_sarimu/" target="_blank" rel="noopener">@karaage_sarimu</a>
+            <a href="https://github.com/abdussalim/my-portfolio" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal reveal-delay-2" action="https://formspree.io/f/xnjkaaky" method="POST">
           <input type="hidden" name="_next" value="?submitted=true">
           <input type="hidden" name="_captcha" value="true">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Abdus Salim" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="abdussalim@example.com" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
-          </div>
-          <button type="submit" class="btn-glass">Send Message</button>
+          <label>
+            <span>Full Name</span>
+            <input type="text" name="name" placeholder="Abdus Salim" required>
+          </label>
+          <label>
+            <span>Email Address</span>
+            <input type="email" name="email" placeholder="abdussalim@example.com" required>
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="Tell me what you want to build..." required></textarea>
+          </label>
+          <button class="button button-primary button-wide" type="submit">Send message</button>
         </form>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
-  <footer class="footer glass">
+  <footer class="footer">
     <div class="container footer-container">
-      <p class="footer-text">
-        Created with care by
-        <a href="https://www.instagram.com/karaage_sarimu/" target="_blank" rel="noopener">Abdus Salim</a>
-        &copy; <span id="year"></span>
-      </p>
+      <p>Created with care by <a href="https://www.instagram.com/karaage_sarimu/" target="_blank" rel="noopener">Abdus Salim</a></p>
+      <p>&copy; <span id="year"></span></p>
     </div>
   </footer>
 
