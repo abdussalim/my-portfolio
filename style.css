@@ -200,6 +200,10 @@ ul {
   word-break: keep-all;
 }
 
+.jp-line span {
+  display: block;
+}
+
 .japanese-lens {
   z-index: 150;
   width: var(--lens-size);

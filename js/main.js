@@ -238,6 +238,18 @@ const getJapaneseText = (element) => {
   return staticJapaneseText[text] || '';
 };
 
+const splitJapaneseHeadline = (text, count) => {
+  if (count <= 1) return [text];
+  const tokens = text.match(/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}A-Za-z0-9+/.ー・、。]+/gu) || [text];
+  const lines = Array.from({ length: count }, () => []);
+
+  tokens.forEach((token, index) => {
+    lines[index % count].push(token);
+  });
+
+  return lines.map((line) => line.join('')).filter(Boolean);
+};
+
 let japaneseOverlayFrame = 0;
 const renderJapaneseOverlay = () => {
   if (!japanesePaper || !window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
@@ -257,17 +269,29 @@ const renderJapaneseOverlay = () => {
 
     const styles = getComputedStyle(element);
     const originalFontSize = Number.parseFloat(styles.fontSize) || 16;
-    const translatedFontSize = originalFontSize > 56 ? originalFontSize * 0.78 : originalFontSize;
+    const originalLineHeight = Number.parseFloat(styles.lineHeight) || originalFontSize * 1.1;
+    const isHeadline = originalFontSize > 48;
+    const lineCount = isHeadline ? Math.max(1, Math.round(rect.height / originalLineHeight)) : 1;
+    const translatedFontSize = isHeadline ? Math.max(34, originalFontSize * 0.54) : originalFontSize;
+    const translatedLineHeight = isHeadline ? originalLineHeight : styles.lineHeight;
     const line = document.createElement('div');
     line.className = 'jp-line';
-    line.textContent = text;
+    if (isHeadline) {
+      splitJapaneseHeadline(text, lineCount).forEach((part) => {
+        const span = document.createElement('span');
+        span.textContent = part;
+        line.append(span);
+      });
+    } else {
+      line.textContent = text;
+    }
     line.style.left = `${rect.left}px`;
     line.style.top = `${rect.top}px`;
     line.style.width = `${Math.min(rect.width * 1.18, window.innerWidth - rect.left - 24)}px`;
     line.style.minHeight = `${rect.height * 1.12}px`;
     line.style.fontSize = `${translatedFontSize}px`;
     line.style.fontWeight = styles.fontWeight;
-    line.style.lineHeight = originalFontSize > 56 ? '1.08' : styles.lineHeight;
+    line.style.lineHeight = typeof translatedLineHeight === 'number' ? `${translatedLineHeight}px` : translatedLineHeight;
     line.style.textAlign = styles.textAlign;
     line.style.letterSpacing = styles.letterSpacing;
     fragment.append(line);
