@@ -126,6 +126,159 @@ const translations = {
   }
 };
 
+const japaneseTranslations = {
+  'nav.about': '私について',
+  'nav.career': '経歴',
+  'nav.story': 'ストーリー',
+  'nav.works': '制作',
+  'nav.contact': '連絡',
+  'hero.eyebrow': 'フルスタック開発 / IoT開発 / マッピング',
+  'hero.title': '安定したシステムを作り、きれいに届けます。',
+  'hero.lead': 'SRE、フロントエンド、バックエンド、IoTを、使いやすいプロダクトにまとめます。',
+  'hero.primary': '制作を見る',
+  'hero.secondary': 'まず話す',
+  'hero.captionA': '好奇心から',
+  'hero.captionB': 'つながるプロダクトへ',
+  'about.kicker': '私について',
+  'about.title': 'システムを止めずに守りながら、プロダクトも作れます。',
+  'about.text': '信頼性、CI/CD、Linuxサーバー、Webアプリを扱っています。まだ粗いアイデアでも、インフラからUIまで一緒に形にできます。',
+  'career.kicker': '経歴のまとめ',
+  'career.title': 'まず信頼性。プロダクトは前に進める。',
+  'career.note': 'SREとして1.5年、20本以上のCI/CDパイプライン、そして2023年からフロントエンドの経験があります。',
+  'career.metric1': 'CI/CDパイプライン',
+  'career.metric2': 'リリースを高速化',
+  'career.metric3': '運用コストを削減',
+  'career.job1': '7つの教育アプリを安定・安全に保ち、リリースしやすくしています。',
+  'career.job2': 'ReactのUIを作り、画面をもっと使いやすく改善しました。',
+  'career.job3': 'ReactとJavaScriptで日々のフロントエンド開発を担当しました。',
+  'career.job4': '農園マッピングのために位置情報データを集めました。',
+  'story.kicker': 'スクロールストーリー',
+  'story.title': '小さな配線から、運用できるシステムへ。',
+  'story.step1.title': 'パターンを読む。',
+  'story.step1.text': '物理を通して、原因・数値・フィードバックを見る習慣がつきました。',
+  'story.step2.title': '試作品を作る。',
+  'story.step2.text': 'センサーとArduinoが、現実の中でアイデアを試す最初の場所でした。',
+  'story.step3.title': 'Webにまとめる。',
+  'story.step3.text': '生のデータを、フロー、ダッシュボード、インターフェースに整えます。',
+  'story.step4.title': 'ユーザーへ届ける。',
+  'story.step4.text': '出来上がったものを、分かりやすく、軽く、すぐ使える形で届けます。',
+  'projects.kicker': '選んだ制作',
+  'projects.title': 'これまで届けてきた実験たち。',
+  'projects.note': 'ただのデモではなく、ハードウェア、データ、インターフェースをどう組み合わせるかの小さな記録です。',
+  'projects.open': '準備中',
+  'projects.p1': '空気の状態を、自分の端末から確認できるモニタリングです。',
+  'projects.p2': '声のコマンドでバイクを起動する試作品です。',
+  'projects.p3': 'QRを読み取って、商品の詳細や価格をすばやく確認できます。',
+  'projects.p4': '身長、体重、BMIをリアルタイムで扱うデジタルスケールです。',
+  'contact.kicker': '連絡',
+  'contact.title': '一緒に作りたいアイデアがありますか？',
+  'contact.text': 'まだ粗い状態でも大丈夫です。少しずつ整えて、届けられる形にしましょう。',
+  'form.name': 'お名前',
+  'form.email': 'メールアドレス',
+  'form.message': 'メッセージ',
+  'form.submit': '送信する',
+  'footer.created': '丁寧に作りました',
+};
+
+const staticJapaneseText = {
+  'Abdus Salim': 'アブドゥス・サリム',
+  'Site Reliability Engineer': 'サイト信頼性エンジニア',
+  'Frontend Web Developer': 'フロントエンドWeb開発者',
+  'Surveying Technician': '測量技術者',
+  'PT INSTRUMETA TEKNOLOGI NUSANTARA': 'PT Instrumeta Teknologi Nusantara',
+  'NashTa Group': 'NashTa Group',
+  'Kementerian Keuangan RI': 'インドネシア共和国 財務省',
+  'DINAS PERTANIAN KABUPATEN KAPUAS': 'カプアス県 農業局',
+  'Bahinak Project': 'Bahinakプロジェクト',
+  "Google's Motobike": 'Googleのモトバイク',
+  'QR Code Goods Scanner': 'QRコード商品スキャナー',
+  'BMI Real-time Monitoring': 'BMIリアルタイム監視',
+  'IoT': 'IoT',
+  'Monitoring': '監視',
+  'Mobile-ready': 'モバイル対応',
+  'Voice': '音声',
+  'Prototype': '試作',
+  'Scanner': 'スキャナー',
+  'Inventory': '在庫管理',
+  'Health': 'ヘルスケア',
+  'Realtime': 'リアルタイム',
+  'Dashboard': 'ダッシュボード',
+  'GitHub Actions': 'GitHub Actions',
+  'Docker': 'Docker',
+  'Linux VPS': 'Linux VPS',
+  'Traefik': 'Traefik',
+  'Vault': 'Vault',
+  'React': 'React',
+  'Next.js': 'Next.js',
+  'Node.js': 'Node.js',
+  'Express': 'Express',
+  'Postgres': 'Postgres',
+  'MySQL': 'MySQL',
+  'Prisma': 'Prisma',
+  '@karaage_sarimu': '@karaage_sarimu',
+  'GitHub': 'GitHub',
+};
+
+const japaneseOverlaySelectors = [
+  '[data-i18n]',
+  '.nav-logo',
+  '.career-card h3',
+  '.career-card p:not(.career-date)',
+  '.project-card h3',
+  '.work-tags span',
+  '.skill-cloud span',
+  '.contact-links a',
+];
+
+const getJapaneseText = (element) => {
+  const key = element.dataset.i18n;
+  if (key && japaneseTranslations[key]) return japaneseTranslations[key];
+
+  const text = element.textContent.replace(/\s+/g, ' ').trim();
+  return staticJapaneseText[text] || '';
+};
+
+let japaneseOverlayFrame = 0;
+const renderJapaneseOverlay = () => {
+  if (!japanesePaper || !window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
+  japaneseOverlayFrame = 0;
+  const fragment = document.createDocumentFragment();
+  const seen = new Set();
+
+  document.querySelectorAll(japaneseOverlaySelectors.join(',')).forEach((element) => {
+    if (seen.has(element) || element.closest('.japanese-paper, .video-modal')) return;
+    seen.add(element);
+
+    const text = getJapaneseText(element);
+    if (!text) return;
+
+    const rect = element.getBoundingClientRect();
+    if (rect.bottom < -80 || rect.top > window.innerHeight + 80 || rect.width < 4 || rect.height < 4) return;
+
+    const styles = getComputedStyle(element);
+    const line = document.createElement('div');
+    line.className = 'jp-line';
+    line.textContent = text;
+    line.style.left = `${rect.left}px`;
+    line.style.top = `${rect.top}px`;
+    line.style.width = `${rect.width}px`;
+    line.style.minHeight = `${rect.height}px`;
+    line.style.fontSize = styles.fontSize;
+    line.style.fontWeight = styles.fontWeight;
+    line.style.lineHeight = styles.lineHeight;
+    line.style.textAlign = styles.textAlign;
+    line.style.letterSpacing = styles.letterSpacing;
+    fragment.append(line);
+  });
+
+  japanesePaper.replaceChildren(fragment);
+};
+
+const scheduleJapaneseOverlay = () => {
+  if (japaneseOverlayFrame || !japanesePaper) return;
+  japaneseOverlayFrame = requestAnimationFrame(renderJapaneseOverlay);
+};
+
 let japaneseLensReady = false;
 const setupJapaneseLens = () => {
   if (japaneseLensReady || !window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
@@ -154,6 +307,10 @@ const setupJapaneseLens = () => {
     japanesePaper?.classList.remove('visible');
     japaneseLens?.classList.remove('visible');
   });
+
+  window.addEventListener('scroll', scheduleJapaneseOverlay, { passive: true });
+  window.addEventListener('resize', scheduleJapaneseOverlay);
+  scheduleJapaneseOverlay();
 };
 
 const getDrivePreviewUrl = (url) => {
@@ -215,6 +372,7 @@ const setLanguage = (language) => {
   }
 
   updateWorkActions();
+  scheduleJapaneseOverlay();
 };
 
 const initialLanguage = localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'id';
@@ -232,6 +390,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     if (!entry.isIntersecting) return;
     entry.target.classList.add('revealed');
     revealObserver.unobserve(entry.target);
+    scheduleJapaneseOverlay();
   });
 }, { threshold: 0.16, rootMargin: '0px 0px -40px 0px' });
 

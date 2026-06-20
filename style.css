@@ -173,9 +173,7 @@ ul {
 }
 
 .japanese-paper {
-  z-index: 80;
-  color: rgba(0, 113, 227, 0.22);
-  background: rgba(255, 255, 255, 0.14);
+  z-index: 150;
   -webkit-mask-image: radial-gradient(
     circle calc(var(--lens-size) / 2) at var(--lens-x) var(--lens-y),
     #000 0 58%,
@@ -190,40 +188,20 @@ ul {
   );
 }
 
-.japanese-paper div {
+.jp-line {
   position: absolute;
-  inset: -12vh -8vw;
-  width: 116vw;
-  color: transparent;
-  font-size: clamp(1.15rem, 2vw, 2rem);
-  font-weight: 800;
-  line-height: 1.9;
-  word-spacing: 1.1rem;
-  letter-spacing: 0;
-  transform: rotate(-8deg);
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      rgba(0, 113, 227, 0.22) 0 1px,
-      transparent 1px 120px
-    );
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.japanese-paper div::before,
-.japanese-paper div::after {
-  content: "しんらい サーバー かんし じどうか リリース あんてい きばん データ アプリ プロダクト かいぜん うんよう こうちく せつぞく がめん クラウド インフラ セキュリティ パイプライン フロントエンド バックエンド マッピング";
-  color: rgba(17, 17, 20, 0.16);
-}
-
-.japanese-paper div::after {
-  display: block;
-  margin-top: 1rem;
+  color: rgba(0, 79, 164, 0.92);
+  font-family: var(--font);
+  overflow: hidden;
+  text-wrap: balance;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.66),
+    0 0 22px rgba(255, 255, 255, 0.74);
+  word-break: keep-all;
 }
 
 .japanese-lens {
-  z-index: 90;
+  z-index: 160;
   width: var(--lens-size);
   height: var(--lens-size);
   inset: auto;
