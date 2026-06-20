@@ -200,8 +200,10 @@ ul {
   word-break: keep-all;
 }
 
-.jp-line span {
-  display: block;
+.jp-headline {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: auto-phrase;
 }
 
 .japanese-lens {
