@@ -256,16 +256,18 @@ const renderJapaneseOverlay = () => {
     if (rect.bottom < -80 || rect.top > window.innerHeight + 80 || rect.width < 4 || rect.height < 4) return;
 
     const styles = getComputedStyle(element);
+    const originalFontSize = Number.parseFloat(styles.fontSize) || 16;
+    const translatedFontSize = originalFontSize > 56 ? originalFontSize * 0.78 : originalFontSize;
     const line = document.createElement('div');
     line.className = 'jp-line';
     line.textContent = text;
     line.style.left = `${rect.left}px`;
     line.style.top = `${rect.top}px`;
-    line.style.width = `${rect.width}px`;
-    line.style.minHeight = `${rect.height}px`;
-    line.style.fontSize = styles.fontSize;
+    line.style.width = `${Math.min(rect.width * 1.18, window.innerWidth - rect.left - 24)}px`;
+    line.style.minHeight = `${rect.height * 1.12}px`;
+    line.style.fontSize = `${translatedFontSize}px`;
     line.style.fontWeight = styles.fontWeight;
-    line.style.lineHeight = styles.lineHeight;
+    line.style.lineHeight = originalFontSize > 56 ? '1.08' : styles.lineHeight;
     line.style.textAlign = styles.textAlign;
     line.style.letterSpacing = styles.letterSpacing;
     fragment.append(line);

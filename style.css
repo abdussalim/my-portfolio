@@ -192,7 +192,7 @@ ul {
   position: absolute;
   color: rgba(17, 17, 20, 0.96);
   font-family: var(--font);
-  overflow: hidden;
+  overflow: visible;
   text-wrap: balance;
   text-shadow:
     0 1px 0 rgba(255, 255, 255, 0.78),
@@ -210,13 +210,13 @@ ul {
   border: 1px solid rgba(17, 17, 20, 0.12);
   border-radius: 50%;
   background:
-    radial-gradient(circle at 50% 50%, rgba(245, 245, 247, 0.94) 0 54%, rgba(245, 245, 247, 0.72) 64%, transparent 74%);
+    radial-gradient(circle at 50% 50%, rgba(245, 245, 247, 0.99) 0 57%, rgba(245, 245, 247, 0.88) 66%, transparent 75%);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.68),
     inset 0 0 34px rgba(17, 17, 20, 0.04),
     0 18px 44px rgba(17, 17, 20, 0.08);
-  backdrop-filter: blur(7px) saturate(0.92);
-  -webkit-backdrop-filter: blur(7px) saturate(0.92);
+  backdrop-filter: blur(10px) saturate(0.86);
+  -webkit-backdrop-filter: blur(10px) saturate(0.86);
 }
 
 .japanese-paper.visible,
