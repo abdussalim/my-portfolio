@@ -220,6 +220,17 @@ const staticJapaneseText = {
 };
 
 const japaneseOverlaySelectors = [
+  '[data-i18n]',
+  '.nav-logo',
+  '.career-card h3',
+  '.career-card p:not(.career-date)',
+  '.project-card h3',
+  '.work-tags span',
+  '.skill-cloud span',
+  '.contact-links a',
+];
+
+const japaneseHeadlineSelectors = [
   '.hero-title[data-i18n]',
   '.section-title[data-i18n]',
   '.story-title[data-i18n]',
@@ -254,7 +265,7 @@ const renderJapaneseOverlay = () => {
     const styles = getComputedStyle(element);
     const originalFontSize = Number.parseFloat(styles.fontSize) || 16;
     const originalLineHeight = Number.parseFloat(styles.lineHeight) || originalFontSize * 1.1;
-    const isHeadline = originalFontSize > 48;
+    const isHeadline = japaneseHeadlineSelectors.some((selector) => element.matches(selector));
     const translatedFontSize = isHeadline ? Math.max(64, originalFontSize * 0.82) : originalFontSize;
     const translatedLineHeight = isHeadline ? originalLineHeight * 0.86 : styles.lineHeight;
     const line = document.createElement('div');
