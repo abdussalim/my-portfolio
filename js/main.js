@@ -309,6 +309,7 @@ const setupJapaneseLens = () => {
   const paint = () => {
     frame = 0;
     if (!ctrlPressed) return;
+    renderJapaneseOverlay();
     document.documentElement.style.setProperty('--lens-x', `${x}px`);
     document.documentElement.style.setProperty('--lens-y', `${y}px`);
     japanesePaper?.classList.add('visible');
@@ -329,6 +330,7 @@ const setupJapaneseLens = () => {
   window.addEventListener('keydown', (event) => {
     if (event.key !== 'Control') return;
     ctrlPressed = true;
+    renderJapaneseOverlay();
     if (!frame) frame = requestAnimationFrame(paint);
   });
 
