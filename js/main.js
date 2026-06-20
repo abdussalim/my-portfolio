@@ -10,6 +10,7 @@ const projectCards = document.querySelectorAll('.project-card');
 const activeProjectImage = document.getElementById('active-project-image');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const langToggle = document.querySelector('[data-lang-toggle]');
+const japanesePaper = document.getElementById('japanese-paper');
 const japaneseLens = document.getElementById('japanese-lens');
 const videoModal = document.getElementById('video-modal');
 const projectVideo = document.getElementById('project-video');
@@ -125,87 +126,33 @@ const translations = {
   }
 };
 
-const japaneseWords = [
-  'しんらい', 'あんてい', 'リリース', 'せっけい', 'かんし', 'じどうか', 'スピード', 'あんぜん',
-  'きばん', 'かいはつ', 'うんよう', 'ひんしつ', 'ちず', 'けいそく', 'しさく', 'こうちく',
-  'かいぜん', 'せつぞく', 'がめん', 'プロダクト', 'サーバー', 'データ', 'クラウド', 'アプリ'
-];
+let japaneseLensReady = false;
+const setupJapaneseLens = () => {
+  if (japaneseLensReady || !window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
+  japaneseLensReady = true;
 
-const getJapaneseWord = (word) => {
-  let total = 0;
-  [...word].forEach((char) => {
-    total += char.codePointAt(0);
-  });
-  return japaneseWords[total % japaneseWords.length];
-};
+  let x = 0;
+  let y = 0;
+  let frame = 0;
 
-const wrapJapaneseHoverWords = () => {
-  if (!window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
-
-  document.querySelectorAll('.jp-hover').forEach((element) => {
-    const text = element.textContent;
-    const fragment = document.createDocumentFragment();
-    const parts = text.split(/(\s+)/);
-
-    parts.forEach((part) => {
-      if (!part.trim()) {
-        fragment.append(document.createTextNode(part));
-        return;
-      }
-
-      const match = part.match(/^([^\p{L}\p{N}]?)([\p{L}\p{N}/+.-]+)([^\p{L}\p{N}]?)$/u);
-      if (!match) {
-        fragment.append(document.createTextNode(part));
-        return;
-      }
-
-      const [, prefix, word, suffix] = match;
-      const span = document.createElement('span');
-      span.className = 'jp-word';
-      span.dataset.original = part;
-      span.dataset.jp = `${prefix}${getJapaneseWord(word)}${suffix}`;
-      span.textContent = part;
-      fragment.append(span);
-    });
-
-    element.replaceChildren(fragment);
-    element.querySelectorAll('.jp-word').forEach((word) => {
-      word.style.minWidth = `${word.getBoundingClientRect().width}px`;
-    });
-  });
-};
-
-let japaneseHoverReady = false;
-const setupJapaneseHover = () => {
-  if (japaneseHoverReady || !window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
-  japaneseHoverReady = true;
+  const paint = () => {
+    frame = 0;
+    document.documentElement.style.setProperty('--lens-x', `${x}px`);
+    document.documentElement.style.setProperty('--lens-y', `${y}px`);
+    japanesePaper?.classList.add('visible');
+    japaneseLens?.classList.add('visible');
+  };
 
   document.addEventListener('mousemove', (event) => {
-    const radius = 150;
-    if (japaneseLens) {
-      japaneseLens.classList.add('visible');
-      japaneseLens.style.transform = `translate(${event.clientX - radius}px, ${event.clientY - radius}px)`;
-    }
-
-    document.querySelectorAll('.jp-word').forEach((word) => {
-      const rect = word.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
-      const distance = Math.hypot(event.clientX - x, event.clientY - y);
-      const active = distance < radius;
-
-      word.classList.toggle('jp-active', active);
-      word.textContent = active ? word.dataset.jp : word.dataset.original;
-    });
+    x = event.clientX;
+    y = event.clientY;
+    if (!frame) frame = requestAnimationFrame(paint);
   }, { passive: true });
 
   window.addEventListener('mouseout', (event) => {
     if (event.relatedTarget) return;
+    japanesePaper?.classList.remove('visible');
     japaneseLens?.classList.remove('visible');
-    document.querySelectorAll('.jp-word').forEach((word) => {
-      word.classList.remove('jp-active');
-      word.textContent = word.dataset.original;
-    });
   });
 };
 
@@ -267,13 +214,12 @@ const setLanguage = (language) => {
     langToggle.setAttribute('aria-label', language === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia');
   }
 
-  wrapJapaneseHoverWords();
   updateWorkActions();
 };
 
 const initialLanguage = localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'id';
 setLanguage(initialLanguage);
-setupJapaneseHover();
+setupJapaneseLens();
 
 langToggle?.addEventListener('click', () => {
   const nextLanguage = document.documentElement.lang === 'id' ? 'en' : 'id';
