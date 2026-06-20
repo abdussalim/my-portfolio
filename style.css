@@ -173,7 +173,7 @@ ul {
 }
 
 .japanese-paper {
-  z-index: 150;
+  z-index: 160;
   -webkit-mask-image: radial-gradient(
     circle calc(var(--lens-size) / 2) at var(--lens-x) var(--lens-y),
     #000 0 58%,
@@ -190,18 +190,18 @@ ul {
 
 .jp-line {
   position: absolute;
-  color: rgba(0, 79, 164, 0.92);
+  color: rgba(17, 17, 20, 0.96);
   font-family: var(--font);
   overflow: hidden;
   text-wrap: balance;
   text-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.66),
-    0 0 22px rgba(255, 255, 255, 0.74);
+    0 1px 0 rgba(255, 255, 255, 0.78),
+    0 0 18px rgba(255, 255, 255, 0.72);
   word-break: keep-all;
 }
 
 .japanese-lens {
-  z-index: 160;
+  z-index: 150;
   width: var(--lens-size);
   height: var(--lens-size);
   inset: auto;
@@ -209,13 +209,14 @@ ul {
   top: calc(var(--lens-y) - (var(--lens-size) / 2));
   border: 1px solid rgba(17, 17, 20, 0.12);
   border-radius: 50%;
-  background: radial-gradient(circle at 45% 42%, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.08) 60%, transparent 73%);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(245, 245, 247, 0.94) 0 54%, rgba(245, 245, 247, 0.72) 64%, transparent 74%);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.68),
-    inset 0 0 34px rgba(0, 113, 227, 0.06),
+    inset 0 0 34px rgba(17, 17, 20, 0.04),
     0 18px 44px rgba(17, 17, 20, 0.08);
-  backdrop-filter: blur(1px) saturate(1.02);
-  -webkit-backdrop-filter: blur(1px) saturate(1.02);
+  backdrop-filter: blur(7px) saturate(0.92);
+  -webkit-backdrop-filter: blur(7px) saturate(0.92);
 }
 
 .japanese-paper.visible,
