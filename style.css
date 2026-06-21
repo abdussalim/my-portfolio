@@ -882,16 +882,12 @@ html[lang="id"] .hero-title {
 }
 
 .photo-stack {
-  display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: clamp(12px, 1.5vw, 18px);
+  position: relative;
   min-height: clamp(390px, 42vw, 500px);
-  align-items: stretch;
 }
 
 .photo-card {
-  position: relative;
+  position: absolute;
   min-height: 0;
   margin: 0;
   border: 1px solid rgba(17, 17, 20, 0.1);
@@ -902,7 +898,16 @@ html[lang="id"] .hero-title {
   box-shadow:
     0 18px 48px rgba(17, 17, 20, 0.11),
     0 1px 0 rgba(255, 255, 255, 0.92) inset;
-  transition: transform 260ms var(--ease), box-shadow 260ms var(--ease), border-color 260ms var(--ease);
+  transition:
+    left 520ms var(--ease),
+    right 520ms var(--ease),
+    top 520ms var(--ease),
+    bottom 520ms var(--ease),
+    width 520ms var(--ease),
+    height 520ms var(--ease),
+    transform 520ms var(--ease),
+    box-shadow 260ms var(--ease),
+    border-color 260ms var(--ease);
 }
 
 .photo-card img {
@@ -921,7 +926,6 @@ html[lang="id"] .hero-title {
   box-shadow:
     0 24px 62px rgba(17, 17, 20, 0.15),
     0 1px 0 rgba(255, 255, 255, 0.92) inset;
-  transform: translateY(-4px);
 }
 
 .photo-card:hover img {
@@ -947,7 +951,20 @@ html[lang="id"] .hero-title {
 }
 
 .photo-card-main {
-  grid-row: 1 / span 2;
+  left: 8%;
+  top: 5%;
+  z-index: 2;
+  width: 52%;
+  height: 86%;
+  transform: rotate(-3deg);
+}
+
+.photo-stack:hover .photo-card-main {
+  left: 0;
+  top: 0;
+  width: calc(62% - 9px);
+  height: 100%;
+  transform: rotate(0deg);
 }
 
 .photo-card-main img {
@@ -959,11 +976,41 @@ html[lang="id"] .hero-title {
 }
 
 .photo-card-side {
-  min-height: 0;
+  right: 2%;
+  top: 3%;
+  z-index: 4;
+  width: 39%;
+  height: 46%;
+  transform: rotate(4deg);
+}
+
+.photo-stack:hover .photo-card-side {
+  right: 0;
+  top: 0;
+  width: calc(38% - 9px);
+  height: calc(50% - 9px);
+  transform: rotate(0deg);
 }
 
 .photo-card-tall {
-  min-height: 0;
+  right: 10%;
+  bottom: 4%;
+  z-index: 3;
+  width: 38%;
+  height: 48%;
+  transform: rotate(-2deg);
+}
+
+.photo-stack:hover .photo-card-tall {
+  right: 0;
+  bottom: 0;
+  width: calc(38% - 9px);
+  height: calc(50% - 9px);
+  transform: rotate(0deg);
+}
+
+.photo-stack:hover .photo-card:hover {
+  transform: translateY(-4px);
 }
 
 .photo-card-tall img {
@@ -1833,6 +1880,20 @@ html[lang="id"] .hero-title {
   .photo-card-main,
   .photo-card-side,
   .photo-card-tall {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: auto;
+    transform: none;
+  }
+
+  .photo-stack:hover .photo-card-main,
+  .photo-stack:hover .photo-card-side,
+  .photo-stack:hover .photo-card-tall {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: auto;
     transform: none;
   }
 
