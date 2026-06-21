@@ -575,7 +575,7 @@ projectCards.forEach((card) => {
   card.addEventListener('mouseenter', () => setProject(card));
   card.addEventListener('focusin', () => setProject(card));
   card.addEventListener('click', (event) => {
-    if (!event.target.closest('.work-media, .work-action, .work-media-action')) return;
+    if (!event.target.closest('.work-media, .work-action')) return;
     openWork(card);
   });
 });
@@ -585,7 +585,7 @@ function updateWorkActions() {
   projectCards.forEach((card) => {
     const hasTarget = Boolean(card.dataset.projectUrl?.trim() || card.dataset.videoUrl?.trim());
     card.classList.toggle('has-target', hasTarget);
-    card.querySelectorAll('.work-action, .work-media-action').forEach((button) => {
+    card.querySelectorAll('.work-action').forEach((button) => {
       button.disabled = !hasTarget;
       button.textContent = hasTarget ? (language === 'en' ? 'Open' : 'Buka') : (language === 'en' ? 'Soon' : 'Segera');
     });
