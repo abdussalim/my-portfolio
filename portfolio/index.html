@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Jejak publikasi, perusahaan, dan project Abdus Salim.">
+  <meta name="description" content="Selected publication, company, and project links by Abdus Salim.">
   <meta name="theme-color" content="#f5f5f7">
   <title>Portfolio Links — Abdus Salim</title>
 
@@ -17,37 +17,96 @@
   <main class="portfolio-shell">
     <nav class="portfolio-nav" aria-label="Portfolio page navigation">
       <a href="../">Abdus Salim</a>
-      <span>Portfolio</span>
+      <div class="portfolio-nav-actions">
+        <span data-portfolio-i18n="nav.label">Portfolio</span>
+        <button class="lang-toggle" type="button" data-portfolio-lang-toggle aria-label="Ganti ke Bahasa Indonesia">ID</button>
+      </div>
     </nav>
 
     <section class="portfolio-hero" aria-labelledby="portfolio-title">
-      <p class="section-kicker">Jejak pilihan</p>
-      <h1 id="portfolio-title">Tiga pintu kecil menuju hal yang sudah saya lepaskan ke luar.</h1>
-      <p>Publikasi, perusahaan, dan project yang pernah saya rawat sampai punya tempatnya sendiri.</p>
+      <p class="section-kicker" data-portfolio-i18n="hero.kicker">Selected trail</p>
+      <h1 id="portfolio-title" data-portfolio-i18n="hero.title">Three quiet doors to things I have sent out into the world.</h1>
+      <p data-portfolio-i18n="hero.text">Publication, company, and project links that grew enough to have their own place.</p>
     </section>
 
     <section class="portfolio-links" aria-label="Portfolio links">
       <a class="portfolio-link-card" href="https://www.sciencedirect.com/science/article/pii/S2405844023036320?fbclid=PAb21jcASkX0FleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAac2w7r401lc9lzWxuBtCX_UbcqRDyQGdeIKS3pY6kEvaVCPC6sfF2oV7o2SPA_aem_Cb07XzOPtIR5X_kM7QeQbA&utm_content=link_in_bio&utm_medium=social&utm_source=ig" target="_blank" rel="noopener">
-        <span>Publikasi jurnal</span>
-        <strong>My Thesis</strong>
-        <p>Catatan akademik yang sudah terbit dan bisa dibaca di ScienceDirect.</p>
+        <figure class="portfolio-thumb">
+          <img src="../img/portfolio/my-publication.png" alt="Preview publikasi ScienceDirect" loading="eager">
+        </figure>
+        <span data-portfolio-i18n="cards.publication.kicker">Journal publication</span>
+        <strong>My Publication</strong>
+        <p data-portfolio-i18n="cards.publication.text">An academic note published and readable on ScienceDirect.</p>
         <em>sciencedirect.com</em>
       </a>
 
       <a class="portfolio-link-card" href="https://instrumeta.id" target="_blank" rel="noopener">
+        <figure class="portfolio-thumb">
+          <img src="../img/portfolio/instrumeta.png" alt="Preview halaman Instrumeta" loading="eager">
+        </figure>
         <span>Company landing page</span>
         <strong>Instrumeta</strong>
-        <p>Rumah digital untuk perusahaan yang saya bangun dan rawat.</p>
+        <p data-portfolio-i18n="cards.company.text">The digital home for a company I helped shape and maintain.</p>
         <em>instrumeta.id</em>
       </a>
 
       <a class="portfolio-link-card" href="https://edunusa.co.id" target="_blank" rel="noopener">
+        <figure class="portfolio-thumb portfolio-thumb-edunusa">
+          <img src="../img/portfolio/edunusa.png" alt="Preview halaman EDUNUSA" loading="eager">
+        </figure>
         <span>Project landing page</span>
         <strong>EDUNUSA</strong>
-        <p>Landing page untuk ekosistem edukasi yang dirancang agar mudah dikenali.</p>
+        <p data-portfolio-i18n="cards.project.text">A landing page for an education ecosystem built to feel clear and familiar.</p>
         <em>edunusa.co.id</em>
       </a>
     </section>
   </main>
+  <script>
+    const portfolioTranslations = {
+      en: {
+        'nav.label': 'Portfolio',
+        'hero.kicker': 'Selected trail',
+        'hero.title': 'Three quiet doors to things I have sent out into the world.',
+        'hero.text': 'Publication, company, and project links that grew enough to have their own place.',
+        'cards.publication.kicker': 'Journal publication',
+        'cards.publication.text': 'An academic note published and readable on ScienceDirect.',
+        'cards.company.text': 'The digital home for a company I helped shape and maintain.',
+        'cards.project.text': 'A landing page for an education ecosystem built to feel clear and familiar.'
+      },
+      id: {
+        'nav.label': 'Portfolio',
+        'hero.kicker': 'Jejak pilihan',
+        'hero.title': 'Tiga pintu kecil menuju hal yang sudah saya lepaskan ke luar.',
+        'hero.text': 'Publikasi, perusahaan, dan project yang pernah saya rawat sampai punya tempatnya sendiri.',
+        'cards.publication.kicker': 'Publikasi jurnal',
+        'cards.publication.text': 'Catatan akademik yang sudah terbit dan bisa dibaca di ScienceDirect.',
+        'cards.company.text': 'Rumah digital untuk perusahaan yang saya bangun dan rawat.',
+        'cards.project.text': 'Landing page untuk ekosistem edukasi yang dirancang agar mudah dikenali.'
+      }
+    };
+
+    const portfolioToggle = document.querySelector('[data-portfolio-lang-toggle]');
+
+    function setPortfolioLanguage(language) {
+      const dictionary = portfolioTranslations[language] || portfolioTranslations.en;
+      document.documentElement.lang = language;
+      localStorage.setItem('portfolio-language', language);
+
+      document.querySelectorAll('[data-portfolio-i18n]').forEach((element) => {
+        const key = element.dataset.portfolioI18n;
+        if (dictionary[key]) element.textContent = dictionary[key];
+      });
+
+      portfolioToggle.textContent = language === 'en' ? 'ID' : 'EN';
+      portfolioToggle.setAttribute('aria-label', language === 'en' ? 'Ganti ke Bahasa Indonesia' : 'Switch to English');
+    }
+
+    const savedPortfolioLanguage = localStorage.getItem('portfolio-language');
+    setPortfolioLanguage(savedPortfolioLanguage === 'id' ? 'id' : 'en');
+
+    portfolioToggle.addEventListener('click', () => {
+      setPortfolioLanguage(document.documentElement.lang === 'en' ? 'id' : 'en');
+    });
+  </script>
 </body>
 </html>

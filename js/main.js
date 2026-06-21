@@ -481,7 +481,8 @@ const setLanguage = (language) => {
   scheduleJapaneseOverlay();
 };
 
-const initialLanguage = localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'id';
+const savedLanguage = localStorage.getItem('portfolio-language');
+const initialLanguage = savedLanguage === 'id' ? 'id' : 'en';
 setLanguage(initialLanguage);
 setupEasterHint();
 setupJapaneseLens();

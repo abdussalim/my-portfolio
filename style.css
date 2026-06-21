@@ -173,9 +173,15 @@ ul {
   color: var(--muted);
 }
 
+.portfolio-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .portfolio-hero {
   max-width: 760px;
-  padding: clamp(66px, 10vw, 112px) 0 clamp(34px, 5vw, 58px);
+  padding: clamp(56px, 9vw, 96px) 0 clamp(28px, 4vw, 44px);
 }
 
 .portfolio-hero h1 {
@@ -204,13 +210,13 @@ ul {
 
 .portfolio-link-card {
   position: relative;
-  min-height: 310px;
+  min-width: 0;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: clamp(22px, 3vw, 30px);
+  padding: 12px clamp(18px, 2.4vw, 22px) clamp(20px, 3vw, 28px);
   background: rgba(255, 255, 255, 0.74);
   box-shadow: 0 22px 56px rgba(17, 17, 20, 0.08);
   transition: transform 240ms var(--ease), border-color 240ms var(--ease), box-shadow 240ms var(--ease);
@@ -219,8 +225,8 @@ ul {
 .portfolio-link-card::after {
   content: "";
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 26px;
+  right: 26px;
   width: 9px;
   height: 9px;
   border-top: 2px solid currentColor;
@@ -242,6 +248,8 @@ ul {
 }
 
 .portfolio-link-card span {
+  display: block;
+  margin: 18px 0 6px;
   color: var(--accent);
   font-size: 0.76rem;
   font-weight: 800;
@@ -251,7 +259,7 @@ ul {
 
 .portfolio-link-card strong {
   display: block;
-  margin: auto 0 0;
+  margin: 0;
   color: var(--ink);
   font-size: clamp(1.7rem, 3vw, 2.65rem);
   line-height: 0.98;
@@ -267,11 +275,40 @@ ul {
 
 .portfolio-link-card em {
   display: block;
-  margin-top: 28px;
+  margin-top: auto;
+  padding-top: 24px;
   color: var(--muted);
   font-size: 0.86rem;
   font-style: normal;
   font-weight: 800;
+}
+
+.portfolio-thumb {
+  position: relative;
+  height: 138px;
+  margin: 0 0 2px;
+  border: 1px solid rgba(17, 17, 20, 0.08);
+  border-radius: var(--radius);
+  background: #f5f5f7;
+  overflow: hidden;
+}
+
+.portfolio-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.92) contrast(1.02);
+  transition: transform 700ms var(--ease), filter 700ms var(--ease);
+}
+
+.portfolio-link-card:hover .portfolio-thumb img {
+  transform: scale(1.04);
+  filter: saturate(1) contrast(1.04);
+}
+
+.portfolio-thumb-edunusa img {
+  object-position: center 42%;
 }
 
 .reveal {
@@ -1625,7 +1662,7 @@ ul {
   }
 
   .portfolio-link-card {
-    min-height: 240px;
+    min-height: 390px;
   }
 
   .button {
