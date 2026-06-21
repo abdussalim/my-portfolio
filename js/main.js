@@ -270,6 +270,7 @@ const renderJapaneseOverlay = () => {
   japaneseOverlayFrame = 0;
   const fragment = document.createDocumentFragment();
   const seen = new Set();
+  const occupiedHeadlineAreas = [];
 
   document.querySelectorAll(japaneseOverlaySelectors.join(',')).forEach((element) => {
     if (seen.has(element) || element.closest('.japanese-paper, .video-modal')) return;
@@ -285,14 +286,23 @@ const renderJapaneseOverlay = () => {
     const originalFontSize = Number.parseFloat(styles.fontSize) || 16;
     const originalLineHeight = Number.parseFloat(styles.lineHeight) || originalFontSize * 1.1;
     const isHeadline = japaneseHeadlineSelectors.some((selector) => element.matches(selector));
-    const translatedFontSize = isHeadline ? Math.max(64, originalFontSize * 0.82) : originalFontSize;
-    const translatedLineHeight = isHeadline ? originalLineHeight * 0.86 : styles.lineHeight;
+    const headlineScale = element.matches('.section-title[data-i18n]') ? 0.74 : 0.82;
+    const translatedFontSize = isHeadline ? Math.max(58, originalFontSize * headlineScale) : originalFontSize;
+    const translatedLineHeight = isHeadline ? translatedFontSize * 1.02 : styles.lineHeight;
+    const translatedWidth = Math.min(rect.width * (isHeadline ? 1.02 : 1.18), window.innerWidth - rect.left - 24);
+    const headlineTop = rect.top + originalLineHeight * 0.02;
+    const overlappingHeadline = occupiedHeadlineAreas.find((area) => (
+      rect.left < area.right &&
+      rect.left + rect.width > area.left &&
+      rect.top < area.bottom &&
+      rect.bottom > area.top
+    ));
     const line = document.createElement('div');
     line.className = isHeadline ? 'jp-line jp-headline' : 'jp-line';
     line.textContent = text;
     line.style.left = `${rect.left}px`;
-    line.style.top = `${isHeadline ? rect.top + originalLineHeight * 0.02 : rect.top}px`;
-    line.style.width = `${Math.min(rect.width * (isHeadline ? 0.72 : 1.18), window.innerWidth - rect.left - 24)}px`;
+    line.style.top = `${isHeadline ? headlineTop : overlappingHeadline ? overlappingHeadline.bottom + 10 : rect.top}px`;
+    line.style.width = `${translatedWidth}px`;
     line.style.minHeight = `${rect.height * 1.12}px`;
     line.style.fontSize = `${translatedFontSize}px`;
     line.style.fontWeight = styles.fontWeight;
@@ -300,6 +310,15 @@ const renderJapaneseOverlay = () => {
     line.style.textAlign = styles.textAlign;
     line.style.letterSpacing = styles.letterSpacing;
     fragment.append(line);
+
+    if (isHeadline) {
+      occupiedHeadlineAreas.push({
+        left: rect.left,
+        right: rect.left + translatedWidth,
+        top: headlineTop,
+        bottom: headlineTop + Math.max(rect.height * 1.08, translatedLineHeight * 2.2),
+      });
+    }
   });
 
   japanesePaper.replaceChildren(fragment);
