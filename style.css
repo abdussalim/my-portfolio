@@ -231,6 +231,99 @@ ul {
   opacity: 1;
 }
 
+.easter-hint {
+  position: fixed;
+  right: clamp(18px, 4vw, 42px);
+  bottom: clamp(18px, 4vw, 38px);
+  z-index: 130;
+  width: min(340px, calc(100vw - 32px));
+  border: 1px solid rgba(17, 17, 20, 0.1);
+  border-radius: var(--radius);
+  padding: 18px 48px 18px 18px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 24px 70px rgba(17, 17, 20, 0.14);
+  color: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(14px) scale(0.98);
+  transition: opacity 260ms var(--ease), transform 260ms var(--ease);
+  backdrop-filter: blur(24px) saturate(1.1);
+  -webkit-backdrop-filter: blur(24px) saturate(1.1);
+}
+
+.easter-hint::before {
+  content: "";
+  position: absolute;
+  right: 28px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  border-right: 1px solid rgba(17, 17, 20, 0.1);
+  border-bottom: 1px solid rgba(17, 17, 20, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  transform: rotate(45deg);
+}
+
+.easter-hint.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.easter-hint span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.easter-hint p {
+  margin: 0;
+  color: rgba(17, 17, 20, 0.76);
+  font-size: 0.92rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.easter-hint-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(17, 17, 20, 0.08);
+  border-radius: 50%;
+  background: rgba(245, 245, 247, 0.86);
+  cursor: pointer;
+}
+
+.easter-hint-close::before,
+.easter-hint-close::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 11px;
+  height: 1.5px;
+  border-radius: 999px;
+  background: rgba(17, 17, 20, 0.68);
+}
+
+.easter-hint-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.easter-hint-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.easter-hint-close:hover {
+  background: #fff;
+}
+
 .navbar {
   position: fixed;
   inset: 0 0 auto;
@@ -1446,6 +1539,12 @@ ul {
 
   .video-close {
     top: -44px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .easter-hint {
+    display: none;
   }
 }
 

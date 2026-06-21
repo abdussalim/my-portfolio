@@ -12,6 +12,8 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 const langToggle = document.querySelector('[data-lang-toggle]');
 const japanesePaper = document.getElementById('japanese-paper');
 const japaneseLens = document.getElementById('japanese-lens');
+const easterHint = document.getElementById('easter-hint');
+const easterHintClose = document.querySelector('[data-easter-close]');
 const videoModal = document.getElementById('video-modal');
 const projectVideo = document.getElementById('project-video');
 
@@ -23,58 +25,60 @@ const translations = {
     'nav.works': 'Karya',
     'nav.contact': 'Kontak',
     'hero.eyebrow': 'Fullstack Developer / IoT Builder / Mapping Specialist',
-    'hero.title': 'Saya masak sistem yang stabil, lalu saya sajikan rapi.',
-    'hero.lead': 'SRE, frontend, backend, dan IoT saya kemas jadi produk yang enak dipakai.',
-    'hero.primary': 'Lihat karya',
-    'hero.secondary': 'Ngobrol dulu',
-    'hero.captionA': 'Dari rasa penasaran',
-    'hero.captionB': 'jadi produk terkoneksi',
+    'hero.title': 'Saya masak sistem stabil, lalu sajikan dengan rapi.',
+    'hero.lead': 'SRE, frontend, backend, dan IoT saya bungkus jadi produk yang enak dipakai.',
+    'hero.primary': 'Cek karya',
+    'hero.secondary': 'Ngobrol yuk',
+    'hero.captionA': 'Mulai dari penasaran',
+    'hero.captionB': 'jadi produk yang jalan',
+    'easter.kicker': 'Easter Egg',
+    'easter.text': 'Ada Easter Egg loh, di sini. Coba tekan terus tahan CTRL sambil gerakin cursornya.',
     'about.kicker': 'Tentang saya',
-    'about.title': 'Saya menjaga sistem tetap hidup, sambil tetap bisa membangun produknya.',
-    'about.text': 'Saya bekerja di reliability, CI/CD, server Linux, dan aplikasi web. Kalau produk masih mentah, saya bisa ikut masak dari infrastruktur sampai UI.',
+    'about.title': 'Saya jaga sistem tetap nyala, sambil ikut ngebangun produknya.',
+    'about.text': 'Saya biasa pegang reliability, CI/CD, server Linux, dan web app. Kalau idenya masih mentah, saya bantu masak dari infra sampai UI.',
     'photos.kicker': 'Di luar terminal',
-    'photos.title': 'Sedikit arsip visual, biar halaman ini punya napas.',
-    'photos.note': 'Bukan moodboard. Cuma potongan kecil dari cara saya bergerak, belajar, dan merapikan ide.',
+    'photos.title': 'Sedikit arsip visual, biar halaman ini ikut bernapas.',
+    'photos.note': 'Bukan moodboard. Cuma potongan kecil dari cara saya jalan, belajar, dan merapikan ide.',
     'photos.card1': 'Field mode',
     'photos.card2': 'Quiet build time',
     'photos.card3': 'Ordinary archive',
     'career.kicker': 'Karier singkat',
-    'career.title': 'Reliability dulu. Produk tetap jalan.',
-    'career.note': '1.5 tahun sebagai SRE, 20+ pipeline CI/CD, dan pengalaman frontend sejak 2023.',
+    'career.title': 'Reliability dulu. Produk lanjut jalan.',
+    'career.note': '1.5 tahun SRE, 20+ pipeline CI/CD, plus frontend sejak 2023.',
     'career.metric1': 'pipeline CI/CD',
     'career.metric2': 'rilis lebih cepat',
     'career.metric3': 'biaya operasional turun',
-    'career.job1': 'Menjaga 7 aplikasi edukasi tetap stabil, aman, dan gampang dirilis.',
-    'career.job2': 'Membangun UI React dan membantu revamp tampilan agar lebih nyaman dipakai.',
-    'career.job3': 'Mengurus kebutuhan frontend harian dengan React dan JavaScript.',
-    'career.job4': 'Mengumpulkan data geolokasi untuk pemetaan perkebunan sawit.',
+    'career.job1': 'Jaga 7 aplikasi edukasi tetap stabil, aman, dan gampang dirilis.',
+    'career.job2': 'Bangun UI React dan bantu revamp biar lebih nyaman dipakai.',
+    'career.job3': 'Handle kebutuhan frontend harian dengan React dan JavaScript.',
+    'career.job4': 'Ambil data geolokasi buat pemetaan kebun sawit.',
     'story.kicker': 'Scrollytelling',
     'story.title': 'Dari kabel kecil ke sistem yang siap dijaga.',
     'story.step1.title': 'Baca pola.',
-    'story.step1.text': 'Fisika bikin saya terbiasa mencari sebab, ukuran, dan feedback.',
+    'story.step1.text': 'Fisika ngajarin saya cari sebab, ukuran, dan feedback.',
     'story.step2.title': 'Racik prototype.',
-    'story.step2.text': 'Sensor dan Arduino jadi dapur pertama untuk mencoba ide di dunia nyata.',
+    'story.step2.text': 'Sensor dan Arduino jadi dapur pertama buat ngetes ide.',
     'story.step3.title': 'Bungkus jadi web.',
-    'story.step3.text': 'Data yang mentah saya rapikan jadi flow, dashboard, dan interface.',
+    'story.step3.text': 'Data mentah saya rapikan jadi flow, dashboard, dan UI.',
     'story.step4.title': 'Kirim ke pengguna.',
-    'story.step4.text': 'Produk yang sudah matang saya serve: jelas, ringan, dan siap dipakai.',
+    'story.step4.text': 'Yang sudah matang saya serve: jelas, ringan, siap dipakai.',
     'projects.kicker': 'Karya pilihan',
-    'projects.title': 'Beberapa eksperimen yang pernah saya kirim.',
-    'projects.note': 'Bukan sekadar demo. Ini potongan kecil dari cara saya meracik hardware, data, dan interface.',
+    'projects.title': 'Beberapa eksperimen yang sudah saya kirim.',
+    'projects.note': 'Bukan cuma demo. Ini potongan cara saya meracik hardware, data, dan UI.',
     'projects.open': 'Segera',
-    'projects.p1': 'Monitor kualitas udara, biar kondisi napas bisa dibaca dari gadget sendiri.',
-    'projects.p2': 'Prototype motor yang bisa dinyalakan lewat perintah suara.',
-    'projects.p3': 'Scan QR untuk membaca detail dan harga barang tanpa banyak klik.',
-    'projects.p4': 'Timbangan digital yang langsung mengolah tinggi, berat, dan BMI.',
+    'projects.p1': 'Cek kualitas udara langsung dari gadget sendiri.',
+    'projects.p2': 'Prototype motor yang nyala lewat suara.',
+    'projects.p3': 'Scan QR buat cek detail dan harga barang.',
+    'projects.p4': 'Timbangan digital buat tinggi, berat, dan BMI.',
     'contact.kicker': 'Kontak',
-    'contact.title': 'Punya ide yang perlu dimasak bareng?',
-    'contact.text': 'Ceritakan versi mentahnya. Kita rapikan pelan-pelan sampai siap disajikan.',
+    'contact.title': 'Punya ide buat dimasak bareng?',
+    'contact.text': 'Ceritain versi mentahnya. Kita rapikan sampai siap disajikan.',
     'form.name': 'Nama lengkap',
     'form.email': 'Alamat email',
     'form.message': 'Pesan',
-    'form.placeholder': 'Ceritakan yang mau kamu bangun...',
+    'form.placeholder': 'Ceritain yang mau kamu bangun...',
     'form.submit': 'Kirim pesan',
-    'footer.created': 'Dibuat dengan rapi oleh'
+    'footer.created': 'Dirapikan oleh'
   },
   en: {
     'nav.about': 'About',
@@ -83,58 +87,60 @@ const translations = {
     'nav.works': 'Works',
     'nav.contact': 'Contact',
     'hero.eyebrow': 'Fullstack Developer / IoT Builder / Mapping Specialist',
-    'hero.title': 'I cook stable systems, then serve them clean.',
-    'hero.lead': 'SRE, frontend, backend, and IoT packed into products people can enjoy using.',
-    'hero.primary': 'See works',
-    'hero.secondary': 'Talk first',
-    'hero.captionA': 'From curiosity',
-    'hero.captionB': 'to connected products',
+    'hero.title': 'I cook solid systems, then plate them clean.',
+    'hero.lead': 'SRE, frontend, backend, and IoT packed into products that click.',
+    'hero.primary': 'See work',
+    'hero.secondary': 'Let’s talk',
+    'hero.captionA': 'From a spark',
+    'hero.captionB': 'to things that ship',
+    'easter.kicker': 'Easter Egg',
+    'easter.text': 'Easter Egg hiding here. Hold CTRL and move your cursor.',
     'about.kicker': 'About me',
-    'about.title': 'I keep systems alive, while still being able to build the product.',
-    'about.text': 'I work with reliability, CI/CD, Linux servers, and web apps. If the product is still raw, I can help cook it from infrastructure to UI.',
+    'about.title': 'I keep the lights on, and still build the thing.',
+    'about.text': 'Reliability, CI/CD, Linux, and web apps are my lane. If the idea is raw, I cook it from infra to UI.',
     'photos.kicker': 'Outside the terminal',
-    'photos.title': 'A small visual archive, so this page has room to breathe.',
-    'photos.note': 'Not a moodboard. Just small pieces of how I move, learn, and tidy up ideas.',
+    'photos.title': 'A tiny visual log, just to let the page breathe.',
+    'photos.note': 'Not a moodboard. Just snapshots of moving, learning, and tidying ideas.',
     'photos.card1': 'Field mode',
     'photos.card2': 'Quiet build time',
     'photos.card3': 'Ordinary archive',
     'career.kicker': 'Short career',
-    'career.title': 'Reliability first. Product still moving.',
-    'career.note': '1.5 years as an SRE, 20+ CI/CD pipelines, and frontend experience since 2023.',
+    'career.title': 'Reliability first. Product keeps rolling.',
+    'career.note': '1.5 years in SRE, 20+ CI/CD pipelines, frontend since 2023.',
     'career.metric1': 'CI/CD pipelines',
-    'career.metric2': 'faster releases',
-    'career.metric3': 'lower operational cost',
-    'career.job1': 'Keeping 7 education apps stable, secure, and easier to release.',
-    'career.job2': 'Building React UI and helping revamp screens so they feel easier to use.',
-    'career.job3': 'Handling daily frontend needs with React and JavaScript.',
-    'career.job4': 'Collecting geolocation data for oil palm mapping.',
+    'career.metric2': 'faster ships',
+    'career.metric3': 'leaner ops',
+    'career.job1': 'Kept 7 education apps steady, secure, and easy to ship.',
+    'career.job2': 'Built React UI and gave old screens a cleaner second wind.',
+    'career.job3': 'Handled daily frontend work with React and JavaScript.',
+    'career.job4': 'Mapped field data for oil palm areas.',
     'story.kicker': 'Scrollytelling',
-    'story.title': 'From tiny wires to systems ready to be kept alive.',
-    'story.step1.title': 'Read the pattern.',
-    'story.step1.text': 'Physics trained me to look for cause, measurement, and feedback.',
-    'story.step2.title': 'Cook the prototype.',
-    'story.step2.text': 'Sensors and Arduino became the first kitchen for testing ideas in the real world.',
-    'story.step3.title': 'Pack it into web.',
-    'story.step3.text': 'Raw data gets shaped into flows, dashboards, and interfaces.',
-    'story.step4.title': 'Ship it to users.',
-    'story.step4.text': 'Once the product is cooked, I serve it clear, light, and ready to use.',
+    'story.title': 'From tiny wires to systems built to last.',
+    'story.step1.title': 'Read the room.',
+    'story.step1.text': 'Physics taught me cause, measure, and feedback.',
+    'story.step2.title': 'Cook a prototype.',
+    'story.step2.text': 'Sensors and Arduino were my first test kitchen.',
+    'story.step3.title': 'Wrap it in web.',
+    'story.step3.text': 'Raw data becomes flows, dashboards, and UI.',
+    'story.step4.title': 'Ship the plate.',
+    'story.step4.text': 'When it is cooked, I serve it light and ready.',
     'projects.kicker': 'Selected works',
-    'projects.title': 'A few experiments I have shipped.',
-    'projects.note': 'Not just demos. These are small slices of how I cook hardware, data, and interface together.',
+    'projects.title': 'A few experiments I shipped.',
+    'projects.note': 'Not just demos. Small slices of hardware, data, and UI on one plate.',
     'projects.open': 'Soon',
-    'projects.p1': 'Air quality monitoring, so breathing conditions are readable from your own gadget.',
-    'projects.p2': 'A motorcycle prototype that starts through voice commands.',
-    'projects.p3': 'QR scanning for product details and prices without too many clicks.',
-    'projects.p4': 'A digital scale that processes height, weight, and BMI in real time.',
+    'projects.p1': 'Air quality checks from your own gadget.',
+    'projects.p2': 'A motorcycle prototype that starts by voice.',
+    'projects.p3': 'QR scans for details and prices.',
+    'projects.p4': 'A digital scale for height, weight, and BMI.',
     'contact.kicker': 'Contact',
-    'contact.title': 'Got an idea we should cook together?',
-    'contact.text': 'Send the raw version. We can shape it slowly until it is ready to serve.',
+    'contact.title': 'Got an idea to cook?',
+    'contact.text': 'Send the rough cut. We will plate it clean.',
     'form.name': 'Full name',
     'form.email': 'Email address',
     'form.message': 'Message',
-    'form.placeholder': 'Tell me what you want to build...',
+    'form.placeholder': 'Tell me what we are building...',
     'form.submit': 'Send message',
-    'footer.created': 'Created neatly by'
+    'footer.created': 'Plated neatly by'
   }
 };
 
@@ -146,56 +152,58 @@ const japaneseTranslations = {
   'nav.contact': '連絡',
   'hero.eyebrow': 'フルスタック開発 / IoT開発 / マッピング',
   'hero.title': '安定したシステムを作り、きれいに届けます。',
-  'hero.lead': 'SRE、フロントエンド、バックエンド、IoTを、使いやすいプロダクトにまとめます。',
+  'hero.lead': 'SRE、フロントエンド、バックエンド、IoTを、使いやすい形にまとめます。',
   'hero.primary': '制作を見る',
-  'hero.secondary': 'まず話す',
-  'hero.captionA': '好奇心から',
-  'hero.captionB': 'つながるプロダクトへ',
+  'hero.secondary': '話しましょう',
+  'hero.captionA': '小さな好奇心から',
+  'hero.captionB': '動くものへ',
+  'easter.kicker': 'イースターエッグ',
+  'easter.text': 'ここにイースターエッグがあります。CTRLを押したままカーソルを動かしてみてください。',
   'about.kicker': '私について',
-  'about.title': 'システムを止めずに守りながら、プロダクトも作れます。',
-  'about.text': '信頼性、CI/CD、Linuxサーバー、Webアプリを扱っています。まだ粗いアイデアでも、インフラからUIまで一緒に形にできます。',
+  'about.title': 'システムを動かし続けながら、プロダクトも作れます。',
+  'about.text': '信頼性、CI/CD、Linux、Webアプリが得意です。粗いアイデアでも、インフラからUIまで形にします。',
   'photos.kicker': 'ターミナルの外で',
-  'photos.title': '少しだけ写真も置いて、このページに余白を。',
-  'photos.note': 'ムードボードではなく、動きながら学び、アイデアを整えていく小さな記録です。',
+  'photos.title': '少しだけ写真を置いて、ページに息を。',
+  'photos.note': 'ムードボードではなく、動き、学び、アイデアを整える小さな記録です。',
   'photos.card1': 'フィールドモード',
   'photos.card2': '静かに作る時間',
   'photos.card3': 'ふつうの日の記録',
   'career.kicker': '経歴のまとめ',
-  'career.title': 'まず信頼性。プロダクトは前に進める。',
-  'career.note': 'SREとして1.5年、20本以上のCI/CDパイプライン、そして2023年からフロントエンドの経験があります。',
+  'career.title': 'まず信頼性。プロダクトは進める。',
+  'career.note': 'SRE 1.5年、CI/CD 20本以上、フロントエンドは2023年から。',
   'career.metric1': 'CI/CDパイプライン',
-  'career.metric2': 'リリースを高速化',
-  'career.metric3': '運用コストを削減',
-  'career.job1': '7つの教育アプリを安定・安全に保ち、リリースしやすくしています。',
-  'career.job2': 'ReactのUIを作り、画面をもっと使いやすく改善しました。',
-  'career.job3': 'ReactとJavaScriptで日々のフロントエンド開発を担当しました。',
-  'career.job4': '農園マッピングのために位置情報データを集めました。',
+  'career.metric2': 'リリース高速化',
+  'career.metric3': '運用を軽く',
+  'career.job1': '7つの教育アプリを安定・安全に保ち、出しやすくしました。',
+  'career.job2': 'React UIを作り、古い画面を使いやすく整えました。',
+  'career.job3': 'ReactとJavaScriptで日々の画面開発を担当しました。',
+  'career.job4': '農園マッピング用の位置情報を集めました。',
   'story.kicker': 'スクロールストーリー',
-  'story.title': '小さな配線から、運用できるシステムへ。',
-  'story.step1.title': 'パターンを読む。',
-  'story.step1.text': '物理を通して、原因・数値・フィードバックを見る習慣がつきました。',
-  'story.step2.title': '試作品を作る。',
-  'story.step2.text': 'センサーとArduinoが、現実の中でアイデアを試す最初の場所でした。',
-  'story.step3.title': 'Webにまとめる。',
-  'story.step3.text': '生のデータを、フロー、ダッシュボード、インターフェースに整えます。',
-  'story.step4.title': 'ユーザーへ届ける。',
-  'story.step4.text': '出来上がったものを、分かりやすく、軽く、すぐ使える形で届けます。',
+  'story.title': '小さな配線から、長く動くシステムへ。',
+  'story.step1.title': '空気を読む。',
+  'story.step1.text': '物理で、原因・数値・フィードバックを見る癖がつきました。',
+  'story.step2.title': '試作を作る。',
+  'story.step2.text': 'センサーとArduinoが最初の実験場でした。',
+  'story.step3.title': 'Webで包む。',
+  'story.step3.text': '生データをフロー、ダッシュボード、UIにします。',
+  'story.step4.title': '届ける。',
+  'story.step4.text': 'できたものを軽く、すぐ使える形で届けます。',
   'projects.kicker': '選んだ制作',
-  'projects.title': 'これまで届けてきた実験たち。',
-  'projects.note': 'ただのデモではなく、ハードウェア、データ、インターフェースをどう組み合わせるかの小さな記録です。',
+  'projects.title': 'これまで届けた実験たち。',
+  'projects.note': 'ただのデモではなく、ハードウェア、データ、UIを一皿にした記録です。',
   'projects.open': '準備中',
-  'projects.p1': '空気の状態を、自分の端末から確認できるモニタリングです。',
-  'projects.p2': '声のコマンドでバイクを起動する試作品です。',
-  'projects.p3': 'QRを読み取って、商品の詳細や価格をすばやく確認できます。',
-  'projects.p4': '身長、体重、BMIをリアルタイムで扱うデジタルスケールです。',
+  'projects.p1': '空気の状態を自分の端末で見られます。',
+  'projects.p2': '声で起動するバイクの試作品です。',
+  'projects.p3': 'QRで詳細と価格をすぐ確認できます。',
+  'projects.p4': '身長、体重、BMIを見るデジタルスケールです。',
   'contact.kicker': '連絡',
   'contact.title': '一緒に作りたいアイデアがありますか？',
-  'contact.text': 'まだ粗い状態でも大丈夫です。少しずつ整えて、届けられる形にしましょう。',
+  'contact.text': '粗いままで大丈夫です。きれいに整えて届けましょう。',
   'form.name': 'お名前',
   'form.email': 'メールアドレス',
   'form.message': 'メッセージ',
   'form.submit': '送信する',
-  'footer.created': '丁寧に作りました',
+  'footer.created': '丁寧に整えました',
 };
 
 const staticJapaneseText = {
@@ -329,6 +337,22 @@ const scheduleJapaneseOverlay = () => {
   japaneseOverlayFrame = requestAnimationFrame(renderJapaneseOverlay);
 };
 
+const dismissEasterHint = (persist = false) => {
+  easterHint?.classList.remove('visible');
+  if (persist) localStorage.setItem('portfolio-easter-hint-dismissed', 'true');
+};
+
+const setupEasterHint = () => {
+  if (!easterHint || !window.matchMedia('(pointer: fine)').matches) return;
+  if (localStorage.getItem('portfolio-easter-hint-dismissed') === 'true') return;
+
+  window.setTimeout(() => {
+    easterHint.classList.add('visible');
+  }, prefersReducedMotion ? 0 : 1400);
+
+  easterHintClose?.addEventListener('click', () => dismissEasterHint(true));
+};
+
 let japaneseLensReady = false;
 const setupJapaneseLens = () => {
   if (japaneseLensReady || !window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
@@ -362,12 +386,14 @@ const setupJapaneseLens = () => {
       hideLens();
       return;
     }
+    dismissEasterHint();
     if (!frame) frame = requestAnimationFrame(paint);
   }, { passive: true });
 
   window.addEventListener('keydown', (event) => {
     if (event.key !== 'Control') return;
     ctrlPressed = true;
+    dismissEasterHint();
     renderJapaneseOverlay();
     if (!frame) frame = requestAnimationFrame(paint);
   });
@@ -457,6 +483,7 @@ const setLanguage = (language) => {
 
 const initialLanguage = localStorage.getItem('portfolio-language') === 'en' ? 'en' : 'id';
 setLanguage(initialLanguage);
+setupEasterHint();
 setupJapaneseLens();
 
 langToggle?.addEventListener('click', () => {
