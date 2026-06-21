@@ -879,6 +879,45 @@ ul {
   object-position: center 28%;
 }
 
+.portfolio-cta {
+  grid-column: 2;
+  justify-self: end;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(17, 17, 20, 0.12);
+  border-radius: 999px;
+  padding: 11px 14px 11px 18px;
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 18px 46px rgba(17, 17, 20, 0.08);
+  backdrop-filter: blur(18px);
+  transition: transform 220ms var(--ease), border-color 220ms var(--ease), background 220ms var(--ease);
+}
+
+.portfolio-cta::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 220ms var(--ease);
+}
+
+.portfolio-cta:hover {
+  border-color: rgba(0, 113, 227, 0.24);
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.portfolio-cta:hover::after {
+  transform: translateX(3px) rotate(45deg);
+}
+
 .career {
   background: linear-gradient(180deg, var(--paper), var(--bg));
   border-top: 1px solid var(--line);
@@ -1553,6 +1592,10 @@ ul {
     min-height: 440px;
   }
 
+  .portfolio-cta {
+    grid-column: 1 / -1;
+  }
+
   .story-stage {
     position: relative;
     top: auto;
@@ -1700,6 +1743,11 @@ ul {
 
   .photo-card-tall {
     min-height: 420px;
+  }
+
+  .portfolio-cta {
+    width: 100%;
+    justify-content: center;
   }
 
   .career-card {
