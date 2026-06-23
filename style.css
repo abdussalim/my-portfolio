@@ -165,7 +165,7 @@ ul {
   font-weight: 800;
 }
 
-.portfolio-nav a {
+.portfolio-nav > a {
   color: var(--ink);
 }
 
@@ -177,6 +177,47 @@ ul {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.portfolio-back-link {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(17, 17, 20, 0.1);
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.64);
+  color: var(--ink);
+  font-weight: 900;
+  box-shadow: 0 12px 30px rgba(17, 17, 20, 0.06);
+  transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
+}
+
+.portfolio-back-link::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 180ms var(--ease);
+}
+
+.portfolio-back-link:hover {
+  border-color: rgba(0, 113, 227, 0.22);
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.portfolio-back-link:hover::before {
+  transform: translateX(-2px) rotate(45deg);
+}
+
+.portfolio-back-row {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(26px, 4vw, 42px);
 }
 
 .portfolio-hero {
@@ -1018,21 +1059,25 @@ html[lang="id"] .hero-title {
   object-position: center 28%;
 }
 
+.portfolio-cta-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
 .portfolio-cta {
-  grid-column: 1 / -1;
-  justify-self: end;
   position: relative;
   z-index: 8;
-  min-height: 44px;
+  min-height: 55px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 13px;
   border: 1px solid rgba(17, 17, 20, 0.12);
   border-radius: 999px;
-  padding: 11px 14px 11px 18px;
+  padding: 14px 18px 14px 23px;
   background: rgba(255, 255, 255, 0.74);
   color: var(--ink);
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   font-weight: 800;
   box-shadow: 0 18px 46px rgba(17, 17, 20, 0.08);
   backdrop-filter: blur(18px);
@@ -1041,8 +1086,8 @@ html[lang="id"] .hero-title {
 
 .portfolio-cta::after {
   content: "";
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-top: 2px solid currentColor;
   border-right: 2px solid currentColor;
   transform: rotate(45deg);
@@ -1911,11 +1956,6 @@ html[lang="id"] .hero-title {
     grid-column: 1 / -1;
     grid-row: auto;
     min-height: 500px;
-  }
-
-  .portfolio-cta {
-    position: static;
-    grid-column: 1 / -1;
   }
 
   .story-stage {
