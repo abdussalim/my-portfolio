@@ -7,15 +7,14 @@ const storySection = document.getElementById('story');
 const storyProgress = document.getElementById('story-progress');
 const storySteps = document.querySelectorAll('.story-step');
 const projectCards = document.querySelectorAll('.project-card');
-const activeProjectImage = document.getElementById('active-project-image');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const langToggle = document.querySelector('[data-lang-toggle]');
 const japanesePaper = document.getElementById('japanese-paper');
 const japaneseLens = document.getElementById('japanese-lens');
 const easterHint = document.getElementById('easter-hint');
 const easterHintClose = document.querySelector('[data-easter-close]');
-const videoModal = document.getElementById('video-modal');
-const projectVideo = document.getElementById('project-video');
+const contactForm = document.querySelector('.contact-form');
+const formStatus = document.getElementById('form-status');
 
 const translations = {
   id: {
@@ -42,17 +41,16 @@ const translations = {
     'photos.card1': 'Field mode',
     'photos.card2': 'Quiet build time',
     'photos.card3': 'Ordinary archive',
-    'photos.portfolio': 'Buka lebih banyak portfolio',
+    'photos.portfolio': 'Lihat asal mulanya',
     'career.kicker': 'Karier singkat',
     'career.title': 'Reliability dulu. Produk baru lari.',
-    'career.note': '1.5 tahun SRE, 20+ CI/CD, frontend sejak 2023.',
-    'career.metric1': 'pipeline CI/CD',
-    'career.metric2': 'rilis lebih cepat',
-    'career.metric3': 'biaya operasional turun',
+    'career.note': 'SRE sejak 2025, frontend sejak 2023 — 20+ pipeline, tanpa drama.',
+    'career.metric1': 'pipeline CI/CD berlayar',
+    'career.metric2': 'pengguna terlayani tiap hari',
+    'career.metric3': 'lembaga tetap menyala',
     'career.job1': 'Menjaga 7 app edukasi tetap kalem, aman, dan gampang rilis.',
-    'career.job2': 'Meracik UI React dan bikin layar lama lebih adem dipakai.',
-    'career.job3': 'Ngurus frontend harian pakai React dan JavaScript.',
-    'career.job4': 'Merekam jejak lokasi untuk peta kebun sawit.',
+    'career.job2': 'Membangun dan merawat UI React untuk alur kerja harian pemerintahan.',
+    'career.job3': 'Merekam jejak lokasi untuk peta kebun sawit.',
     'story.kicker': 'A Bit of My Story',
     'story.title': 'Dari kabel kecil ke sistem yang siap dijaga.',
     'story.step1.title': 'Baca pola.',
@@ -64,12 +62,12 @@ const translations = {
     'story.step4.title': 'Kirim ke pengguna.',
     'story.step4.text': 'Yang sudah matang saya sajikan: ringan, jelas, siap dipakai.',
     'projects.kicker': 'Karya pilihan',
-    'projects.title': 'Beberapa eksperimen yang sudah berlayar.',
-    'projects.note': 'Bukan cuma demo. Ini irisan hardware, data, dan UI.',
-    'projects.open': 'Segera',
-    'projects.p1': 'Cek kualitas udara dari gadget sendiri.',
-    'projects.p2': 'Prototype motor yang nurut suara.',
-    'projects.p3': 'Scan QR, detail barang langsung kebuka.',
+    'projects.title': 'Dari dapur saya ke produksi.',
+    'projects.note': 'Platform yang melayani 5000+ orang, rumah digital perusahaan, dan riset yang tembus jurnal — semuanya masih hangat.',
+    'projects.open': 'Buka',
+    'projects.p1': '10+ sekolah mengelola presensi, ujian, rapor, dan PPDB di sini — melayani 5000+ orang tiap hari.',
+    'projects.p2': 'Rumah digital perusahaan IoT & robotik — saya ikut membangunnya, dan saya yang jaga lampunya tetap nyala.',
+    'projects.p3': 'Akar fisika, lolos peer-review: riset polusi sedimen sungai, open access di Elsevier.',
     'contact.kicker': 'Kontak',
     'contact.title': 'Ada ide yang mau dimasak bareng?',
     'contact.text': 'Kirim versi mentahnya. Nanti kita rapikan pelan-pelan.',
@@ -78,6 +76,9 @@ const translations = {
     'form.message': 'Pesan',
     'form.placeholder': 'Ceritakan yang mau kamu bangun...',
     'form.submit': 'Kirim pesan',
+    'form.sending': 'Mengirim…',
+    'form.success': 'Pesan terkirim. Saya akan segera membalas.',
+    'form.error': 'Gagal terkirim. Email langsung saja ke abdussalimsan@gmail.com.',
     'footer.created': 'Ditata dengan pelan oleh'
   },
   en: {
@@ -104,17 +105,16 @@ const translations = {
     'photos.card1': 'Field mode',
     'photos.card2': 'Quiet build time',
     'photos.card3': 'Ordinary archive',
-    'photos.portfolio': 'Open more portfolios',
+    'photos.portfolio': 'See where it started',
     'career.kicker': 'Short career',
     'career.title': 'Reliability first. Product keeps rolling.',
-    'career.note': '1.5 years in SRE, 20+ CI/CD pipelines, frontend since 2023.',
-    'career.metric1': 'CI/CD pipelines',
-    'career.metric2': 'faster ships',
-    'career.metric3': 'leaner ops',
+    'career.note': 'SRE since 2025, frontend since 2023 — 20+ pipelines, zero drama.',
+    'career.metric1': 'CI/CD pipelines shipped',
+    'career.metric2': 'users served daily',
+    'career.metric3': 'institutions kept running',
     'career.job1': 'Kept 7 education apps steady, secure, and easy to ship.',
-    'career.job2': 'Built React UI and gave old screens a cleaner second wind.',
-    'career.job3': 'Handled daily frontend work with React and JavaScript.',
-    'career.job4': 'Mapped field data for oil palm areas.',
+    'career.job2': 'Built and maintained React UIs for daily government workflows.',
+    'career.job3': 'Mapped field data for oil palm areas.',
     'story.kicker': 'A Bit of My Story',
     'story.title': 'From tiny wires to systems built to last.',
     'story.step1.title': 'Read the room.',
@@ -126,12 +126,12 @@ const translations = {
     'story.step4.title': 'Ship the plate.',
     'story.step4.text': 'When it is cooked, I serve it light and ready.',
     'projects.kicker': 'Selected works',
-    'projects.title': 'A few experiments I shipped.',
-    'projects.note': 'Not just demos. Small slices of hardware, data, and UI on one plate.',
-    'projects.open': 'Soon',
-    'projects.p1': 'Air quality checks from your own gadget.',
-    'projects.p2': 'A motorcycle prototype that starts by voice.',
-    'projects.p3': 'QR scans for details and prices.',
+    'projects.title': 'From my kitchen to production.',
+    'projects.note': 'A platform serving 5000+ people, a company’s digital home, and research that made the journal — all still warm.',
+    'projects.open': 'Open',
+    'projects.p1': '10+ schools run attendance, exams, reports, and admissions here — serving 5000+ people daily.',
+    'projects.p2': 'The digital home of an IoT and robotics company — I helped build it, and I keep the lights on.',
+    'projects.p3': 'Physics roots, peer-reviewed: research on river sediment pollution, open access at Elsevier.',
     'contact.kicker': 'Contact',
     'contact.title': 'Got an idea to cook?',
     'contact.text': 'Send the rough cut. We will plate it clean.',
@@ -140,6 +140,9 @@ const translations = {
     'form.message': 'Message',
     'form.placeholder': 'Tell me what we are building...',
     'form.submit': 'Send message',
+    'form.sending': 'Sending…',
+    'form.success': 'Message sent. I will get back to you soon.',
+    'form.error': 'Something broke. Email me at abdussalimsan@gmail.com instead.',
     'footer.created': 'Plated neatly by'
   }
 };
@@ -168,17 +171,16 @@ const japaneseTranslations = {
   'photos.card1': 'フィールドモード',
   'photos.card2': '静かに作る時間',
   'photos.card3': 'ふつうの日の記録',
-  'photos.portfolio': 'さらにポートフォリオを開く',
+  'photos.portfolio': '始まりの場所を見る',
   'career.kicker': '経歴のまとめ',
   'career.title': '信頼性を土台に、プロダクトに進む方向を。',
-  'career.note': 'SRE 1.5年、CI/CD 20本以上、2023年からフロントエンドも。',
-  'career.metric1': 'CI/CDパイプライン',
-  'career.metric2': 'リリース高速化',
-  'career.metric3': '運用を軽く',
+  'career.note': '2025年からSRE、2023年からフロントエンド。パイプライン20本以上、ドラマはゼロ。',
+  'career.metric1': '出荷したCI/CDパイプライン',
+  'career.metric2': '毎日届けているユーザー',
+  'career.metric3': '止めずに動かす教育機関',
   'career.job1': '7つの教育アプリを落ち着いて安定・安全に保ち、出しやすくしました。',
-  'career.job2': 'React UIを組み、古い画面を使いやすく整えました。',
-  'career.job3': 'ReactとJavaScriptで日々の画面開発を支えました。',
-  'career.job4': '農園マッピング用の位置情報の足跡を集めました。',
+  'career.job2': '政府の日常業務のためのReact UIを構築・保守しました。',
+  'career.job3': '農園マッピング用の位置情報の足跡を集めました。',
   'story.kicker': 'スクロールストーリー',
   'story.title': '小さな配線から、手入れできるシステムへ。',
   'story.step1.title': '空気を読む。',
@@ -190,12 +192,12 @@ const japaneseTranslations = {
   'story.step4.title': '届ける。',
   'story.step4.text': 'できたものを、軽く、分かりやすく、すぐ使える形で届けます。',
   'projects.kicker': '選んだ制作',
-  'projects.title': 'これまで船出した実験たち。',
-  'projects.note': 'ただのデモではなく、ハードウェア、データ、UIを出会わせた記録です。',
-  'projects.open': '準備中',
-  'projects.p1': '空気の状態を自分の端末で見られます。',
-  'projects.p2': '声で起動するバイクの試作品です。',
-  'projects.p3': 'QRで詳細と価格をすぐ確認できます。',
+  'projects.title': '私の台所から、本番環境へ。',
+  'projects.note': '5000人以上が使うプラットフォーム、会社のデジタルの家、学術誌に載った研究。どれもまだ温かい。',
+  'projects.open': '開く',
+  'projects.p1': '10以上の学校が出席・試験・成績・入学をここで運用。毎日5000人以上に届けています。',
+  'projects.p2': 'IoTとロボティクスの会社のデジタルの家。作る側でもあり、灯を守る側でもあります。',
+  'projects.p3': '物理の根っこから査読論文へ。川の堆積物汚染の研究、Elsevierでオープンアクセス。',
   'contact.kicker': '連絡',
   'contact.title': '一緒に作りたいアイデアがありますか？',
   'contact.text': 'まだ粗いままで大丈夫です。少しずつ整えて、届けられる形にしましょう。',
@@ -212,22 +214,18 @@ const staticJapaneseText = {
   'Frontend Web Developer': 'フロントエンドWeb開発者',
   'Surveying Technician': '測量技術者',
   'PT INSTRUMETA TEKNOLOGI NUSANTARA': 'PT Instrumeta Teknologi Nusantara',
-  'NashTa Group': 'NashTa Group',
-  'Kementerian Keuangan RI': 'インドネシア共和国 財務省',
+  'Kementerian Keuangan RI · via NashTa Group': 'インドネシア共和国 財務省（NashTa Group経由）',
   'DINAS PERTANIAN KABUPATEN KAPUAS': 'カプアス県 農業局',
-  'Bahinak Project': 'Bahinakプロジェクト',
-  "Google's Motobike": 'Googleのモトバイク',
-  'QR Code Goods Scanner': 'QRコード商品スキャナー',
-  'IoT': 'IoT',
-  'Monitoring': '監視',
-  'Mobile-ready': 'モバイル対応',
-  'Voice': '音声',
-  'Prototype': '試作',
-  'Scanner': 'スキャナー',
-  'Inventory': '在庫管理',
-  'Health': 'ヘルスケア',
-  'Realtime': 'リアルタイム',
-  'Dashboard': 'ダッシュボード',
+  'EDUNUSA': 'EDUNUSA',
+  'Instrumeta': 'Instrumeta',
+  'Heliyon Research': 'Heliyonでの研究',
+  'EdTech': '教育テック',
+  '10+ institutions': '10以上の教育機関',
+  '5000+ users': '5000人以上のユーザー',
+  'Company site': '企業サイト',
+  'SRE': 'SRE',
+  'Research': '研究',
+  'Open access': 'オープンアクセス',
   'GitHub Actions': 'GitHub Actions',
   'Docker': 'Docker',
   'Linux VPS': 'Linux VPS',
@@ -280,7 +278,7 @@ const renderJapaneseOverlay = () => {
   const occupiedHeadlineAreas = [];
 
   document.querySelectorAll(japaneseOverlaySelectors.join(',')).forEach((element) => {
-    if (seen.has(element) || element.closest('.japanese-paper, .video-modal')) return;
+    if (seen.has(element) || element.closest('.japanese-paper')) return;
     seen.add(element);
 
     const text = getJapaneseText(element);
@@ -352,6 +350,16 @@ const setupEasterHint = () => {
   easterHintClose?.addEventListener('click', () => dismissEasterHint(true));
 };
 
+let japaneseFontLoaded = false;
+const loadJapaneseFont = () => {
+  if (japaneseFontLoaded) return;
+  japaneseFontLoaded = true;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap';
+  document.head.append(link);
+};
+
 let japaneseLensReady = false;
 const setupJapaneseLens = () => {
   if (japaneseLensReady || !window.matchMedia('(pointer: fine)').matches || prefersReducedMotion) return;
@@ -385,6 +393,7 @@ const setupJapaneseLens = () => {
       hideLens();
       return;
     }
+    loadJapaneseFont();
     dismissEasterHint();
     if (!frame) frame = requestAnimationFrame(paint);
   }, { passive: true });
@@ -392,6 +401,7 @@ const setupJapaneseLens = () => {
   window.addEventListener('keydown', (event) => {
     if (event.key !== 'Control') return;
     ctrlPressed = true;
+    loadJapaneseFont();
     dismissEasterHint();
     renderJapaneseOverlay();
     if (!frame) frame = requestAnimationFrame(paint);
@@ -418,39 +428,8 @@ const setupJapaneseLens = () => {
   scheduleJapaneseOverlay();
 };
 
-const getDrivePreviewUrl = (url) => {
-  if (!url) return '';
-  const directMatch = url.match(/\/d\/([^/]+)/);
-  const idMatch = url.match(/[?&]id=([^&]+)/);
-  const id = directMatch?.[1] || idMatch?.[1];
-  return id ? `https://drive.google.com/file/d/${id}/preview` : url;
-};
-
-const openVideoModal = (url) => {
-  if (!videoModal || !projectVideo) return;
-  projectVideo.src = getDrivePreviewUrl(url);
-  videoModal.classList.add('open');
-  videoModal.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('modal-open');
-};
-
-const closeVideoModal = () => {
-  if (!videoModal || !projectVideo) return;
-  videoModal.classList.remove('open');
-  videoModal.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('modal-open');
-  projectVideo.src = '';
-};
-
 const openWork = (card) => {
   const projectUrl = card.dataset.projectUrl?.trim();
-  const videoUrl = card.dataset.videoUrl?.trim();
-
-  if (videoUrl) {
-    openVideoModal(videoUrl);
-    return;
-  }
-
   if (projectUrl) {
     window.open(projectUrl, '_blank', 'noopener,noreferrer');
   }
@@ -476,7 +455,8 @@ const setLanguage = (language) => {
     langToggle.setAttribute('aria-label', language === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia');
   }
 
-  updateWorkActions();
+  easterHintClose?.setAttribute('aria-label', language === 'id' ? 'Tutup petunjuk easter egg' : 'Dismiss easter egg hint');
+
   scheduleJapaneseOverlay();
 };
 
@@ -549,55 +529,38 @@ navToggle?.addEventListener('click', () => {
 
 navLinks.forEach((link) => link.addEventListener('click', closeMobileMenu));
 
-const setProject = (card) => {
-  if (!card || !activeProjectImage || card.classList.contains('active')) return;
-  const image = card.dataset.image;
-  const alt = card.dataset.alt || card.querySelector('h3')?.textContent || 'Selected project';
-
-  projectCards.forEach((item) => item.classList.toggle('active', item === card));
-  activeProjectImage.classList.add('switching');
-
-  window.setTimeout(() => {
-    activeProjectImage.src = image;
-    activeProjectImage.alt = alt;
-    activeProjectImage.classList.remove('switching');
-  }, prefersReducedMotion ? 0 : 140);
-};
-
-const projectObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) setProject(entry.target);
-  });
-}, { threshold: 0.58, rootMargin: '-12% 0px -28% 0px' });
-
 projectCards.forEach((card) => {
-  projectObserver.observe(card);
-  card.addEventListener('mouseenter', () => setProject(card));
-  card.addEventListener('focusin', () => setProject(card));
   card.addEventListener('click', (event) => {
-    if (!event.target.closest('.work-media, .work-action')) return;
+    if (event.target.closest('.work-action')) return;
     openWork(card);
   });
 });
 
-function updateWorkActions() {
-  const language = document.documentElement.lang === 'en' ? 'en' : 'id';
-  projectCards.forEach((card) => {
-    const hasTarget = Boolean(card.dataset.projectUrl?.trim() || card.dataset.videoUrl?.trim());
-    card.classList.toggle('has-target', hasTarget);
-    card.querySelectorAll('.work-action').forEach((button) => {
-      button.disabled = !hasTarget;
-      button.textContent = hasTarget ? (language === 'en' ? 'Open' : 'Buka') : (language === 'en' ? 'Soon' : 'Segera');
+contactForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const dictionary = translations[document.documentElement.lang] || translations.en;
+
+  submitButton.disabled = true;
+  formStatus.className = 'form-status';
+  formStatus.textContent = dictionary['form.sending'];
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(contactForm),
     });
-  });
-}
-
-document.querySelectorAll('[data-video-close]').forEach((button) => {
-  button.addEventListener('click', closeVideoModal);
-});
-
-window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') closeVideoModal();
+    if (!response.ok) throw new Error(String(response.status));
+    formStatus.classList.add('success');
+    formStatus.textContent = dictionary['form.success'];
+    contactForm.reset();
+  } catch {
+    formStatus.classList.add('error');
+    formStatus.textContent = dictionary['form.error'];
+  } finally {
+    submitButton.disabled = false;
+  }
 });
 
 const updateScrollState = () => {
@@ -627,4 +590,3 @@ window.addEventListener('resize', updateScrollState);
 updateScrollState();
 
 document.getElementById('year').textContent = new Date().getFullYear();
-updateWorkActions();
