@@ -1,0 +1,1 @@
+{"name":"showreel","private":true,"scripts":{"check":"npx hyperframes check","render":"npx hyperframes render --quality high --fps 30 --output renders/showreel.mp4"}}

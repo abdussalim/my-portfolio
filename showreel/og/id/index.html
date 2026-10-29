@@ -1,0 +1,77 @@
+<!doctype html><html lang="id"><head><meta charset="UTF-8"/><meta name="viewport" content="width=1200, height=630"/><title>OG id</title>
+<script src="assets/gsap.min.js"></script><style>@font-face{font-family:'Bricolage Grotesque';font-weight:500 700;src:url(assets/fonts/BricolageGrotesque-700.woff2) format('woff2');}
+@font-face{font-family:'Geist';font-weight:400 500;src:url(assets/fonts/Geist-400.woff2) format('woff2');}
+@font-face{font-family:'Geist Mono';font-weight:400 500;src:url(assets/fonts/GeistMono-400.woff2) format('woff2');}
+:root{--paper:#eef1ef;--surface:#f7f9f8;--ink:#15201c;--muted:#56635d;--line:rgba(21,32,28,.16);--acc:#d9481a}
+
+*{box-sizing:border-box}body{margin:0;background:#eef1ef}
+#root{position:relative;width:1200px;height:630px;overflow:hidden;background:#eef1ef;font-family:'Geist',sans-serif;color:#15201c}
+#contours{position:absolute;left:0;top:0;width:1200px;height:630px}
+#contours path{fill:none;stroke:rgba(21,32,28,.16);stroke-width:1.2}#contours path.idx{stroke:rgba(21,32,28,.3);stroke-width:1.8}
+.mono{font-family:'Geist Mono',monospace;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:20px;color:#56635d}
+.tri{display:inline-block;width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:15px solid #d9481a;margin-right:12px;vertical-align:-2px}
+h1{position:absolute;left:70px;top:135px;margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:132px;line-height:.95;letter-spacing:-.03em}
+.role{position:absolute;left:70px;top:432px;font-size:29px;font-weight:500;width:720px;white-space:nowrap;line-height:1.25}
+.tag{position:absolute;left:70px;top:495px;font-size:23px;color:#56635d;width:560px;line-height:1.3}
+.photo{position:absolute;right:70px;top:60px;width:330px;height:440px;border-radius:18px;overflow:hidden;border:2px solid rgba(21,32,28,.14);box-shadow:0 20px 50px rgba(21,32,28,.16)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.top{position:absolute;left:70px;top:60px}.url{position:absolute;right:70px;bottom:48px;font-family:'Geist Mono',monospace;font-weight:500;font-size:26px;background:#15201c;color:#eef1ef;border-radius:999px;padding:12px 30px}
+.coord{position:absolute;right:70px;top:520px;width:330px;text-align:left;font-size:16px;letter-spacing:.08em}
+</style></head><body><div id="root" data-composition-id="main" data-start="0" data-width="1200" data-height="630" data-duration="1">
+<svg id="contours" viewBox="0 0 1200 630"></svg>
+<div class="mono top"><i class="tri"></i>6.2088&deg; S, 106.8456&deg; E</div>
+<h1>Abdus<br>Salim</h1>
+<div class="role">Site Reliability Engineer &amp; Fullstack Developer</div>
+<div class="tag">Saya masak sistem sampai matang, lalu sajikan dengan rapi.</div>
+<div class="photo"><img src="assets/sarimu-1-hero.png"></div>
+
+<div class="url">abdussalim.my.id</div>
+</div><script>(function(){  function h(x,y){var n=Math.sin(x*127.1+y*311.7+7.3)*43758.5453;return n-Math.floor(n);}
+  function sm(t){return t*t*(3-2*t);}
+  function vn(x,y){var xi=Math.floor(x),yi=Math.floor(y),xf=sm(x-xi),yf=sm(y-yi);
+    var a=h(xi,yi),b=h(xi+1,yi),c=h(xi,yi+1),d=h(xi+1,yi+1);
+    return a+(b-a)*xf+(c-a)*yf+(a-b-c+d)*xf*yf;}
+  function f(x,y){return vn(x*.9,y*.9)*.6+vn(x*1.9+5,y*1.9+9)*.3+vn(x*3.9+2,y*3.9+4)*.1;}
+  var S=25,W=Math.ceil(1200/S)+1,H=Math.ceil(630/S)+1,g=[];
+  for(var j=0;j<H;j++){g[j]=[];for(var i=0;i<W;i++)g[j][i]=f(i*S/430,j*S/430);}
+  var NS="http://www.w3.org/2000/svg",svg=document.getElementById("contours"),paths=[];
+  var L=26;
+  function pt(key,a,b,p,q,lv){var t=(lv-a)/(b-a);return {key:key,x:(p[0]+(q[0]-p[0])*t)*S,y:(p[1]+(q[1]-p[1])*t)*S};}
+  for(var k=0;k<L;k++){
+    var lv=.22+k*(.6/L), segs=[];
+    for(var j=0;j<H-1;j++)for(var i=0;i<W-1;i++){
+      var tl_=g[j][i],tr=g[j][i+1],br=g[j+1][i+1],bl=g[j+1][i];
+      var c=(tl_>lv?8:0)|(tr>lv?4:0)|(br>lv?2:0)|(bl>lv?1:0);
+      if(c==0||c==15)continue;
+      var P={
+        T:pt("h"+i+","+j,tl_,tr,[i,j],[i+1,j],lv),
+        B:pt("h"+i+","+(j+1),bl,br,[i,j+1],[i+1,j+1],lv),
+        Lf:pt("v"+i+","+j,tl_,bl,[i,j],[i,j+1],lv),
+        R:pt("v"+(i+1)+","+j,tr,br,[i+1,j],[i+1,j+1],lv)};
+      var tb={1:[["Lf","B"]],2:[["B","R"]],3:[["Lf","R"]],4:[["T","R"]],5:[["T","R"],["Lf","B"]],6:[["T","B"]],7:[["Lf","T"]],8:[["Lf","T"]],9:[["T","B"]],10:[["Lf","T"],["B","R"]],11:[["T","R"]],12:[["Lf","R"]],13:[["B","R"]],14:[["Lf","B"]]}[c];
+      tb.forEach(function(s){segs.push([P[s[0]],P[s[1]]]);});
+    }
+    var adj={};
+    segs.forEach(function(s,n){[0,1].forEach(function(e){(adj[s[e].key]=adj[s[e].key]||[]).push(n);});});
+    var used={};
+    segs.forEach(function(s0,n0){
+      if(used[n0])return; used[n0]=1;
+      var chain=[s0[0],s0[1]];
+      [1,0].forEach(function(dir){
+        while(true){
+          var end=dir?chain[chain.length-1]:chain[0],nx=null;
+          (adj[end.key]||[]).forEach(function(n){if(!used[n]&&nx===null)nx=n;});
+          if(nx===null)break; used[nx]=1;
+          var s=segs[nx],o=s[0].key===end.key?s[1]:s[0];
+          if(dir)chain.push(o);else chain.unshift(o);
+        }
+      });
+      if(chain.length<8)return;
+      var d="M"+chain.map(function(p){return p.x.toFixed(1)+" "+p.y.toFixed(1);}).join("L");
+      var p=document.createElementNS(NS,"path");p.setAttribute("d",d);
+      if(k%5==0)p.setAttribute("class","idx");
+      svg.appendChild(p);paths.push({el:p,k:k});
+    });
+  }
+
+window.__timelines={main:gsap.timeline({paused:true})};})();</script></body></html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1920, height=1080"/>
+<title>Abdus Salim Showreel</title>
+<script src="assets/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Bricolage Grotesque';font-weight:500 700;src:url(assets/fonts/BricolageGrotesque-700.woff2) format('woff2');}
+@font-face{font-family:'Geist';font-weight:400 500;src:url(assets/fonts/Geist-400.woff2) format('woff2');}
+@font-face{font-family:'Geist Mono';font-weight:400 500;src:url(assets/fonts/GeistMono-400.woff2) format('woff2');}
+:root{--paper:#eef1ef;--surface:#f7f9f8;--ink:#15201c;--muted:#56635d;--line:rgba(21,32,28,.16);--acc:#d9481a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);font-family:'Geist',sans-serif;color:var(--ink)}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden}
+.fill{position:absolute;inset:0;background:var(--paper)}
+.clip{position:absolute;inset:0}
+#contours{position:absolute;left:-190px;top:-110px;width:2300px;height:1300px}
+#contours path{fill:none;stroke:var(--line);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+#contours path.idx{stroke:rgba(21,32,28,.3);stroke-width:2.2}
+.mono{font-size:28px;font-family:'Geist Mono',monospace;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.disp{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;letter-spacing:-.03em;line-height:.95;margin:0}
+.tri{display:inline-block;width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:19px solid var(--acc);vertical-align:-3px;margin-right:16px}
+.scene{position:absolute;inset:0;padding:130px 140px}
+.hud{position:absolute;left:140px;right:140px;bottom:64px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{display:flex;align-items:center;margin-bottom:34px}
+.card{position:absolute;background:var(--surface);border:2px solid rgba(21,32,28,.14);border-radius:22px;box-shadow:0 30px 70px rgba(21,32,28,.14);overflow:hidden}
+.card img{display:block;width:100%;height:100%;object-fit:cover}
+.h2{font-size:104px}
+.sub{font-size:36px;line-height:1.3;color:var(--muted);margin-top:30px;max-width:640px}
+.tag{display:inline-block;margin-top:38px;font-family:'Geist Mono',monospace;font-weight:500;font-size:28px;letter-spacing:.06em;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:10px 24px}
+.metric{position:absolute;top:480px;width:480px;border-top:3px solid var(--ink);padding-top:30px}
+.metric b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:180px;letter-spacing:-.04em;line-height:1}
+.metric span{display:block;font-size:38px;line-height:1.25;color:var(--muted);margin-top:16px}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="24">
+
+<div class="fill clip" data-start="0" data-duration="24" data-track-index="0"></div>
+<div class="clip" data-start="0" data-duration="24" data-track-index="1"><svg id="contours" viewBox="0 0 2300 1300"></svg></div>
+
+<section class="clip" data-start="0" data-duration="4" data-track-index="2"><div class="scene s1">
+  <div class="eyebrow mono" id="s1-eb"><i class="tri"></i>Station 01 / Jakarta</div>
+  <h1 class="disp" id="s1-name" style="font-size:210px;margin-top:110px;width:1100px">Abdus<br>Salim</h1>
+  <div id="s1-role" style="font-size:42px;line-height:1.3;margin-top:44px;max-width:900px">Site Reliability Engineer<br>Fullstack Developer<br>IoT builder</div>
+  <div class="card" id="s1-photo" style="right:150px;top:110px;width:600px;height:800px"><img src="assets/sarimu-1-hero.png" style="object-position:center top"></div>
+</div></section>
+
+<section class="clip" data-start="4" data-duration="4" data-track-index="2"><div class="scene s2">
+  <div class="eyebrow mono" id="s2-eb"><i class="tri"></i>Station 02 / Impact</div>
+  <h2 class="disp" id="s2-h" style="font-size:96px;max-width:1300px">Systems that stay up while people use them.</h2>
+  <div class="metric" id="m1" style="left:140px"><b>20+</b><span>CI/CD pipelines shipped</span></div>
+  <div class="metric" id="m2" style="left:640px"><b>5000+</b><span>users served daily</span></div>
+  <div class="metric" id="m3" style="left:1330px"><b>10+</b><span>institutions kept running</span></div>
+</div></section>
+
+<section class="clip" data-start="8" data-duration="4.5" data-track-index="2"><div class="scene s3">
+  <div class="eyebrow mono" id="s3-eb"><i class="tri"></i>Station 03 / Education</div>
+  <h2 class="disp h2" id="s3-h">EDUNUSA</h2>
+  <div class="sub" id="s3-sub">One platform for 10+ schools: attendance, exams, report cards and admissions.</div>
+  <div class="tag" id="s3-tag">edunusa.co.id</div>
+  <div class="card" id="s3-img" style="right:110px;top:190px;width:1000px;height:563px"><img src="assets/edunusa-live.png"></div>
+</div></section>
+
+<section class="clip" data-start="12.5" data-duration="4.5" data-track-index="2"><div class="scene s4">
+  <div class="eyebrow mono" id="s4-eb"><i class="tri"></i>Station 04 / IoT and robotics</div>
+  <h2 class="disp h2" id="s4-h">Instrumeta</h2>
+  <div class="sub" id="s4-sub">Company site for an IoT and robotics team. Helped build it, now keeps it running.</div>
+  <div class="tag" id="s4-tag">instrumeta.id</div>
+  <div class="card" id="s4-img" style="right:110px;top:300px;width:1000px;height:357px"><img src="assets/instrumeta-card.png" style="object-position:center"></div>
+</div></section>
+
+<section class="clip" data-start="17" data-duration="4" data-track-index="2"><div class="scene s5">
+  <div class="eyebrow mono" id="s5-eb"><i class="tri"></i>Station 05 / Research</div>
+  <h2 class="disp h2" id="s5-h" style="font-size:96px">Heliyon<br>Research</h2>
+  <div class="sub" id="s5-sub">Peer-reviewed river sediment pollution research. Open access, Elsevier 2023.</div>
+  <div class="card" id="s5-img" style="right:170px;top:160px;width:760px;height:607px"><img src="assets/my-publication-card.png"></div>
+</div></section>
+
+<section class="clip" data-start="21" data-duration="3" data-track-index="2"><div class="scene s6" style="text-align:center">
+  <div class="eyebrow mono" id="s6-eb" style="justify-content:center;margin-top:170px"><i class="tri"></i>Station 06 / Say hello</div>
+  <h2 class="disp" id="s6-h" style="font-size:150px">Let&rsquo;s build something<br>that stays up.</h2>
+  <div class="tag" id="s6-url" style="font-size:44px;padding:20px 52px;margin-top:64px;background:var(--ink);color:var(--paper)">abdussalim.my.id</div>
+</div></section>
+
+<div class="clip" data-start="0" data-duration="21" data-track-index="3"><div class="hud" id="hud">
+  <div class="mono"><i class="tri" style="transform:scale(.7)"></i>6.2088&deg; S, 106.8456&deg; E</div>
+  <div class="mono">abdussalim.my.id</div>
+</div></div>
+</div>
+
+<script>
+(function(){
+  function h(x,y){var n=Math.sin(x*127.1+y*311.7+7.3)*43758.5453;return n-Math.floor(n);}
+  function sm(t){return t*t*(3-2*t);}
+  function vn(x,y){var xi=Math.floor(x),yi=Math.floor(y),xf=sm(x-xi),yf=sm(y-yi);
+    var a=h(xi,yi),b=h(xi+1,yi),c=h(xi,yi+1),d=h(xi+1,yi+1);
+    return a+(b-a)*xf+(c-a)*yf+(a-b-c+d)*xf*yf;}
+  function f(x,y){return vn(x*.9,y*.9)*.6+vn(x*1.9+5,y*1.9+9)*.3+vn(x*3.9+2,y*3.9+4)*.1;}
+  var S=25,W=Math.ceil(2300/S)+1,H=Math.ceil(1300/S)+1,g=[];
+  for(var j=0;j<H;j++){g[j]=[];for(var i=0;i<W;i++)g[j][i]=f(i*S/430,j*S/430);}
+  var NS="http://www.w3.org/2000/svg",svg=document.getElementById("contours"),paths=[];
+  var L=26;
+  function pt(key,a,b,p,q,lv){var t=(lv-a)/(b-a);return {key:key,x:(p[0]+(q[0]-p[0])*t)*S,y:(p[1]+(q[1]-p[1])*t)*S};}
+  for(var k=0;k<L;k++){
+    var lv=.22+k*(.6/L), segs=[];
+    for(var j=0;j<H-1;j++)for(var i=0;i<W-1;i++){
+      var tl_=g[j][i],tr=g[j][i+1],br=g[j+1][i+1],bl=g[j+1][i];
+      var c=(tl_>lv?8:0)|(tr>lv?4:0)|(br>lv?2:0)|(bl>lv?1:0);
+      if(c==0||c==15)continue;
+      var P={
+        T:pt("h"+i+","+j,tl_,tr,[i,j],[i+1,j],lv),
+        B:pt("h"+i+","+(j+1),bl,br,[i,j+1],[i+1,j+1],lv),
+        Lf:pt("v"+i+","+j,tl_,bl,[i,j],[i,j+1],lv),
+        R:pt("v"+(i+1)+","+j,tr,br,[i+1,j],[i+1,j+1],lv)};
+      var tb={1:[["Lf","B"]],2:[["B","R"]],3:[["Lf","R"]],4:[["T","R"]],5:[["T","R"],["Lf","B"]],6:[["T","B"]],7:[["Lf","T"]],8:[["Lf","T"]],9:[["T","B"]],10:[["Lf","T"],["B","R"]],11:[["T","R"]],12:[["Lf","R"]],13:[["B","R"]],14:[["Lf","B"]]}[c];
+      tb.forEach(function(s){segs.push([P[s[0]],P[s[1]]]);});
+    }
+    var adj={};
+    segs.forEach(function(s,n){[0,1].forEach(function(e){(adj[s[e].key]=adj[s[e].key]||[]).push(n);});});
+    var used={};
+    segs.forEach(function(s0,n0){
+      if(used[n0])return; used[n0]=1;
+      var chain=[s0[0],s0[1]];
+      [1,0].forEach(function(dir){
+        while(true){
+          var end=dir?chain[chain.length-1]:chain[0],nx=null;
+          (adj[end.key]||[]).forEach(function(n){if(!used[n]&&nx===null)nx=n;});
+          if(nx===null)break; used[nx]=1;
+          var s=segs[nx],o=s[0].key===end.key?s[1]:s[0];
+          if(dir)chain.push(o);else chain.unshift(o);
+        }
+      });
+      if(chain.length<8)return;
+      var d="M"+chain.map(function(p){return p.x.toFixed(1)+" "+p.y.toFixed(1);}).join("L");
+      var p=document.createElementNS(NS,"path");p.setAttribute("d",d);
+      if(k%5==0)p.setAttribute("class","idx");
+      svg.appendChild(p);paths.push({el:p,k:k});
+    });
+  }
+  paths.forEach(function(o){var len=o.el.getTotalLength();o.len=len;o.el.style.strokeDasharray=len;o.el.style.strokeDashoffset=len;});
+
+  var tl=gsap.timeline({paused:true});
+  paths.forEach(function(o){tl.to(o.el,{strokeDashoffset:0,duration:2.4,ease:"power2.inOut"},0.1+o.k*0.045+(Math.floor(o.len)%7)*0.01);});
+  tl.to("#contours",{x:-60,y:-30,duration:24,ease:"none"},0);
+  tl.to("#contours",{opacity:.55,duration:1.2},3.6);
+  tl.to("#contours",{opacity:1,duration:1.2},20.6);
+  var E="power3.out";
+  function inn(sel,t,o){tl.from(sel,Object.assign({opacity:0,y:36,duration:.8,ease:E},o||{}),t);}
+  function out(sel,t){tl.to(sel,{opacity:0,duration:.4,ease:"power2.in"},t);}
+  inn("#s1-eb",.3); inn("#s1-name",.6,{y:60,duration:1}); inn("#s1-role",1.2);
+  inn("#s1-photo",1.0,{x:60,y:0,duration:1.1});
+  out(".s1",3.55);
+  inn("#s2-eb",4.1); inn("#s2-h",4.3);
+  inn("#m1",4.9); inn("#m2",5.2); inn("#m3",5.5);
+  out(".s2",7.55);
+  inn("#s3-eb",8.1); inn("#s3-h",8.25); inn("#s3-sub",8.5); inn("#s3-tag",8.8); inn("#s3-img",8.4,{x:70,y:0,duration:1});
+  out(".s3",12.05);
+  inn("#s4-eb",12.6); inn("#s4-h",12.75); inn("#s4-sub",13); inn("#s4-tag",13.2); inn("#s4-img",13,{y:60,duration:.9});
+  out(".s4",16.55);
+  inn("#s5-eb",17.1); inn("#s5-h",17.25); inn("#s5-sub",17.5); inn("#s5-img",17.4,{x:70,y:0,duration:.9});
+  out(".s5",20.55);
+  inn("#s6-eb",21.1); inn("#s6-h",21.25,{y:50,duration:.9}); inn("#s6-url",21.8,{y:20,duration:.7});
+  out("#hud",20.6);
+  window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;
+})();
+</script>
+</body>
+</html>
