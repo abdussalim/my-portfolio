@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Theme is set on <html data-theme> before paint by ThemeScript. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+  Survey palette: cool field-paper, deep ink green, one signal-orange accent
+  (the colour of a surveyor's range pole). Radius is a single 4px scale.
+*/
+:root {
+  --paper: #eef1ef;
+  --surface: #f7f9f8;
+  --ink: #15201c;
+  --muted: #56635d;
+  --line: rgb(21 32 28 / 0.12);
+  --contour: rgb(21 32 28 / 0.16);
+  --signal: #d9481a;
+  --signal-ink: #b33a12; /* AA on paper for small text */
+  --on-signal: #fdf6f2;
+}
+
+[data-theme="dark"] {
+  --paper: #0f1513;
+  --surface: #151d1a;
+  --ink: #e2e9e5;
+  --muted: #94a29b;
+  --line: rgb(226 233 229 / 0.12);
+  --contour: rgb(226 233 229 / 0.13);
+  --signal: #ff6a35;
+  --signal-ink: #ff8a5c;
+  --on-signal: #1a0d07;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-contour: var(--contour);
+  --color-signal: var(--signal);
+  --color-signal-ink: var(--signal-ink);
+  --color-on-signal: var(--on-signal);
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-DEFAULT: 4px;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* z-index scale: nav 40, easter overlay 50, skip link 60. */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--on-signal);
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Hero entrance: pure CSS so it never waits for hydration. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+.rise {
+  animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
