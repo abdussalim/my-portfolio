@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getDictionary } from "@/content/dictionary";
-import { getProject, projects } from "@/content/projects";
+import { caseStudies, getProject } from "@/content/projects";
 import type { Locale } from "@/content/site";
 import { pageMetadata } from "./seo";
 
@@ -20,6 +20,17 @@ export function originsMetadata(locale: Locale): Metadata {
   });
 }
 
+export function workIndexMetadata(locale: Locale): Metadata {
+  const d = getDictionary(locale);
+  return pageMetadata({
+    locale,
+    path: "/work/",
+    title: d.workIndex.metaTitle,
+    description: d.workIndex.metaDescription,
+    image: caseStudies[0]?.image.src,
+  });
+}
+
 export function workMetadata(locale: Locale, slug: string): Metadata {
   const p = getProject(slug);
   if (!p) return {};
@@ -32,4 +43,4 @@ export function workMetadata(locale: Locale, slug: string): Metadata {
   });
 }
 
-export const workParams = () => projects.map((p) => ({ slug: p.slug }));
+export const workParams = () => caseStudies.map((p) => ({ slug: p.slug }));
