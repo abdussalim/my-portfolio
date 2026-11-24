@@ -6,3 +6,6 @@ next-env.d.ts
 showreel/node_modules/
 showreel/renders/
 showreel/**/.hyperframes/
+
+# internal fact sheets (sources, local paths), never publish
+docs/facts/

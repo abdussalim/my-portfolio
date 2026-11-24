@@ -2,6 +2,21 @@ import type { Locale } from "./site";
 
 type Localized<T> = Record<Locale, T>;
 
+export type ProjectArea = "infra" | "cicd" | "backend" | "frontend" | "security" | "data";
+
+export type ProjectMedia =
+  | { kind: "image"; src: string; width: number; height: number; alt: Localized<string>; caption?: Localized<string> }
+  | {
+      kind: "video";
+      mp4: string;
+      webm?: string;
+      poster: string;
+      width: number;
+      height: number;
+      caption: Localized<string>;
+    }
+  | { kind: "doc"; href: string; label: Localized<string>; format: "pdf" | "html" };
+
 export type Project = {
   slug: string;
   name: string;
@@ -16,9 +31,20 @@ export type Project = {
   approach: Localized<string[]>;
   outcome: Localized<string>;
   /** schema.org type used for the case-study JSON-LD. */
-  schemaType: "WebSite" | "ScholarlyArticle";
+  schemaType: "WebSite" | "ScholarlyArticle" | "SoftwareApplication" | "CreativeWork";
   /** Full publication title, used as the ScholarlyArticle headline. */
   headline?: string;
+  /** Honest state badge. Optional until every entry is migrated. */
+  status?: "live" | "development" | "frozen" | "internal";
+  category?: "client" | "product" | "competition" | "personal" | "research";
+  period?: Localized<string>;
+  team?: Localized<string>;
+  /** Home order, lower first. Omitted = not featured on home. */
+  featured?: number;
+  areas?: { area: ProjectArea; items: Localized<string[]> }[];
+  metrics?: { value: string; label: Localized<string> }[];
+  diagram?: { src: string; width: number; height: number; alt: Localized<string>; caption?: Localized<string> };
+  media?: ProjectMedia[];
 };
 
 // Case-study copy only restates facts already published on the site/CV.
