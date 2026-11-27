@@ -1,13 +1,15 @@
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import type { SectionProps } from "@/components/ui/types";
 
 export function About({ dict }: SectionProps) {
-  const { title, text, metrics } = dict.about;
+  const { eyebrow, title, text, metrics } = dict.about;
   return (
     <section id="about" className="bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[1240px] px-4 md:px-8">
         <Reveal>
-          <h2 className="max-w-[20ch] font-display text-3xl leading-[1.05] tracking-tight text-ink md:text-5xl">
+          <Eyebrow>{eyebrow}</Eyebrow>
+          <h2 className="mt-4 max-w-[20ch] font-display text-3xl leading-[1.05] tracking-tight text-ink md:text-5xl">
             {title}
           </h2>
           <p className="mt-6 max-w-[60ch] text-base leading-relaxed text-muted md:text-lg">{text}</p>

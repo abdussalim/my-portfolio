@@ -1,5 +1,7 @@
 import type { SectionProps } from "@/components/ui/types";
-import { WorkGrid, type WorkCard } from "@/components/work/WorkGrid";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { WorkGrid } from "@/components/work/WorkGrid";
+import type { WorkCard } from "@/components/work/ProjectCard";
 import { caseStudies, projects } from "@/content/projects";
 import { localePath, site } from "@/content/site";
 
@@ -45,13 +47,14 @@ export function WorkIndexPage({ locale, dict }: SectionProps) {
     <section className="pb-24 pt-12 md:pt-20">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mx-auto max-w-[1240px] px-4 md:px-8">
-        <h1 className="max-w-[20ch] font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink md:text-6xl">
+        <Eyebrow>{dict.workIndex.eyebrow}</Eyebrow>
+        <h1 className="mt-4 max-w-[20ch] font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink md:text-6xl">
           {dict.workIndex.title}
         </h1>
         <p className="mt-5 max-w-[56ch] text-base text-muted md:text-lg">{dict.workIndex.lead}</p>
 
         <div className="mt-12">
-          <WorkGrid cards={cards} labels={{ all: dict.workIndex.all, teamCard: t.teamCard, caseStudy: dict.projects.caseStudy }} />
+          <WorkGrid cards={cards} labels={{ all: dict.workIndex.all, teamCard: t.teamCard, caseStudy: dict.projects.caseStudy, open: dict.projects.open }} />
         </div>
       </div>
     </section>

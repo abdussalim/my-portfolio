@@ -1,3 +1,4 @@
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import type { SectionProps } from "@/components/ui/types";
 
@@ -7,7 +8,7 @@ export function Career({ dict }: SectionProps) {
     <section id="career" className="bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[1240px] px-4 md:px-8">
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-wider text-signal-ink">{c.eyebrow}</p>
+          <Eyebrow>{c.eyebrow}</Eyebrow>
           <h2 className="mt-4 max-w-[24ch] font-display text-3xl leading-[1.05] tracking-tight text-ink md:text-5xl">
             {c.title}
           </h2>
@@ -29,9 +30,9 @@ export function Career({ dict }: SectionProps) {
           ))}
         </ol>
 
-        <div className="mt-20 grid grid-cols-1 gap-12 md:mt-28 md:grid-cols-[1.6fr_1fr_0.8fr] md:gap-10">
+        <div className="mt-20 grid grid-cols-1 gap-12 md:mt-28 md:grid-cols-12 md:gap-x-10">
           {c.skillGroups.map((g, i) => (
-            <Reveal key={g.title} delay={i * 0.08}>
+            <Reveal key={g.title} delay={i * 0.08} className="md:col-span-4">
               <h3 className="font-display text-lg text-ink">{g.title}</h3>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {g.items.map((it) => (
@@ -44,9 +45,9 @@ export function Career({ dict }: SectionProps) {
           ))}
         </div>
 
-        <Reveal className="mt-16 border-t border-line pt-6">
-          <h3 className="font-mono text-xs text-muted">{c.certsTitle}</h3>
-          <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-ink">
+        <Reveal className="mt-16 grid gap-3 border-t border-line pt-6 md:grid-cols-12 md:gap-x-10">
+          <h3 className="font-mono text-xs text-muted md:col-span-4">{c.certsTitle}</h3>
+          <ul className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-ink md:col-span-8">
             {c.certs.map((x) => (
               <li key={x}>{x}</li>
             ))}
