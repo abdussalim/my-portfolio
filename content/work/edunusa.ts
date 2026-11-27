@@ -199,6 +199,75 @@ export const edunusa: Project = {
   },
   media: [
     {
+      kind: "video",
+      mp4: "/work/edunusa/face-flow.mp4",
+      webm: "/work/edunusa/face-flow.webm",
+      poster: "/work/edunusa/face-flow-poster.jpg",
+      width: 1280,
+      height: 720,
+      caption: {
+        en: "Face attendance pilot, scan flow in 18 s: a fictional student is recognised, then an offline result is held on the device and sent once back online. Interface view, fictional data, simulated camera.",
+        id: "Pilot absen wajah, alur scan selama 18 detik: siswa fiktif dikenali, lalu hasil saat offline ditahan di perangkat dan dikirim setelah daring lagi. Tampilan antarmuka, data fiktif, kamera simulasi."
+      },
+      duration: 18
+    },
+    {
+      kind: "image",
+      src: "/work/edunusa/face-scan-match.webp",
+      width: 1440,
+      height: 900,
+      alt: {
+        en: "Face attendance scan screen with a grey simulated camera frame, a green oval, and a result card reading Andi Saputra, class 7A, will be recorded as present.",
+        id: "Layar scan absen wajah dengan bingkai kamera simulasi abu-abu, oval hijau, dan kartu hasil Andi Saputra, kelas 7A, akan dicatat hadir."
+      },
+      caption: {
+        en: "Scan screen, a fictional student recognised and queued as present. Interface view, fictional data, simulated camera.",
+        id: "Layar scan, siswa fiktif dikenali dan akan dicatat hadir. Tampilan antarmuka, data fiktif, kamera simulasi."
+      }
+    },
+    {
+      kind: "image",
+      src: "/work/edunusa/face-scan-offline-queue.webp",
+      width: 1440,
+      height: 900,
+      alt: {
+        en: "Scan screen with an amber Offline badge reading 1 result waiting to be sent, and a recent list showing Eko and Andi Saputra.",
+        id: "Layar scan dengan lencana Offline berwarna kuning bertuliskan 1 hasil menunggu dikirim, dan daftar terakhir berisi Eko dan Andi Saputra."
+      },
+      caption: {
+        en: "Offline queue: with the connection cut, one result waits on the device to be sent. Interface view, fictional data, simulated camera.",
+        id: "Antrean offline: saat koneksi putus, satu hasil menunggu dikirim dari perangkat. Tampilan antarmuka, data fiktif, kamera simulasi."
+      }
+    },
+    {
+      kind: "image",
+      src: "/work/edunusa/face-enroll-poses.webp",
+      width: 1440,
+      height: 900,
+      alt: {
+        en: "Enrolment screen for a fictional student with a simulated camera frame and three pose steps: straight and slight left done, slight right in progress.",
+        id: "Layar pendaftaran untuk siswa fiktif dengan bingkai kamera simulasi dan tiga langkah pose: lurus dan sedikit ke kiri selesai, sedikit ke kanan berjalan."
+      },
+      caption: {
+        en: "Enrolment records three poses; two are done and the third asks for a slight turn to the right. Interface view, fictional data, simulated camera.",
+        id: "Pendaftaran merekam tiga pose; dua selesai dan yang ketiga meminta menoleh sedikit ke kanan. Tampilan antarmuka, data fiktif, kamera simulasi."
+      }
+    },
+    {
+      kind: "image",
+      src: "/work/edunusa/face-enroll-recognition-test.webp",
+      width: 1440,
+      height: 900,
+      alt: {
+        en: "Enrolment screen showing a green Recognised badge and a message that the face can be recognised, with a Save button below.",
+        id: "Layar pendaftaran dengan lencana Dikenali berwarna hijau dan pesan bahwa wajah bisa dikenali, dengan tombol Simpan di bawahnya."
+      },
+      caption: {
+        en: "Enrolment ends with a recognition test before saving. Interface view, fictional data, simulated camera.",
+        id: "Pendaftaran diakhiri uji kenali sebelum disimpan. Tampilan antarmuka, data fiktif, kamera simulasi."
+      }
+    },
+    {
       kind: "image",
       src: "/work/edunusa/landing-desktop-hero.webp",
       width: 1440,

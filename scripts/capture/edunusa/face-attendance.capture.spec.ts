@@ -21,7 +21,7 @@ mkdirSync(`${OUT}/shots`, { recursive: true });
 mkdirSync(`${OUT}/video`, { recursive: true });
 
 const ANDI = { 1: 1 };
-const DEWI = { 4: 1 };
+const EKO = { 5: 1 }; // unmarked today, so the offline path (not "already recorded") is taken
 const NEW_FACE = { 20: 1 };
 const STUDENTS = [
   rosterStudent("s-20", "Gita Pertama", C7A, "granted"),
@@ -57,7 +57,7 @@ async function flow(page: Page, shots: boolean) {
   // 3. offline queue: result is held on the device, then sent when back online
   await page.context().setOffline(true);
   await expect(page.getByText("Offline", { exact: true })).toBeVisible();
-  await show(page, DEWI);
+  await show(page, EKO);
   await expect(card(page)).toContainText("tersimpan di perangkat, akan dikirim");
   await pause(page, 800);
   await show(page, null);
