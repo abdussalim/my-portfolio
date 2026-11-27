@@ -55,7 +55,7 @@ export function Hero({ dict }: SectionProps) {
               </div>
               <div className="absolute bottom-[6%] right-[6%] w-[44%] overflow-hidden rounded border border-line shadow-[0_24px_60px_-24px_rgb(21_32_28/0.45)] md:w-[62%]">
                 <Image
-                  src="/img/portraits/sarimu-1-hero.png"
+                  src="/img/portraits/sarimu-1-hero.webp"
                   alt={dict.hero.portraitAlt}
                   width={760}
                   height={1014}

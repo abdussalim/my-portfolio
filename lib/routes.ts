@@ -16,7 +16,7 @@ export function originsMetadata(locale: Locale): Metadata {
     path: "/portfolio/",
     title: d.meta.originsTitle,
     description: d.meta.originsDescription,
-    image: "/img/projects/bahinak-instagram.png",
+    image: "/img/projects/bahinak-instagram.webp",
   });
 }
 

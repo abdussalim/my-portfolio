@@ -3,7 +3,7 @@ export const site = {
   name: "Abdus Salim",
   email: "abdussalimsan@gmail.com",
   formAction: "https://formspree.io/f/xnjkaaky",
-  ogImage: "/img/portraits/sarimu-3-display.png",
+  ogImage: "/img/portraits/sarimu-3-display.jpg",
   // Jakarta, shown as the survey station label in the hero.
   coordinates: { lat: -6.2088, lng: 106.8456, label: "6.2088° S, 106.8456° E" },
   socials: [

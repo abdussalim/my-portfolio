@@ -43,9 +43,9 @@ const en = {
     title: "Outside the terminal.",
     note: "Snapshots of moving, learning, and tidying ideas.",
     items: [
-      { src: "/img/portraits/sarimu-3-display.png", alt: "Abdus Salim standing near water", caption: "Field mode" },
-      { src: "/img/portraits/sarimu-2-display.png", alt: "Abdus Salim checking a phone", caption: "Quiet build time" },
-      { src: "/img/portraits/sarimu-4-display.png", alt: "Abdus Salim in a casual store moment", caption: "Off duty" },
+      { src: "/img/portraits/sarimu-3-display.webp", alt: "Abdus Salim standing near water", caption: "Field mode" },
+      { src: "/img/portraits/sarimu-2-display.webp", alt: "Abdus Salim checking a phone", caption: "Quiet build time" },
+      { src: "/img/portraits/sarimu-4-display.webp", alt: "Abdus Salim in a casual store moment", caption: "Off duty" },
     ],
   },
   career: {
@@ -240,9 +240,9 @@ const id: Dictionary = {
     title: "Di luar terminal.",
     note: "Potongan jalan, belajar, lalu merapikan ide.",
     items: [
-      { src: "/img/portraits/sarimu-3-display.png", alt: "Abdus Salim berdiri di dekat air", caption: "Mode lapangan" },
-      { src: "/img/portraits/sarimu-2-display.png", alt: "Abdus Salim melihat ponsel", caption: "Waktu membangun" },
-      { src: "/img/portraits/sarimu-4-display.png", alt: "Abdus Salim santai di sebuah toko", caption: "Lepas tugas" },
+      { src: "/img/portraits/sarimu-3-display.webp", alt: "Abdus Salim berdiri di dekat air", caption: "Mode lapangan" },
+      { src: "/img/portraits/sarimu-2-display.webp", alt: "Abdus Salim melihat ponsel", caption: "Waktu membangun" },
+      { src: "/img/portraits/sarimu-4-display.webp", alt: "Abdus Salim santai di sebuah toko", caption: "Lepas tugas" },
     ],
   },
   career: {
