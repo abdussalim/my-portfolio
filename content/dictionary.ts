@@ -77,7 +77,7 @@ const en = {
     skillGroups: [
       {
         title: "Reliability & DevOps",
-        items: ["GitHub Actions", "Docker", "Linux VPS", "Traefik", "Vault", "AWS", "Kubernetes (learning)", "Terraform (learning)", "Prometheus/Grafana (learning)"],
+        items: ["GitHub Actions", "Docker", "Proxmox / Linux", "Traefik", "Vault", "AWS", "Kubernetes (learning)", "Terraform (learning)", "Prometheus/Grafana (learning)"],
       },
       {
         title: "Product engineering",
@@ -279,7 +279,7 @@ const id: Dictionary = {
     skillGroups: [
       {
         title: "Reliability & DevOps",
-        items: ["GitHub Actions", "Docker", "Linux VPS", "Traefik", "Vault", "AWS", "Kubernetes (belajar)", "Terraform (belajar)", "Prometheus/Grafana (belajar)"],
+        items: ["GitHub Actions", "Docker", "Proxmox / Linux", "Traefik", "Vault", "AWS", "Kubernetes (belajar)", "Terraform (belajar)", "Prometheus/Grafana (belajar)"],
       },
       {
         title: "Rekayasa produk",
