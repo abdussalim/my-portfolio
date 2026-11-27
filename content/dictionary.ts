@@ -4,7 +4,7 @@ const en = {
   meta: {
     title: "Abdus Salim | Site Reliability Engineer & Fullstack Developer",
     description:
-      "Abdus Salim is a Site Reliability Engineer and fullstack developer in Jakarta. CI/CD, Docker, Linux, React and Next.js, IoT and digital mapping. 20+ pipelines shipped, 5000+ daily users served.",
+      "Abdus Salim is a Site Reliability Engineer and fullstack developer in Jakarta. CI/CD, Docker, Kubernetes, Linux, React, Next.js, Cloudflare and GCP.",
     originsTitle: "Origins: early IoT prototypes | Abdus Salim",
     originsDescription:
       "Three hardware-first prototypes from Abdus Salim's student days: an air quality monitor, a voice-started motorcycle, and a QR goods scanner.",
@@ -32,26 +32,26 @@ const en = {
   },
   about: {
     title: "I keep the lights on, and still build the thing.",
-    text: "Reliability, CI/CD, Linux, and web apps are my lane. If the idea is raw, I take it from infrastructure all the way to the interface.",
+    text: "Reliability, CI/CD, Linux, and web apps are my lane. If the idea is raw, I take it from infrastructure all the way to the interface. Much of my recent code is written with AI coding agents that I brief, direct and verify. Every claim on this site is something I can walk you through.",
     metrics: [
-      { value: "20+", label: "CI/CD pipelines shipped" },
-      { value: "5000+", label: "users served daily" },
-      { value: "10+", label: "institutions kept running" },
+      { value: "133 / 152", label: "CI/CD template commits are mine" },
+      { value: "2", label: "node Kubernetes cluster I designed" },
+      { value: "100%", label: "Istana cold requests return 200" },
     ],
   },
   photos: {
     title: "Outside the terminal.",
     note: "Snapshots of moving, learning, and tidying ideas.",
     items: [
-      { src: "/img/portraits/sarimu-3-display.png", alt: "Abdus Salim standing near water", caption: "Field mode" },
-      { src: "/img/portraits/sarimu-2-display.png", alt: "Abdus Salim checking a phone", caption: "Quiet build time" },
-      { src: "/img/portraits/sarimu-4-display.png", alt: "Abdus Salim in a casual store moment", caption: "Off duty" },
+      { src: "/img/portraits/sarimu-3-display.webp", alt: "Abdus Salim standing near water", caption: "Field mode" },
+      { src: "/img/portraits/sarimu-2-display.webp", alt: "Abdus Salim checking a phone", caption: "Quiet build time" },
+      { src: "/img/portraits/sarimu-4-display.webp", alt: "Abdus Salim in a casual store moment", caption: "Off duty" },
     ],
   },
   career: {
     eyebrow: "Career",
     title: "Reliability first. The product keeps rolling.",
-    note: "SRE since 2025, frontend since 2023. Twenty-plus pipelines, zero drama.",
+    note: "SRE since 2025, frontend since 2023. Pipelines that behave, zero drama.",
     jobs: [
       {
         date: "May 2025 - Present",
@@ -101,9 +101,10 @@ const en = {
   projects: {
     eyebrow: "Selected works",
     title: "From my kitchen to production.",
-    note: "A platform serving 5000+ people, a company's digital home, and research that made the journal.",
+    note: "Four dishes from my kitchen: a school platform, a parts marketplace on Kubernetes, a paving factory site on Cloudflare, and a peatland fire early warning on GCP.",
     open: "Visit site",
     caseStudy: "Read case study",
+    viewAll: "See all work",
     origins: "See where it started",
     reel: "Showreel: EDUNUSA, Instrumeta, and the Heliyon research in 24 seconds.",
   },
@@ -153,6 +154,44 @@ const en = {
     outcome: "Outcome",
     visit: "Visit",
     next: "Next project",
+    did: "What I did",
+    architecture: "Architecture",
+    evidence: "Evidence",
+    metrics: "By the numbers",
+    period: "Period",
+    team: "Team",
+    links: "Links",
+    playVideo: "Play video",
+    zoom: "Zoom",
+    close: "Close",
+    prev: "Previous",
+    nextImage: "Next",
+    teamCard: "Team project. Details stay with the team, so no case study here.",
+    allWork: "All work",
+    statusLabel: { live: "Live", development: "In development", frozen: "Frozen", internal: "Internal" },
+    categoryLabel: {
+      client: "Client work",
+      product: "Product",
+      competition: "Competition",
+      personal: "Personal",
+      research: "Research",
+    },
+    areaLabel: {
+      infra: "Infrastructure",
+      cicd: "CI/CD",
+      backend: "Backend",
+      frontend: "Frontend",
+      security: "Security",
+      data: "Data",
+    },
+  },
+  workIndex: {
+    title: "Everything I have shipped, plated in order.",
+    lead: "Client platforms, products, competition entries and research. Each card says honestly where it stands today.",
+    all: "All",
+    metaTitle: "Work: platforms, products and research | Abdus Salim",
+    metaDescription:
+      "Selected work by Abdus Salim: school platform EDUNUSA, SobatPart, Istana Block, ASAPIFY and more, with role, stack and honest status for each.",
   },
 };
 
@@ -162,7 +201,7 @@ const id: Dictionary = {
   meta: {
     title: "Abdus Salim | Site Reliability Engineer & Fullstack Developer",
     description:
-      "Abdus Salim, Site Reliability Engineer dan fullstack developer di Jakarta. CI/CD, Docker, Linux, React dan Next.js, IoT, serta pemetaan digital. 20+ pipeline dirilis, 5000+ pengguna harian.",
+      "Abdus Salim, Site Reliability Engineer dan fullstack developer di Jakarta. CI/CD, Docker, Kubernetes, Linux, React, Next.js, Cloudflare, dan GCP.",
     originsTitle: "Asal mula: prototype IoT awal | Abdus Salim",
     originsDescription:
       "Tiga prototype hardware dari masa kuliah Abdus Salim: monitor kualitas udara, motor yang menyala lewat suara, dan pemindai barang berbasis QR.",
@@ -190,26 +229,26 @@ const id: Dictionary = {
   },
   about: {
     title: "Saya jaga mesinnya tetap nyala, sambil tetap membangun produknya.",
-    text: "Reliability, CI/CD, Linux, dan aplikasi web adalah dapur saya. Ide mentah saya bawa dari infrastruktur sampai antarmuka.",
+    text: "Reliability, CI/CD, Linux, dan aplikasi web adalah dapur saya. Ide mentah saya bawa dari infrastruktur sampai antarmuka. Sebagian besar kode terbaru saya ditulis bersama agen AI yang saya brief, arahkan, dan verifikasi. Setiap klaim di situs ini bisa saya jelaskan langkah demi langkah.",
     metrics: [
-      { value: "20+", label: "pipeline CI/CD dirilis" },
-      { value: "5000+", label: "pengguna terlayani tiap hari" },
-      { value: "10+", label: "lembaga tetap berjalan" },
+      { value: "133 / 152", label: "commit template CI/CD milik saya" },
+      { value: "2", label: "node cluster Kubernetes rancangan saya" },
+      { value: "100%", label: "permintaan dingin Istana semua 200" },
     ],
   },
   photos: {
     title: "Di luar terminal.",
     note: "Potongan jalan, belajar, lalu merapikan ide.",
     items: [
-      { src: "/img/portraits/sarimu-3-display.png", alt: "Abdus Salim berdiri di dekat air", caption: "Mode lapangan" },
-      { src: "/img/portraits/sarimu-2-display.png", alt: "Abdus Salim melihat ponsel", caption: "Waktu membangun" },
-      { src: "/img/portraits/sarimu-4-display.png", alt: "Abdus Salim santai di sebuah toko", caption: "Lepas tugas" },
+      { src: "/img/portraits/sarimu-3-display.webp", alt: "Abdus Salim berdiri di dekat air", caption: "Mode lapangan" },
+      { src: "/img/portraits/sarimu-2-display.webp", alt: "Abdus Salim melihat ponsel", caption: "Waktu membangun" },
+      { src: "/img/portraits/sarimu-4-display.webp", alt: "Abdus Salim santai di sebuah toko", caption: "Lepas tugas" },
     ],
   },
   career: {
     eyebrow: "Karier",
     title: "Reliability dulu. Produk tetap jalan.",
-    note: "SRE sejak 2025, frontend sejak 2023. Lebih dari 20 pipeline, tanpa drama.",
+    note: "SRE sejak 2025, frontend sejak 2023. Pipeline yang patuh, tanpa drama.",
     jobs: [
       {
         date: "Mei 2025 - Sekarang",
@@ -259,9 +298,10 @@ const id: Dictionary = {
   projects: {
     eyebrow: "Karya pilihan",
     title: "Dari dapur saya ke produksi.",
-    note: "Platform yang melayani 5000+ orang, rumah digital perusahaan, dan riset yang tembus jurnal.",
+    note: "Empat hidangan dari dapur saya: platform sekolah, marketplace suku cadang di Kubernetes, situs pabrik paving di Cloudflare, dan peringatan dini kebakaran gambut di GCP.",
     open: "Kunjungi situs",
     caseStudy: "Baca studi kasus",
+    viewAll: "Lihat semua karya",
     origins: "Lihat asal mulanya",
     reel: "Showreel: EDUNUSA, Instrumeta, dan riset Heliyon dalam 24 detik.",
   },
@@ -311,6 +351,44 @@ const id: Dictionary = {
     outcome: "Hasil",
     visit: "Kunjungi",
     next: "Project berikutnya",
+    did: "Yang saya kerjakan",
+    architecture: "Arsitektur",
+    evidence: "Bukti",
+    metrics: "Dalam angka",
+    period: "Periode",
+    team: "Tim",
+    links: "Tautan",
+    playVideo: "Putar video",
+    zoom: "Perbesar",
+    close: "Tutup",
+    prev: "Sebelumnya",
+    nextImage: "Berikutnya",
+    teamCard: "Project tim. Detailnya dipegang tim, jadi tidak ada studi kasus di sini.",
+    allWork: "Semua karya",
+    statusLabel: { live: "Aktif", development: "Dalam pengembangan", frozen: "Dibekukan", internal: "Internal" },
+    categoryLabel: {
+      client: "Pekerjaan klien",
+      product: "Produk",
+      competition: "Kompetisi",
+      personal: "Pribadi",
+      research: "Riset",
+    },
+    areaLabel: {
+      infra: "Infrastruktur",
+      cicd: "CI/CD",
+      backend: "Backend",
+      frontend: "Frontend",
+      security: "Keamanan",
+      data: "Data",
+    },
+  },
+  workIndex: {
+    title: "Semua yang sudah saya rilis, disajikan berurutan.",
+    lead: "Platform klien, produk, karya kompetisi, dan riset. Setiap kartu jujur soal posisinya hari ini.",
+    all: "Semua",
+    metaTitle: "Karya: platform, produk, dan riset | Abdus Salim",
+    metaDescription:
+      "Karya pilihan Abdus Salim: platform sekolah EDUNUSA, SobatPart, Istana Block, ASAPIFY, dan lainnya, lengkap dengan peran, stack, dan status yang jujur.",
   },
 };
 

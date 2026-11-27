@@ -2,13 +2,19 @@ import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import type { SectionProps } from "@/components/ui/types";
 import { Reveal } from "@/components/ui/Reveal";
-import { buttonSecondary, linkArrow } from "@/components/ui/button";
-import { projects, type Project } from "@/content/projects";
+import { buttonPrimary, buttonSecondary, linkArrow } from "@/components/ui/button";
+import { StatusBadge } from "@/components/work/StatusBadge";
+import { featuredProjects, type Project } from "@/content/projects";
 import { localePath } from "@/content/site";
 
 function Meta({ p, locale, dict }: SectionProps & { p: Project }) {
   return (
     <>
+      {p.status && (
+        <div className="mt-3">
+          <StatusBadge status={p.status} dict={dict} />
+        </div>
+      )}
       <p className="mt-3 text-base text-muted">{p.summary[locale]}</p>
       <ul className="mt-4 flex flex-wrap gap-2">
         {p.tags[locale].map((t) => (
@@ -22,10 +28,12 @@ function Meta({ p, locale, dict }: SectionProps & { p: Project }) {
           {dict.projects.caseStudy}
           <ArrowRight size={16} aria-hidden="true" />
         </a>
-        <a href={p.url} target="_blank" rel="noopener" className={`${linkArrow} !text-muted`}>
-          {dict.projects.open}
-          <ArrowUpRight size={16} aria-hidden="true" />
-        </a>
+        {p.url && (
+          <a href={p.url} target="_blank" rel="noopener" className={`${linkArrow} !text-muted`}>
+            {dict.projects.open}
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        )}
       </div>
     </>
   );
@@ -48,7 +56,7 @@ function Shot({ p, locale, sizes, priority }: { p: Project; locale: SectionProps
 }
 
 export function Projects({ locale, dict }: SectionProps) {
-  const [feature, second, third] = projects;
+  const [feature, second, third, fourth] = featuredProjects;
   return (
     <section id="projects" className="py-20 md:py-28">
       <div className="mx-auto max-w-[1240px] px-4 md:px-8">
@@ -105,7 +113,22 @@ export function Projects({ locale, dict }: SectionProps) {
           </div>
         </div>
 
-        <div className="mt-14 md:mt-20">
+        {/* Fourth project mirrors the opener: text left, shot right, so the page keeps a zigzag rhythm. */}
+        <Reveal as="article" className="mt-16 grid items-center gap-6 md:mt-24 md:grid-cols-12 md:gap-10">
+          <div className="md:order-2 md:col-span-7">
+            <Shot p={fourth} locale={locale} sizes="(min-width: 768px) 58vw, 100vw" />
+          </div>
+          <div className="md:order-1 md:col-span-5">
+            <h3 className="font-display text-3xl font-semibold text-ink md:text-4xl">{fourth.name}</h3>
+            <Meta p={fourth} locale={locale} dict={dict} />
+          </div>
+        </Reveal>
+
+        <div className="mt-14 flex flex-wrap items-center gap-3 md:mt-20">
+          <a href={localePath(locale, "/work/")} className={buttonPrimary}>
+            {dict.projects.viewAll}
+            <ArrowRight size={16} aria-hidden="true" />
+          </a>
           <a href={localePath(locale, "/portfolio/")} className={buttonSecondary}>
             {dict.projects.origins}
           </a>

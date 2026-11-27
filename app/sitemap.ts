@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
-import { projects } from "@/content/projects";
+import { caseStudies } from "@/content/projects";
 import { localePath, site } from "@/content/site";
 
 export const dynamic = "force-static";
 
-const paths = ["/", "/portfolio/", ...projects.map((p) => `/work/${p.slug}/`)];
+const paths = ["/", "/work/", "/portfolio/", ...caseStudies.map((p) => `/work/${p.slug}/`)];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return paths.flatMap((path) =>

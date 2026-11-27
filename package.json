@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve out",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "assets:img": "node scripts/assets/optimize-images.mjs",
+    "assets:video": "node scripts/assets/encode-video.mjs",
+    "check:assets": "node scripts/assets/check-blocklist.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
@@ -16,10 +19,12 @@
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^24",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "typescript": "^5"
   }

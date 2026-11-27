@@ -23,10 +23,10 @@ export const japanese: Record<string, string> = {
   // about
   "about.title": "システムを動かし続けながら、プロダクトも作ります。",
   "about.text":
-    "信頼性、CI/CD、Linux、Webアプリが私の領域です。アイデアがまだ粗くても、インフラから画面まで形にします。",
-  "about.metrics.0.label": "出荷したCI/CDパイプライン",
-  "about.metrics.1.label": "毎日届けているユーザー",
-  "about.metrics.2.label": "止めずに動かす教育機関",
+    "信頼性、CI/CD、Linux、Webアプリが私の領域です。アイデアがまだ粗くても、インフラから画面まで形にします。最近のコードの多くは、私が指示を出し、方向を決め、検証するAIコーディングエージェントと書いています。このサイトの主張はすべて、順を追って説明できます。",
+  "about.metrics.0.label": "CI/CDテンプレートのコミットは私のもの",
+  "about.metrics.1.label": "私が設計したKubernetesクラスタのノード数",
+  "about.metrics.2.label": "Istanaのコールドリクエストはすべて200",
 
   // photos
   "photos.title": "ターミナルの外で。",
@@ -38,7 +38,7 @@ export const japanese: Record<string, string> = {
   // career
   "career.eyebrow": "経歴",
   "career.title": "まず信頼性。プロダクトは走り続ける。",
-  "career.note": "2025年からSRE、2023年からフロントエンド。パイプライン20本以上、ドラマはゼロ。",
+  "career.note": "2025年からSRE、2023年からフロントエンド。行儀のよいパイプライン、ドラマはゼロ。",
   "career.jobs.0.date": "2025年5月 - 現在",
   "career.jobs.0.role": "サイト信頼性エンジニア",
   "career.jobs.0.text":
@@ -73,16 +73,31 @@ export const japanese: Record<string, string> = {
   // projects
   "projects.eyebrow": "選んだ制作",
   "projects.title": "私の台所から、本番環境へ。",
-  "projects.note": "5000人以上が使うプラットフォーム、会社のデジタルの家、学術誌に載った研究。",
+  "projects.note": "私の台所から四皿。学校のプラットフォーム、Kubernetes上の部品マーケットプレイス、Cloudflare上の舗装ブロック工場サイト、GCP上の泥炭地火災の早期警報。",
   "projects.open": "サイトを見る",
   "projects.caseStudy": "ケーススタディを読む",
   "projects.origins": "始まりの場所を見る",
   "projects.items.edunusa.summary":
-    "10以上の学校が出席・試験・成績・入学をここで運用。毎日5000人以上に届けています。",
+    "多数のモジュールを一つのログインと一つのデプロイ経路に載せた学校プラットフォーム。パイプラインやゲートウェイなど、裏の台所を私が担当します。",
   "projects.items.edunusa.tags.0": "教育テック",
-  "projects.items.edunusa.tags.1": "10以上の教育機関",
-  "projects.items.edunusa.tags.2": "5000人以上のユーザー",
-  "projects.items.edunusa.role": "サイト信頼性エンジニア",
+  "projects.items.edunusa.tags.1": "プラットフォーム",
+  "projects.items.edunusa.role": "サイト信頼性エンジニア、フロントエンドとバックエンドも担当",
+  "projects.items.sobatpart.summary":
+    "重機部品のマーケットプレイス。裏には在庫、購買、ベンダー選定のバックオフィスがあります。買い手は自分の機械から部品を探せます。",
+  "projects.items.sobatpart.tags.0": "マーケットプレイス",
+  "projects.items.sobatpart.tags.1": "オペレーション",
+  "projects.items.sobatpart.role": "インフラとバックエンドのエンジニア、マーケットプレイスのフロントエンドも担当",
+  "projects.items.istana-block.summary":
+    "プルワカルタの舗装ブロック工場の新サイト。WordPressを置き換え、衛星地図に描いた区画を2Dと3Dの配置図にするペービングデザイナーを備えます。裏にはスタッフ用アプリがあります。",
+  "projects.items.istana-block.tags.0": "クライアント",
+  "projects.items.istana-block.tags.1": "ウェブ",
+  "projects.items.istana-block.role": "フルスタック開発者、デプロイも担当",
+  "projects.items.asapify.summary":
+    "インドネシアの泥炭地のホットスポットを示す早期警報マップ。二つの気象衛星がルールに入力し、Geminiエージェントが証拠を確認し、公開は人が決めます。",
+  "projects.items.asapify.tags.0": "コンペ",
+  "projects.items.asapify.tags.1": "衛星",
+  "projects.items.asapify.tags.2": "AIエージェント",
+  "projects.items.asapify.role": "フロントエンドエンジニア、コードの主な書き手（バックエンドとフロントエンドのコミットの96から97%）",
   "projects.items.instrumeta.summary":
     "IoTとロボティクスの会社のデジタルの家。作る側でもあり、灯を守る側でもあります。",
   "projects.items.instrumeta.tags.0": "企業サイト",
