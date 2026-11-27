@@ -31,15 +31,17 @@ const en = {
     station: "Base station, Jakarta",
   },
   about: {
+    eyebrow: "About",
     title: "I keep the lights on, and still build the thing.",
     text: "Reliability, CI/CD, Linux, and web apps are my lane. If the idea is raw, I take it from infrastructure all the way to the interface. Much of my recent code is written with AI coding agents that I brief, direct and verify. Every claim on this site is something I can walk you through.",
     metrics: [
       { value: "133 / 152", label: "CI/CD template commits are mine" },
-      { value: "2", label: "node Kubernetes cluster I designed" },
+      { value: "2 nodes", label: "Kubernetes cluster I designed" },
       { value: "100%", label: "Istana cold requests return 200" },
     ],
   },
   photos: {
+    eyebrow: "Off the clock",
     title: "Outside the terminal.",
     note: "Snapshots of moving, learning, and tidying ideas.",
     items: [
@@ -90,6 +92,7 @@ const en = {
     certs: ["AWS Solutions Architect Associate (2025)", "AWS Cloud Practitioner (2025)", "ICCom Board", "DF Labs"],
   },
   story: {
+    eyebrow: "Story",
     title: "From tiny wires to systems built to last.",
     steps: [
       { title: "Read the room.", text: "Physics taught me cause, measure, and feedback." },
@@ -109,6 +112,7 @@ const en = {
     reel: "Showreel: EDUNUSA, Instrumeta, and the Heliyon research in 24 seconds.",
   },
   contact: {
+    eyebrow: "Contact",
     title: "Got an idea to cook?",
     text: "Send the rough cut. We will plate it clean.",
     emailLabel: "Or email",
@@ -186,6 +190,7 @@ const en = {
     },
   },
   workIndex: {
+    eyebrow: "Works",
     title: "Everything I have shipped, plated in order.",
     lead: "Client platforms, products, competition entries and research. Each card says honestly where it stands today.",
     all: "All",
@@ -228,15 +233,17 @@ const id: Dictionary = {
     station: "Titik ikat, Jakarta",
   },
   about: {
+    eyebrow: "Tentang",
     title: "Saya jaga mesinnya tetap nyala, sambil tetap membangun produknya.",
     text: "Reliability, CI/CD, Linux, dan aplikasi web adalah dapur saya. Ide mentah saya bawa dari infrastruktur sampai antarmuka. Sebagian besar kode terbaru saya ditulis bersama agen AI yang saya brief, arahkan, dan verifikasi. Setiap klaim di situs ini bisa saya jelaskan langkah demi langkah.",
     metrics: [
       { value: "133 / 152", label: "commit template CI/CD milik saya" },
-      { value: "2", label: "node cluster Kubernetes rancangan saya" },
+      { value: "2 node", label: "cluster Kubernetes rancangan saya" },
       { value: "100%", label: "permintaan dingin Istana semua 200" },
     ],
   },
   photos: {
+    eyebrow: "Di luar kerja",
     title: "Di luar terminal.",
     note: "Potongan jalan, belajar, lalu merapikan ide.",
     items: [
@@ -287,6 +294,7 @@ const id: Dictionary = {
     certs: ["AWS Solutions Architect Associate (2025)", "AWS Cloud Practitioner (2025)", "ICCom Board", "DF Labs"],
   },
   story: {
+    eyebrow: "Cerita",
     title: "Dari kabel kecil ke sistem yang siap dijaga.",
     steps: [
       { title: "Baca pola.", text: "Fisika mengajari saya membaca sebab, ukuran, dan feedback." },
@@ -306,6 +314,7 @@ const id: Dictionary = {
     reel: "Showreel: EDUNUSA, Instrumeta, dan riset Heliyon dalam 24 detik.",
   },
   contact: {
+    eyebrow: "Kontak",
     title: "Ada ide yang mau dimasak bareng?",
     text: "Kirim versi mentahnya. Nanti kita rapikan bersama.",
     emailLabel: "Atau email",
@@ -383,6 +392,7 @@ const id: Dictionary = {
     },
   },
   workIndex: {
+    eyebrow: "Karya",
     title: "Semua yang sudah saya rilis, disajikan berurutan.",
     lead: "Platform klien, produk, karya kompetisi, dan riset. Setiap kartu jujur soal posisinya hari ini.",
     all: "Semua",

@@ -1,14 +1,16 @@
 import type { SectionProps } from "@/components/ui/types";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/content/site";
 import { ContactForm } from "./ContactForm";
 
 export function Contact({ dict }: SectionProps) {
   return (
-    <section id="contact" className="py-20 md:py-28">
+    <section id="contact" className="bg-surface py-20 md:py-28">
       <div className="mx-auto grid max-w-[1240px] gap-12 px-4 md:grid-cols-12 md:gap-16 md:px-8">
         <Reveal className="md:col-span-5">
-          <h2 className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink md:text-7xl">
+          <Eyebrow>{dict.contact.eyebrow}</Eyebrow>
+          <h2 className="mt-4 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink md:text-7xl">
             {dict.contact.title}
           </h2>
           <p className="mt-6 max-w-[40ch] text-base text-muted md:text-lg">{dict.contact.text}</p>

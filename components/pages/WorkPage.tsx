@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, FilePdf, FileHtml } from "@phosphor-icons/react/dist/ssr";
@@ -102,13 +101,25 @@ export function WorkPage({ locale, dict, slug }: SectionProps & { slug: string }
     ...(project.team ? [{ label: t.team, value: project.team[locale] }] : []),
   ];
 
-  const evidence: EvidenceItem[] = (project.media ?? []).flatMap((m): EvidenceItem[] =>
+  // Legacy entries have no media, so their card image is the single evidence figure.
+  const legacyShot: EvidenceItem[] = project.media?.length
+    ? []
+    : [
+        {
+          kind: "image",
+          src: project.image.src,
+          alt: project.image.alt[locale],
+          width: project.image.width,
+          height: project.image.height,
+        },
+      ];
+  const evidence: EvidenceItem[] = legacyShot.concat((project.media ?? []).flatMap((m): EvidenceItem[] =>
     m.kind === "image"
       ? [{ kind: "image", src: m.src, alt: m.alt[locale], width: m.width, height: m.height, caption: m.caption?.[locale] }]
       : m.kind === "video"
         ? [{ kind: "video", mp4: m.mp4, webm: m.webm, poster: m.poster, width: m.width, height: m.height, caption: m.caption[locale] }]
         : [],
-  );
+  ));
   const docs = (project.media ?? []).flatMap((m) => (m.kind === "doc" ? [m] : []));
 
   return (
@@ -180,18 +191,6 @@ export function WorkPage({ locale, dict, slug }: SectionProps & { slug: string }
             ))}
           </div>
         )}
-
-        <div className="mt-12">
-          <Image
-            src={project.image.src}
-            alt={project.image.alt[locale]}
-            width={project.image.width}
-            height={project.image.height}
-            priority
-            sizes="(min-width: 1240px) 1176px, 100vw"
-            className="h-auto w-full rounded border border-line"
-          />
-        </div>
 
         {project.metrics && project.metrics.length > 0 && (
           <section aria-label={t.metrics} className="mt-12">

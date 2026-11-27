@@ -21,14 +21,16 @@ export const japanese: Record<string, string> = {
   "hero.station": "拠点、ジャカルタ",
 
   // about
+  "about.eyebrow": "私について",
   "about.title": "システムを動かし続けながら、プロダクトも作ります。",
   "about.text":
     "信頼性、CI/CD、Linux、Webアプリが私の領域です。アイデアがまだ粗くても、インフラから画面まで形にします。最近のコードの多くは、私が指示を出し、方向を決め、検証するAIコーディングエージェントと書いています。このサイトの主張はすべて、順を追って説明できます。",
   "about.metrics.0.label": "CI/CDテンプレートのコミットは私のもの",
-  "about.metrics.1.label": "私が設計したKubernetesクラスタのノード数",
+  "about.metrics.1.label": "私が設計したKubernetesクラスタ",
   "about.metrics.2.label": "Istanaのコールドリクエストはすべて200",
 
   // photos
+  "photos.eyebrow": "仕事の外で",
   "photos.title": "ターミナルの外で。",
   "photos.note": "歩き、学び、アイデアを整えていく小さな記録です。",
   "photos.items.0.caption": "フィールドモード",
@@ -60,6 +62,7 @@ export const japanese: Record<string, string> = {
   "career.certsTitle": "資格とコミュニティ",
 
   // story
+  "story.eyebrow": "ストーリー",
   "story.title": "小さな配線から、長く使えるシステムへ。",
   "story.steps.0.title": "空気を読む。",
   "story.steps.0.text": "物理で、原因・測定・フィードバックを読む癖がつきました。",
@@ -108,6 +111,7 @@ export const japanese: Record<string, string> = {
   "projects.items.heliyon-research.tags.1": "オープンアクセス",
 
   // contact
+  "contact.eyebrow": "連絡",
   "contact.title": "一緒に作りたいアイデアがありますか？",
   "contact.text": "まだ粗いままで大丈夫です。きれいに整えて、届けられる形にしましょう。",
   "contact.emailLabel": "またはメール",

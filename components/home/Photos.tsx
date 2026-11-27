@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import type { SectionProps } from "@/components/ui/types";
 
@@ -10,12 +11,13 @@ const layout = [
 ];
 
 export function Photos({ dict }: SectionProps) {
-  const { title, note, items } = dict.photos;
+  const { eyebrow, title, note, items } = dict.photos;
   return (
     <section id="photos" className="bg-surface py-20 md:py-28">
       <div className="mx-auto max-w-[1240px] px-4 md:px-8">
         <Reveal>
-          <h2 className="font-display text-3xl leading-[1.05] tracking-tight text-ink md:text-5xl">{title}</h2>
+          <Eyebrow>{eyebrow}</Eyebrow>
+          <h2 className="mt-4 font-display text-3xl leading-[1.05] tracking-tight text-ink md:text-5xl">{title}</h2>
           <p className="mt-4 max-w-[48ch] text-muted">{note}</p>
         </Reveal>
         <div className="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 md:mt-16 md:grid-cols-12 md:gap-x-6 md:gap-y-0">
