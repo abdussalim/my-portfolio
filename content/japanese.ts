@@ -54,7 +54,6 @@ export const japanese: Record<string, string> = {
   "career.jobs.2.org": "カプアス県 農業局",
   "career.jobs.2.text": "アブラヤシ農園のために現地データをマッピングしました。",
   "career.skillGroups.0.title": "信頼性とDevOps",
-  "career.skillGroups.0.items.6": "Kubernetes（学習中）",
   "career.skillGroups.0.items.7": "Terraform（学習中）",
   "career.skillGroups.0.items.8": "Prometheus/Grafana（学習中）",
   "career.skillGroups.1.title": "プロダクト開発",
